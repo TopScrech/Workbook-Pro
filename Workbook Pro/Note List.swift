@@ -33,7 +33,7 @@ struct DrawingView: View {
 //    }
 
     var body: some View {
-        DrawingViewControllerRepresentable()
+        DrawingViewControllerRepresentable(drawingData: $note.drawing)
     }
 }
 

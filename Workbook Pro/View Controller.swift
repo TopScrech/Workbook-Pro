@@ -3,12 +3,17 @@ import SwiftUI
 import PencilKit
 
 struct DrawingViewControllerRepresentable: UIViewControllerRepresentable {
+    @Binding var drawingData: Data
+    
     func makeUIViewController(context: Context) -> DrawingViewController {
-        DrawingViewController()
+        let viewController = DrawingViewController()
+        viewController.drawingData = $drawingData // Pass the binding to the ViewController
+        return viewController
     }
     
     func updateUIViewController(_ uiViewController: DrawingViewController, context: Context) {
-        // Update as needed
+        // Sync the drawing state from SwiftUI to the canvas view if necessary
+//        uiViewController.loadDrawing(from: drawingData)
     }
 }
 
@@ -16,12 +21,7 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
     private let toolPicker = PKToolPicker()
     private let canvasView = PKCanvasView()
     let canvasOverscrollHeight: CGFloat = UIScreen.main.bounds.height
-    
-    private let drawingFilePath: URL = {
-        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        
-        return documentDirectory.appendingPathComponent("drawing.data")
-    }()
+    var drawingData: Binding<Data>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,7 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         view.addSubview(canvasView)
         
         // Load saved drawing
-        loadDrawing()
+        loadDrawing(from: drawingData?.wrappedValue ?? Data())
         
         // Configure the tool picker
         toolPicker.setVisible(true, forFirstResponder: canvasView)
@@ -46,62 +46,31 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         canvasView.becomeFirstResponder()
     }
     
-    // Canvas View Delegate
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
         print(#function)
+        
         updateContentSizeForDrawing()
-        saveDrawing() // Save drawing on each change
+        saveDrawing()
     }
     
     private func saveDrawing() {
-        do {
-            let data = canvasView.drawing.dataRepresentation()
-            try data.write(to: drawingFilePath)
-            print("Drawing saved to \(drawingFilePath)")
-        } catch {
-            print("Error saving drawing: \(error.localizedDescription)")
-        }
+        print(#function)
+        
+        let data = canvasView.drawing.dataRepresentation()
+        
+        // Update the wrapped value directly via the existing binding
+        drawingData?.wrappedValue = data
     }
     
-    private func loadDrawing() {
-        do {
-            let data = try Data(contentsOf: drawingFilePath)
-            let drawing = try PKDrawing(data: data)
+    func loadDrawing(from data: Data) {
+        print(#function)
+        
+        if let drawing = try? PKDrawing(data: data) {
             canvasView.drawing = drawing
-            print("Drawing loaded from \(drawingFilePath)")
-        } catch {
-            print("No saved drawing found or error loading drawing: \(error.localizedDescription)")
         }
     }
     
-    
-    //final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver, UIScreenshotServiceDelegate {
-    //    private let toolPicker = PKToolPicker()
-    //    private let canvasView = PKCanvasView()
-    //
-    //    let canvasOverscrollHeight: CGFloat = UIScreen.main.bounds.height
-    //
-    //    override func viewDidLoad() {
-    //        super.viewDidLoad()
-    //
-    //        // Set up the canvas view
-    //        canvasView.frame = view.bounds
-    //        canvasView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    //        canvasView.drawingPolicy = .pencilOnly
-    //        canvasView.delegate = self
-    //        canvasView.isScrollEnabled = true
-    //        canvasView.alwaysBounceVertical = true
-    //
-    //        view.addSubview(canvasView)
-    //
-    //        // Configure the tool picker
-    //        toolPicker.setVisible(true, forFirstResponder: canvasView)
-    //        toolPicker.addObserver(canvasView)
-    //        toolPicker.addObserver(self)
-    //        canvasView.becomeFirstResponder()
-    //    }
-    
-    // Tool Picker Delegate Methods
+    // MARK: Tool Picker Delegate Methods
     func toolPickerFramesObscuredDidChange(_ toolPicker: PKToolPicker) {
         print(#function)
         
