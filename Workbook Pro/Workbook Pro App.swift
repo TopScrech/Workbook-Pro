@@ -1,10 +1,3 @@
-//
-//  Workbook_ProApp.swift
-//  Workbook Pro
-//
-//  Created by Sergei Saliukov on 09/05/2024.
-//
-
 import SwiftUI
 import SwiftData
 

@@ -7,20 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F392A2C22BED772B008EAD12 /* Workbook_ProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C12BED772B008EAD12 /* Workbook_ProApp.swift */; };
-		F392A2C42BED772B008EAD12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C32BED772B008EAD12 /* ContentView.swift */; };
+		F392A2C22BED772B008EAD12 /* Workbook Pro App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C12BED772B008EAD12 /* Workbook Pro App.swift */; };
+		F392A2C42BED772B008EAD12 /* Content View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C32BED772B008EAD12 /* Content View.swift */; };
 		F392A2C62BED772B008EAD12 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C52BED772B008EAD12 /* Item.swift */; };
 		F392A2C82BED772C008EAD12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F392A2C72BED772C008EAD12 /* Assets.xcassets */; };
-		F392A2CB2BED772C008EAD12 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F392A2CA2BED772C008EAD12 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F392A2BE2BED772B008EAD12 /* Workbook Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workbook Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F392A2C12BED772B008EAD12 /* Workbook_ProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workbook_ProApp.swift; sourceTree = "<group>"; };
-		F392A2C32BED772B008EAD12 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F392A2C12BED772B008EAD12 /* Workbook Pro App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workbook Pro App.swift"; sourceTree = "<group>"; };
+		F392A2C32BED772B008EAD12 /* Content View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content View.swift"; sourceTree = "<group>"; };
 		F392A2C52BED772B008EAD12 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F392A2C72BED772C008EAD12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F392A2CA2BED772C008EAD12 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,21 +51,12 @@
 		F392A2C02BED772B008EAD12 /* Workbook Pro */ = {
 			isa = PBXGroup;
 			children = (
-				F392A2C12BED772B008EAD12 /* Workbook_ProApp.swift */,
-				F392A2C32BED772B008EAD12 /* ContentView.swift */,
+				F392A2C12BED772B008EAD12 /* Workbook Pro App.swift */,
+				F392A2C32BED772B008EAD12 /* Content View.swift */,
 				F392A2C52BED772B008EAD12 /* Item.swift */,
 				F392A2C72BED772C008EAD12 /* Assets.xcassets */,
-				F392A2C92BED772C008EAD12 /* Preview Content */,
 			);
 			path = "Workbook Pro";
-			sourceTree = "<group>";
-		};
-		F392A2C92BED772C008EAD12 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				F392A2CA2BED772C008EAD12 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,7 +117,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F392A2CB2BED772C008EAD12 /* Preview Assets.xcassets in Resources */,
 				F392A2C82BED772C008EAD12 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,9 +128,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F392A2C42BED772B008EAD12 /* ContentView.swift in Sources */,
+				F392A2C42BED772B008EAD12 /* Content View.swift in Sources */,
 				F392A2C62BED772B008EAD12 /* Item.swift in Sources */,
-				F392A2C22BED772B008EAD12 /* Workbook_ProApp.swift in Sources */,
+				F392A2C22BED772B008EAD12 /* Workbook Pro App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +263,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Workbook Pro/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -304,7 +292,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Workbook Pro/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
