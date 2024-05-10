@@ -6,34 +6,54 @@ struct NoteList: View {
     @Environment(\.modelContext) private var modelContext
     
     var body: some View {
-        List(notes) { note in
-            NavigationLink {
-                DrawingView(note: note)
-            } label: {
-                Text(note.name)
+        List {
+            ForEach(notes) { note in
+                NavigationLink {
+                    DrawingView(note)
+                } label: {
+                    Text(note.name)
+                }
             }
+            .onDelete(perform: deleteItems)
         }
         .toolbar {
             Button("Create new") {
-                modelContext.insert(Item("Test"))
+                modelContext.insert(
+                    Item("Test")
+                )
             }
         }
     }
     
-    func save() {
-        
+    private func deleteItems(offsets: IndexSet) {
+        for index in offsets {
+            modelContext.delete(notes[index])
+        }
     }
 }
 
 struct DrawingView: View {
     @Bindable var note: Item
-
-//    init(note: Item) {
-//        _drawingData = State(initialValue: note.drawing)
-//    }
-
+    
+    init(_ note: Item) {
+        self.note = note
+    }
+    
     var body: some View {
         DrawingViewControllerRepresentable(drawingData: $note.drawing)
+            .ignoresSafeArea()
+        
+        //                Button("Clear") {
+        //                    vc.clearCanvas()
+        //                }
+        //
+        //                Button("Undo") {
+        //                    vc.undo()
+        //                }
+        //
+        //                Button("Redo") {
+        //                    vc.redo()
+        //                }
     }
 }
 

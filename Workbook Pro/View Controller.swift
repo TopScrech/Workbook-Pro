@@ -12,8 +12,7 @@ struct DrawingViewControllerRepresentable: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: DrawingViewController, context: Context) {
-        // Sync the drawing state from SwiftUI to the canvas view if necessary
-//        uiViewController.loadDrawing(from: drawingData)
+        
     }
 }
 
@@ -26,7 +25,7 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set up the canvas view
+        // Set up canvas view
         canvasView.frame = view.bounds
         canvasView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         canvasView.drawingPolicy = .pencilOnly
@@ -39,7 +38,7 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         // Load saved drawing
         loadDrawing(from: drawingData?.wrappedValue ?? Data())
         
-        // Configure the tool picker
+        // Configure tool picker
         toolPicker.setVisible(true, forFirstResponder: canvasView)
         toolPicker.addObserver(canvasView)
         toolPicker.addObserver(self)
@@ -58,7 +57,6 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         
         let data = canvasView.drawing.dataRepresentation()
         
-        // Update the wrapped value directly via the existing binding
         drawingData?.wrappedValue = data
     }
     
