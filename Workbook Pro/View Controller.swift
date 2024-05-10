@@ -1,9 +1,12 @@
-import UIKit
 import SwiftUI
 import PencilKit
 
-struct DrawingViewControllerRepresentable: UIViewControllerRepresentable {
+struct DrawingRepresentable: UIViewControllerRepresentable {
     @Binding var drawingData: Data
+    
+    init(_ drawingData: Binding<Data>) {
+        _drawingData = drawingData
+    }
     
     func makeUIViewController(context: Context) -> DrawingViewController {
         let viewController = DrawingViewController()
@@ -17,15 +20,17 @@ struct DrawingViewControllerRepresentable: UIViewControllerRepresentable {
 }
 
 final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver, UIScreenshotServiceDelegate {
+    var drawingData: Binding<Data>?
+    
     private let toolPicker = PKToolPicker()
     private let canvasView = PKCanvasView()
-    let canvasOverscrollHeight: CGFloat = UIScreen.main.bounds.height
-    var drawingData: Binding<Data>?
+    
+    private let canvasOverscrollHeight: CGFloat = UIScreen.main.bounds.height * 1.2
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set up canvas view
+        // Set up canvas
         canvasView.frame = view.bounds
         canvasView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         canvasView.drawingPolicy = .pencilOnly
@@ -96,12 +101,12 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
     }
     
     func updateContentSizeForDrawing() {
-        // Update the content size to match the drawing
+        // Update content size to match the drawing
         let drawing = canvasView.drawing
         let contentHeight: CGFloat
         let contentWidth = UIScreen.main.bounds.width
         
-        // Adjust the content size to always be bigger than the drawing height
+        // Adjust content size to always be bigger than drawing height
         if !drawing.bounds.isNull {
             contentHeight = max(canvasView.bounds.height, (drawing.bounds.maxY + canvasOverscrollHeight) * canvasView.zoomScale)
         } else {
@@ -112,8 +117,8 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
     }
     
     // Screenshot Service Delegate Methods
-    func screenshotService(_ screenshotService: UIScreenshotService, generateContentForScreenshotWithImage image: UIImage, completionHandler: @escaping (UIImage?) -> Void) {
-        completionHandler(image)
+    func screenshotService(_ screenshotService: UIScreenshotService, generateContentForScreenshotWithImage image: UIImage, completionHandler: @escaping (Data?) -> Void) {
+        completionHandler(image.heicData())
     }
     
     func clearCanvas() {

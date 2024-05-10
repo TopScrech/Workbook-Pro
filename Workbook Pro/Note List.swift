@@ -11,7 +11,15 @@ struct NoteList: View {
                 NavigationLink {
                     DrawingView(note)
                 } label: {
-                    Text(note.name)
+                    VStack {
+                        if let imageData = note.image, let image = UIImage(data: imageData) {
+                            Image(uiImage: image)
+                                .resizable()
+                                .frame(width: 200, height: 300)
+                        }
+                        
+                        Text(note.name)
+                    }
                 }
             }
             .onDelete(perform: deleteItems)
@@ -29,31 +37,6 @@ struct NoteList: View {
         for index in offsets {
             modelContext.delete(notes[index])
         }
-    }
-}
-
-struct DrawingView: View {
-    @Bindable var note: Item
-    
-    init(_ note: Item) {
-        self.note = note
-    }
-    
-    var body: some View {
-        DrawingViewControllerRepresentable(drawingData: $note.drawing)
-            .ignoresSafeArea()
-        
-        //                Button("Clear") {
-        //                    vc.clearCanvas()
-        //                }
-        //
-        //                Button("Undo") {
-        //                    vc.undo()
-        //                }
-        //
-        //                Button("Redo") {
-        //                    vc.redo()
-        //                }
     }
 }
 

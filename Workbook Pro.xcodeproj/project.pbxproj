@@ -14,6 +14,7 @@
 		F392A2D62BEE0896008EAD12 /* View Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2D52BEE0896008EAD12 /* View Controller.swift */; };
 		F392A2DC2BEE10B7008EAD12 /* Note List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2DB2BEE10B7008EAD12 /* Note List.swift */; };
 		F392A2DF2BEE113E008EAD12 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F392A2DE2BEE113E008EAD12 /* ScrechKit */; };
+		F392A2E32BEE50ED008EAD12 /* Drawing View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2E22BEE50ED008EAD12 /* Drawing View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F392A2C72BED772C008EAD12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F392A2D52BEE0896008EAD12 /* View Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View Controller.swift"; sourceTree = "<group>"; };
 		F392A2DB2BEE10B7008EAD12 /* Note List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note List.swift"; sourceTree = "<group>"; };
+		F392A2E22BEE50ED008EAD12 /* Drawing View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing View.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,7 @@
 		F392A2B52BED772B008EAD12 = {
 			isa = PBXGroup;
 			children = (
+				F392A2E22BEE50ED008EAD12 /* Drawing View.swift */,
 				F392A2C02BED772B008EAD12 /* Workbook Pro */,
 				F392A2BF2BED772B008EAD12 /* Products */,
 			);
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F392A2E32BEE50ED008EAD12 /* Drawing View.swift in Sources */,
 				F392A2C42BED772B008EAD12 /* Content View.swift in Sources */,
 				F392A2C62BED772B008EAD12 /* Item.swift in Sources */,
 				F392A2C22BED772B008EAD12 /* Workbook Pro App.swift in Sources */,
