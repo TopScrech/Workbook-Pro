@@ -8,20 +8,7 @@ struct DrawingViewControllerRepresentable: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: DrawingViewController, context: Context) {
-        // Update as needed.
-    }
-    
-    // Example methods for Clear, Undo, and Redo buttons
-    func clearCanvas(on viewController: DrawingViewController) {
-        viewController.clearCanvas()
-    }
-    
-    func undo(on viewController: DrawingViewController) {
-        viewController.undo()
-    }
-    
-    func redo(on viewController: DrawingViewController) {
-        viewController.redo()
+        // Update as needed
     }
 }
 
@@ -29,7 +16,7 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
     private let toolPicker = PKToolPicker()
     private let canvasView = PKCanvasView()
     
-    let canvasOverscrollHeight: CGFloat = 800
+    let canvasOverscrollHeight: CGFloat = UIScreen.main.bounds.height
     
     override func viewDidLoad() {
         super.viewDidLoad()

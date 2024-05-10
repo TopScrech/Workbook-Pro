@@ -2,22 +2,22 @@ import SwiftUI
 import PencilKit
 
 struct ContentView: View {
-    @State private var drawingVC = DrawingViewController()
+    @State private var vc = DrawingViewController()
     
     var body: some View {
         NavigationStack {
             VStack(spacing: 10) {
-                Button("Clear") {
-                    DrawingViewControllerRepresentable().clearCanvas(on: drawingVC)
-                }
-                
-                Button("Undo") {
-                    DrawingViewControllerRepresentable().undo(on: drawingVC)
-                }
-                
-                Button("Redo") {
-                    DrawingViewControllerRepresentable().redo(on: drawingVC)
-                }
+                //                Button("Clear") {
+                //                    vc.clearCanvas()
+                //                }
+                //                
+                //                Button("Undo") {
+                //                    vc.undo()
+                //                }
+                //
+                //                Button("Redo") {
+                //                    vc.redo()
+                //                }
                 
                 DrawingViewControllerRepresentable()
             }
