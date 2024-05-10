@@ -6,22 +6,24 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 10) {
-                //                Button("Clear") {
-                //                    vc.clearCanvas()
-                //                }
-                //                
-                //                Button("Undo") {
-                //                    vc.undo()
-                //                }
-                //
-                //                Button("Redo") {
-                //                    vc.redo()
-                //                }
-                
-                DrawingViewControllerRepresentable()
-            }
-            .ignoresSafeArea()
+            NoteList()
+            
+//            VStack(spacing: 10) {
+//                //                Button("Clear") {
+//                //                    vc.clearCanvas()
+//                //                }
+//                //                
+//                //                Button("Undo") {
+//                //                    vc.undo()
+//                //                }
+//                //
+//                //                Button("Redo") {
+//                //                    vc.redo()
+//                //                }
+//                
+//                DrawingViewControllerRepresentable()
+//            }
+//            .ignoresSafeArea()
         }
     }
 }
