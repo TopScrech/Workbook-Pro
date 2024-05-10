@@ -3,28 +3,70 @@ import PencilKit
 
 struct DrawingRepresentable: UIViewControllerRepresentable {
     @Binding var drawingData: Data
-    
-    init(_ drawingData: Binding<Data>) {
+    @Binding var imageData: Data?
+
+    init(_ drawingData: Binding<Data>, _ imageData: Binding<Data?>) {
         _drawingData = drawingData
+        _imageData = imageData
     }
-    
+
     func makeUIViewController(context: Context) -> DrawingViewController {
         let viewController = DrawingViewController()
-        viewController.drawingData = $drawingData // Pass the binding to the ViewController
+        viewController.drawingData = $drawingData
+        viewController.delegate = context.coordinator // Set the delegate
         return viewController
     }
-    
+
     func updateUIViewController(_ uiViewController: DrawingViewController, context: Context) {
-        
+        // Nothing specific to update for now
+    }
+
+    // Coordinator to handle captured image data
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    class Coordinator: DrawingViewControllerDelegate {
+        var parent: DrawingRepresentable
+
+        init(_ parent: DrawingRepresentable) {
+            self.parent = parent
+        }
+
+        func didCaptureImage(_ data: Data) {
+            parent.imageData = data
+        }
     }
 }
 
-final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver, UIScreenshotServiceDelegate {
+//struct DrawingRepresentable: UIViewControllerRepresentable {
+//    @Binding var drawingData: Data
+//    
+//    init(_ drawingData: Binding<Data>) {
+//        _drawingData = drawingData
+//    }
+//    
+//    func makeUIViewController(context: Context) -> DrawingViewController {
+//        let viewController = DrawingViewController()
+//        viewController.drawingData = $drawingData // Pass the binding to the ViewController
+//        return viewController
+//    }
+//    
+//    func updateUIViewController(_ uiViewController: DrawingViewController, context: Context) {
+//        
+//    }
+//}
+
+protocol DrawingViewControllerDelegate: AnyObject {
+    func didCaptureImage(_ data: Data)
+}
+
+final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
     var drawingData: Binding<Data>?
+    weak var delegate: DrawingViewControllerDelegate?
     
     private let toolPicker = PKToolPicker()
     private let canvasView = PKCanvasView()
-    
     private let canvasOverscrollHeight: CGFloat = UIScreen.main.bounds.height * 1.2
     
     override func viewDidLoad() {
@@ -48,6 +90,17 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         toolPicker.addObserver(canvasView)
         toolPicker.addObserver(self)
         canvasView.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print(#function)
+        
+        super.viewWillDisappear(animated)
+        
+        // Capture a screenshot of the canvas
+        if let capturedImage = canvasView.asImage()?.heicData() {
+            delegate?.didCaptureImage(capturedImage)
+        }
     }
     
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
@@ -116,11 +169,6 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         canvasView.contentSize = CGSize(width: contentWidth * canvasView.zoomScale, height: contentHeight)
     }
     
-    // Screenshot Service Delegate Methods
-    func screenshotService(_ screenshotService: UIScreenshotService, generateContentForScreenshotWithImage image: UIImage, completionHandler: @escaping (Data?) -> Void) {
-        completionHandler(image.heicData())
-    }
-    
     func clearCanvas() {
         canvasView.drawing = PKDrawing()
     }
@@ -133,3 +181,29 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         undoManager?.redo()
     }
 }
+
+// Extension to render the canvas view as an image
+extension UIView {
+    func asImage() -> UIImage? {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
+    }
+}
+
+// Extension to convert UIImage to HEIC data
+//extension UIImage {
+//    func heicData() -> Data? {
+//        let options: NSDictionary = [
+//            kCGImageDestinationLossyCompressionQuality: 0.8
+//        ]
+//        let data = NSMutableData()
+//        guard let imageDestination = CGImageDestinationCreateWithData(data, AVFileType.heic as CFString, 1, nil) else {
+//            return nil
+//        }
+//        CGImageDestinationAddImage(imageDestination, self.cgImage!, options)
+//        CGImageDestinationFinalize(imageDestination)
+//        return data as Data
+//    }
+//}

@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct DrawingView: View {
-    @Bindable var note: Item
+    @Bindable var note: Note
     
-    init(_ note: Item) {
+    init(_ note: Note) {
         self.note = note
     }
     
     var body: some View {
-        DrawingRepresentable($note.drawing)
+        DrawingRepresentable($note.drawing, $note.image)
             .ignoresSafeArea()
         
         //        Button("Clear") {
