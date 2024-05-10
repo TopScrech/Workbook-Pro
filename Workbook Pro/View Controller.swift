@@ -13,7 +13,8 @@ struct DrawingRepresentable: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> DrawingViewController {
         let viewController = DrawingViewController()
         viewController.drawingData = $drawingData
-        viewController.delegate = context.coordinator // Set the delegate
+        viewController.delegate = context.coordinator
+        
         return viewController
     }
     
@@ -49,7 +50,7 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
     
     private let toolPicker = PKToolPicker()
     private let canvasView = PKCanvasView()
-    private let canvasOverscrollHeight: CGFloat = UIScreen.main.bounds.height * 1.2
+    private let canvasOverscrollHeight = UIScreen.main.bounds.height * 1.2
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,8 +117,6 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
     }
     
     func toolPickerVisibilityDidChange(_ toolPicker: PKToolPicker) {
-        print(#function)
-        
         updateLayout(for: toolPicker)
     }
     

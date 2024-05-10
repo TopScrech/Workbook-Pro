@@ -31,13 +31,13 @@ struct NoteList: View {
                                 .foregroundStyle(.white)
                         }
                         .padding()
-//                        .overlay(alignment: .topTrailing) {
-//                            Image(systemName: "xmark")
-//                                .title()
-//                                .foregroundColor(.red)
-//                                .padding(10)
-//                                .background(.ultraThinMaterial, in: .circle)
-//                        }
+                        //                        .overlay(alignment: .topTrailing) {
+                        //                            Image(systemName: "xmark")
+                        //                                .title()
+                        //                                .foregroundColor(.red)
+                        //                                .padding(10)
+                        //                                .background(.ultraThinMaterial, in: .circle)
+                        //                        }
                         .contextMenu {
                             Button {
                                 note.isPinned.toggle()

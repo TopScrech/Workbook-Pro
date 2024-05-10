@@ -18,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F332167A2BEEC32B00F6AB52 /* Workbook-Pro-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Workbook-Pro-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F392A2BE2BED772B008EAD12 /* Workbook Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workbook Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F392A2C12BED772B008EAD12 /* Workbook Pro App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workbook Pro App.swift"; sourceTree = "<group>"; };
 		F392A2C32BED772B008EAD12 /* Content View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content View.swift"; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 		F392A2C02BED772B008EAD12 /* Workbook Pro */ = {
 			isa = PBXGroup;
 			children = (
+				F332167A2BEEC32B00F6AB52 /* Workbook-Pro-Info.plist */,
 				F392A2E22BEE50ED008EAD12 /* Drawing View.swift */,
 				F392A2C12BED772B008EAD12 /* Workbook Pro App.swift */,
 				F392A2C32BED772B008EAD12 /* Content View.swift */,
@@ -295,6 +297,8 @@
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Workbook-Pro-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -324,6 +328,8 @@
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Workbook-Pro-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
