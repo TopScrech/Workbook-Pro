@@ -40,10 +40,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F33216792BEEBFB300F6AB52 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F392A2C52BED772B008EAD12 /* Item.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F392A2B52BED772B008EAD12 = {
 			isa = PBXGroup;
 			children = (
-				F392A2E22BEE50ED008EAD12 /* Drawing View.swift */,
 				F392A2C02BED772B008EAD12 /* Workbook Pro */,
 				F392A2BF2BED772B008EAD12 /* Products */,
 			);
@@ -60,11 +67,12 @@
 		F392A2C02BED772B008EAD12 /* Workbook Pro */ = {
 			isa = PBXGroup;
 			children = (
+				F392A2E22BEE50ED008EAD12 /* Drawing View.swift */,
 				F392A2C12BED772B008EAD12 /* Workbook Pro App.swift */,
 				F392A2C32BED772B008EAD12 /* Content View.swift */,
 				F392A2DB2BEE10B7008EAD12 /* Note List.swift */,
 				F392A2D52BEE0896008EAD12 /* View Controller.swift */,
-				F392A2C52BED772B008EAD12 /* Item.swift */,
+				F33216792BEEBFB300F6AB52 /* Model */,
 				F392A2C72BED772C008EAD12 /* Assets.xcassets */,
 			);
 			path = "Workbook Pro";

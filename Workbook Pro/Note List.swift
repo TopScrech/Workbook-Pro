@@ -9,8 +9,8 @@ struct NoteList: View {
         GridItem(.adaptive(minimum: 250, maximum: 400))
     ]
     
-//    @AppStorage("view_mode") private var viewMode = false
-
+    //    @AppStorage("view_mode") private var viewMode = false
+    
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns) {
@@ -31,7 +31,28 @@ struct NoteList: View {
                                 .foregroundStyle(.white)
                         }
                         .padding()
+//                        .overlay(alignment: .topTrailing) {
+//                            Image(systemName: "xmark")
+//                                .title()
+//                                .foregroundColor(.red)
+//                                .padding(10)
+//                                .background(.ultraThinMaterial, in: .circle)
+//                        }
                         .contextMenu {
+                            Button {
+                                note.isPinned.toggle()
+                            } label: {
+                                Text(note.isPinned ? "Unpin" : "Pin")
+                            }
+                            
+                            Button {
+                                modelContext.insert(
+                                    Note(note.name, drawing: note.drawing, image: note.image)
+                                )
+                            } label: {
+                                Text("Duplicate")
+                            }
+                            
                             Button(role: .destructive) {
                                 deleteItems(note)
                             } label: {
@@ -44,10 +65,16 @@ struct NoteList: View {
             }
         }
         .toolbar {
-            Button("Create new") {
-                modelContext.insert(
-                    Note("Test")
-                )
+            ToolbarItemGroup(placement: .topBarLeading) {
+                EditButton()
+            }
+            
+            ToolbarItemGroup(placement: .topBarTrailing) {
+                Button("Create new") {
+                    modelContext.insert(
+                        Note("Test")
+                    )
+                }
             }
         }
     }
@@ -64,5 +91,8 @@ struct NoteList: View {
 }
 
 #Preview {
-    NoteList()
+    NavigationStack {
+        NoteList()
+            .modelContainer(for: Note.self)
+    }
 }
