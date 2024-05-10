@@ -15,8 +15,13 @@ struct DrawingViewControllerRepresentable: UIViewControllerRepresentable {
 final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver, UIScreenshotServiceDelegate {
     private let toolPicker = PKToolPicker()
     private let canvasView = PKCanvasView()
-    
     let canvasOverscrollHeight: CGFloat = UIScreen.main.bounds.height
+    
+    private let drawingFilePath: URL = {
+        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        return documentDirectory.appendingPathComponent("drawing.data")
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +36,70 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         
         view.addSubview(canvasView)
         
+        // Load saved drawing
+        loadDrawing()
+        
         // Configure the tool picker
         toolPicker.setVisible(true, forFirstResponder: canvasView)
         toolPicker.addObserver(canvasView)
         toolPicker.addObserver(self)
         canvasView.becomeFirstResponder()
     }
+    
+    // Canvas View Delegate
+    func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
+        print(#function)
+        updateContentSizeForDrawing()
+        saveDrawing() // Save drawing on each change
+    }
+    
+    private func saveDrawing() {
+        do {
+            let data = canvasView.drawing.dataRepresentation()
+            try data.write(to: drawingFilePath)
+            print("Drawing saved to \(drawingFilePath)")
+        } catch {
+            print("Error saving drawing: \(error.localizedDescription)")
+        }
+    }
+    
+    private func loadDrawing() {
+        do {
+            let data = try Data(contentsOf: drawingFilePath)
+            let drawing = try PKDrawing(data: data)
+            canvasView.drawing = drawing
+            print("Drawing loaded from \(drawingFilePath)")
+        } catch {
+            print("No saved drawing found or error loading drawing: \(error.localizedDescription)")
+        }
+    }
+    
+    
+    //final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver, UIScreenshotServiceDelegate {
+    //    private let toolPicker = PKToolPicker()
+    //    private let canvasView = PKCanvasView()
+    //
+    //    let canvasOverscrollHeight: CGFloat = UIScreen.main.bounds.height
+    //
+    //    override func viewDidLoad() {
+    //        super.viewDidLoad()
+    //
+    //        // Set up the canvas view
+    //        canvasView.frame = view.bounds
+    //        canvasView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    //        canvasView.drawingPolicy = .pencilOnly
+    //        canvasView.delegate = self
+    //        canvasView.isScrollEnabled = true
+    //        canvasView.alwaysBounceVertical = true
+    //
+    //        view.addSubview(canvasView)
+    //
+    //        // Configure the tool picker
+    //        toolPicker.setVisible(true, forFirstResponder: canvasView)
+    //        toolPicker.addObserver(canvasView)
+    //        toolPicker.addObserver(self)
+    //        canvasView.becomeFirstResponder()
+    //    }
     
     // Tool Picker Delegate Methods
     func toolPickerFramesObscuredDidChange(_ toolPicker: PKToolPicker) {
@@ -63,12 +126,6 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         }
         
         canvasView.scrollIndicatorInsets = canvasView.contentInset
-    }
-    
-    // Canvas View Delegate
-    func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
-        print(#function)
-        updateContentSizeForDrawing()
     }
     
     func updateContentSizeForDrawing() {
