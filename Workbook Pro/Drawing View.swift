@@ -1,28 +1,8 @@
 import SwiftUI
-import PencilKit
-
-class DrawingController: ObservableObject {
-    var vc: DrawingViewController?
-    
-    func changeToolWidth(to newWidth: CGFloat) {
-        vc?.changeToolWidth(to: newWidth)
-    }
-    
-    func clear() {
-        vc?.canvasView.drawing = PKDrawing()
-    }
-    
-    func undo() {
-        vc?.undoManager?.undo()
-    }
-    
-    func redo() {
-        vc?.undoManager?.redo()
-    }
-}
 
 struct DrawingView: View {
-    @ObservedObject private var drawingController = DrawingController()
+    @ObservedObject private var drawingController = DrawingVM()
+    @EnvironmentObject private var storage: Storage
     @Environment(\.dismiss) private var dismiss
     
     @Bindable var note: Note
@@ -40,12 +20,15 @@ struct DrawingView: View {
         
         DrawingRepresentable(drawingData: $note.drawing, imageData: $note.image, controller: drawingController)
             .ignoresSafeArea()
-            .toolbar(.hidden, for: .navigationBar)
-            .statusBarHidden(true)
+            .toolbar(storage.showNavBar ? .visible : .hidden, for: .navigationBar)
+            .statusBarHidden(!storage.showStatusBar)
             .gesture(
                 DragGesture()
                     .onChanged { value in
-                        if value.startLocation.x < 20 /* edgeWidth */ && value.translation.width > 50 /* minimumDragTranslation */ {
+                        let edgeWidth = 20.0
+                        let minimumDragTranslation = 50.0
+                        
+                        if value.startLocation.x < edgeWidth && value.translation.width > minimumDragTranslation {
                             dismiss()
                         }
                     }
@@ -83,4 +66,5 @@ struct DrawingView: View {
 
 //#Preview {
 //    DrawingView()
+//      .environmentObject(Storage())
 //}

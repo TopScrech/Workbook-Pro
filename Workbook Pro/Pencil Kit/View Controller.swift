@@ -4,7 +4,7 @@ import PencilKit
 struct DrawingRepresentable: UIViewControllerRepresentable {
     @Binding var drawingData: Data
     @Binding var imageData: Data?
-    @ObservedObject var controller: DrawingController
+    @ObservedObject var controller: DrawingVM
 
 //    init(_ drawingData: Binding<Data>, _ imageData: Binding<Data?>) {
 //        _drawingData = drawingData

@@ -9,6 +9,8 @@ struct NoteList: View {
         GridItem(.adaptive(minimum: 250, maximum: 400))
     ]
     
+    @State private var sheetSettings = false
+    
     //    @AppStorage("view_mode") private var viewMode = false
     
     var body: some View {
@@ -64,9 +66,17 @@ struct NoteList: View {
                 //            .onDelete(perform: deleteItems)
             }
         }
+        .sheet($sheetSettings) {
+            SettingsView()
+        }
         .toolbar {
             ToolbarItemGroup(placement: .topBarLeading) {
-                EditButton()
+                Button {
+                    sheetSettings = true
+                } label: {
+                    Image(systemName: "gear")
+                        .semibold()
+                }
             }
             
             ToolbarItemGroup(placement: .topBarTrailing) {

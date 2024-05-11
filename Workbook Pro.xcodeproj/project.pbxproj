@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F332167C2BEF599D00F6AB52 /* Change tool width.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332167B2BEF599D00F6AB52 /* Change tool width.swift */; };
+		F332167F2BEF75FC00F6AB52 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332167E2BEF75FC00F6AB52 /* Storage.swift */; };
+		F33216812BEF768100F6AB52 /* Drawing VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216802BEF768100F6AB52 /* Drawing VM.swift */; };
+		F33216832BEF76FB00F6AB52 /* Settings View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216822BEF76FB00F6AB52 /* Settings View.swift */; };
 		F392A2C22BED772B008EAD12 /* Workbook Pro App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C12BED772B008EAD12 /* Workbook Pro App.swift */; };
 		F392A2C42BED772B008EAD12 /* Content View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C32BED772B008EAD12 /* Content View.swift */; };
 		F392A2C62BED772B008EAD12 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C52BED772B008EAD12 /* Item.swift */; };
@@ -21,6 +24,9 @@
 /* Begin PBXFileReference section */
 		F332167A2BEEC32B00F6AB52 /* Workbook-Pro-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Workbook-Pro-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F332167B2BEF599D00F6AB52 /* Change tool width.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Change tool width.swift"; sourceTree = "<group>"; };
+		F332167E2BEF75FC00F6AB52 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		F33216802BEF768100F6AB52 /* Drawing VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing VM.swift"; sourceTree = "<group>"; };
+		F33216822BEF76FB00F6AB52 /* Settings View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings View.swift"; sourceTree = "<group>"; };
 		F392A2BE2BED772B008EAD12 /* Workbook Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workbook Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F392A2C12BED772B008EAD12 /* Workbook Pro App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workbook Pro App.swift"; sourceTree = "<group>"; };
 		F392A2C32BED772B008EAD12 /* Content View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content View.swift"; sourceTree = "<group>"; };
@@ -81,9 +87,12 @@
 			children = (
 				F332167A2BEEC32B00F6AB52 /* Workbook-Pro-Info.plist */,
 				F392A2C12BED772B008EAD12 /* Workbook Pro App.swift */,
+				F332167E2BEF75FC00F6AB52 /* Storage.swift */,
 				F392A2C32BED772B008EAD12 /* Content View.swift */,
+				F33216822BEF76FB00F6AB52 /* Settings View.swift */,
 				F392A2DB2BEE10B7008EAD12 /* Note List.swift */,
 				F392A2E22BEE50ED008EAD12 /* Drawing View.swift */,
+				F33216802BEF768100F6AB52 /* Drawing VM.swift */,
 				F332167D2BEF59A400F6AB52 /* Pencil Kit */,
 				F33216792BEEBFB300F6AB52 /* Model */,
 				F392A2C72BED772C008EAD12 /* Assets.xcassets */,
@@ -167,10 +176,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F392A2E32BEE50ED008EAD12 /* Drawing View.swift in Sources */,
+				F33216812BEF768100F6AB52 /* Drawing VM.swift in Sources */,
 				F332167C2BEF599D00F6AB52 /* Change tool width.swift in Sources */,
 				F392A2C42BED772B008EAD12 /* Content View.swift in Sources */,
 				F392A2C62BED772B008EAD12 /* Item.swift in Sources */,
 				F392A2C22BED772B008EAD12 /* Workbook Pro App.swift in Sources */,
+				F33216832BEF76FB00F6AB52 /* Settings View.swift in Sources */,
+				F332167F2BEF75FC00F6AB52 /* Storage.swift in Sources */,
 				F392A2DC2BEE10B7008EAD12 /* Note List.swift in Sources */,
 				F392A2D62BEE0896008EAD12 /* View Controller.swift in Sources */,
 			);

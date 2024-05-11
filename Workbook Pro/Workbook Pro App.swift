@@ -2,7 +2,9 @@ import ScrechKit
 import SwiftData
 
 @main
-struct Workbook_ProApp: App {
+struct WorkbookPro: App {
+    @StateObject private var storage = Storage()
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Note.self,
@@ -20,6 +22,7 @@ struct Workbook_ProApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(storage)
         }
         .modelContainer(sharedModelContainer)
     }
