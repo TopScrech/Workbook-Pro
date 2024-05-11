@@ -144,13 +144,15 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         // Update content size to match the drawing
         let drawing = canvasView.drawing
         let contentHeight: CGFloat
-        let contentWidth = UIScreen.main.bounds.width
+        let contentWidth: CGFloat
         
         // Adjust content size to always be bigger than drawing height
         if !drawing.bounds.isNull {
             contentHeight = max(canvasView.bounds.height, (drawing.bounds.maxY + canvasOverscrollHeight) * canvasView.zoomScale)
+            contentWidth = max(canvasView.bounds.width, (UIScreen.main.bounds.width * canvasView.zoomScale))
         } else {
             contentHeight = canvasView.bounds.height
+            contentWidth = UIScreen.main.bounds.width
         }
         
         canvasView.contentSize = CGSize(width: contentWidth * canvasView.zoomScale, height: contentHeight)
