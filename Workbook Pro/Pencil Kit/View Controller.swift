@@ -4,22 +4,27 @@ import PencilKit
 struct DrawingRepresentable: UIViewControllerRepresentable {
     @Binding var drawingData: Data
     @Binding var imageData: Data?
-    
-    init(_ drawingData: Binding<Data>, _ imageData: Binding<Data?>) {
-        _drawingData = drawingData
-        _imageData = imageData
-    }
+    @ObservedObject var controller: DrawingController
+
+//    init(_ drawingData: Binding<Data>, _ imageData: Binding<Data?>) {
+//        _drawingData = drawingData
+//        _imageData = imageData
+//    }
     
     func makeUIViewController(context: Context) -> DrawingViewController {
+        print(#function)
+        
         let viewController = DrawingViewController()
         viewController.drawingData = $drawingData
         viewController.delegate = context.coordinator
+        
+        controller.vc = viewController
         
         return viewController
     }
     
     func updateUIViewController(_ uiViewController: DrawingViewController, context: Context) {
-        // Nothing specific to update for now
+        controller.vc = uiViewController
     }
     
     // Coordinator to handle captured image data
@@ -149,19 +154,7 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         }
         
         canvasView.contentSize = CGSize(width: contentWidth * canvasView.zoomScale, height: contentHeight)
-    }
-    
-    func clearCanvas() {
-        canvasView.drawing = PKDrawing()
-    }
-    
-    func undo() {
-        undoManager?.undo()
-    }
-    
-    func redo() {
-        undoManager?.redo()
-    }
+    }    
 }
 
 extension DrawingViewController {

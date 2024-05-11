@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F332167C2BEF599D00F6AB52 /* Chnage tool width.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332167B2BEF599D00F6AB52 /* Chnage tool width.swift */; };
+		F332167C2BEF599D00F6AB52 /* Change tool width.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332167B2BEF599D00F6AB52 /* Change tool width.swift */; };
 		F392A2C22BED772B008EAD12 /* Workbook Pro App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C12BED772B008EAD12 /* Workbook Pro App.swift */; };
 		F392A2C42BED772B008EAD12 /* Content View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C32BED772B008EAD12 /* Content View.swift */; };
 		F392A2C62BED772B008EAD12 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C52BED772B008EAD12 /* Item.swift */; };
@@ -20,7 +20,7 @@
 
 /* Begin PBXFileReference section */
 		F332167A2BEEC32B00F6AB52 /* Workbook-Pro-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Workbook-Pro-Info.plist"; sourceTree = SOURCE_ROOT; };
-		F332167B2BEF599D00F6AB52 /* Chnage tool width.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chnage tool width.swift"; sourceTree = "<group>"; };
+		F332167B2BEF599D00F6AB52 /* Change tool width.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Change tool width.swift"; sourceTree = "<group>"; };
 		F392A2BE2BED772B008EAD12 /* Workbook Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workbook Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F392A2C12BED772B008EAD12 /* Workbook Pro App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workbook Pro App.swift"; sourceTree = "<group>"; };
 		F392A2C32BED772B008EAD12 /* Content View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content View.swift"; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				F392A2D52BEE0896008EAD12 /* View Controller.swift */,
-				F332167B2BEF599D00F6AB52 /* Chnage tool width.swift */,
+				F332167B2BEF599D00F6AB52 /* Change tool width.swift */,
 			);
 			path = "Pencil Kit";
 			sourceTree = "<group>";
@@ -167,7 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F392A2E32BEE50ED008EAD12 /* Drawing View.swift in Sources */,
-				F332167C2BEF599D00F6AB52 /* Chnage tool width.swift in Sources */,
+				F332167C2BEF599D00F6AB52 /* Change tool width.swift in Sources */,
 				F392A2C42BED772B008EAD12 /* Content View.swift in Sources */,
 				F392A2C62BED772B008EAD12 /* Item.swift in Sources */,
 				F392A2C22BED772B008EAD12 /* Workbook Pro App.swift in Sources */,
