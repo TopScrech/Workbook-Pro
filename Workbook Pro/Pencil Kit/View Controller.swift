@@ -46,10 +46,11 @@ protocol DrawingViewControllerDelegate: AnyObject {
 
 final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
     var drawingData: Binding<Data>?
+    
+    let toolPicker = PKToolPicker()
+    let canvasView = PKCanvasView()
     weak var delegate: DrawingViewControllerDelegate?
     
-    private let toolPicker = PKToolPicker()
-    private let canvasView = PKCanvasView()
     private let canvasOverscrollHeight = UIScreen.main.bounds.height * 1.2
     
     override func viewDidLoad() {
@@ -160,5 +161,48 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
     
     func redo() {
         undoManager?.redo()
+    }
+}
+
+extension DrawingViewController {
+    func toolPickerSelectedToolDidChange(_ toolPicker: PKToolPicker) {
+        // Access the selected tool
+        let tool = toolPicker.selectedTool
+        
+        // Print or use tool details
+        printToolDetails(tool)
+    }
+    
+    private func printToolDetails(_ tool: PKTool) {
+        // Format a string with tool details and print it
+        let toolDescription = description(for: tool)
+        print(toolDescription)
+    }
+    
+    private func description(for tool: PKTool) -> String {
+        switch tool {
+        case let inkingTool as PKInkingTool:
+            "Inking Tool: Type \(inkingTool.inkType.rawValue), Color: \(inkingTool.color.hexString()), Width: \(inkingTool.width)"
+        
+        case let eraserTool as PKEraserTool:
+            "Eraser: Type \(eraserTool.eraserType), width: \(eraserTool.width)"
+            
+        case let lassoTool as PKLassoTool:
+            "Lasso: \(lassoTool)"
+            
+        default:
+            "Unknown Tool"
+        }
+    }
+}
+
+// Helper extension to convert UIColor to Hex String for better readability
+extension UIColor {
+    func hexString() -> String {
+        let components = self.cgColor.components ?? [0, 0, 0]
+        let r = Float(components[0])
+        let g = Float(components[1])
+        let b = Float(components[2])
+        return String(format: "#%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255))
     }
 }
