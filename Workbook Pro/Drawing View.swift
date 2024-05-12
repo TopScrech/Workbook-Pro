@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct DrawingView: View {
-    @ObservedObject private var drawingController = DrawingVM()
+    @StateObject private var drawingController = DrawingVM()
     @EnvironmentObject private var storage: Storage
     @Environment(\.dismiss) private var dismiss
     
@@ -18,7 +18,8 @@ struct DrawingView: View {
         //            dismiss()
         //        }
         
-        DrawingRepresentable(drawingData: $note.drawing, imageData: $note.image, controller: drawingController)
+        DrawingRepresentable(drawingData: $note.pages, imageData: $note.image)
+            .environmentObject(drawingController)
             .ignoresSafeArea()
             .toolbar(storage.showNavBar ? .visible : .hidden, for: .navigationBar)
             .statusBarHidden(!storage.showStatusBar)
@@ -34,31 +35,49 @@ struct DrawingView: View {
                     }
             )
             .toolbar {
-                Menu {
-                    Button("Clear") {
-                        drawingController.clear()
+                ToolbarItemGroup(placement: .topBarLeading) {
+                    if let selectedPage = drawingController.vc?.selectedPage {
+                        Text("Page \(selectedPage + 1) of \(note.pages.count)")
                     }
                     
-                    Button("Undo") {
-                        drawingController.undo()
+                    Button("Previous") {
+                        drawingController.previous()
                     }
+                    .disabled(drawingController.vc?.selectedPage == 0)
                     
-                    Button("Redo") {
-                        drawingController.redo()
+                    Button("Next") {
+                        drawingController.next()
                     }
-                    
-                    Divider()
-                    
-                    Text(toolWidth)
-                    
-                    Slider(value: $toolWidth, in: 1...100, step: 0.1)
-                        .padding()
-                    
-                    Button("Set Tool Width") {
-                        drawingController.changeToolWidth(to: toolWidth)
+                }
+                
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    Menu {
+                        Button("Clear") {
+                            drawingController.clear()
+                        }
+                        
+                        Button("Undo") {
+                            drawingController.undo()
+                        }
+                        
+                        Button("Redo") {
+                            drawingController.redo()
+                        }
+                        
+                        Divider()
+                        
+                        Text(toolWidth)
+                        
+                        Slider(value: $toolWidth, in: 1...100, step: 0.1)
+                            .padding()
+                        
+                        Button("Set Tool Width") {
+                            drawingController.changeToolWidth(to: toolWidth)
+                        }
+                        
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
                     }
-                } label: {
-                    Image(systemName: "ellipsis.circle")
                 }
             }
     }

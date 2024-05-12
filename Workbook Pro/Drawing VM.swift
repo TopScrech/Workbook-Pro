@@ -18,4 +18,12 @@ class DrawingVM: ObservableObject {
     func redo() {
         vc?.undoManager?.redo()
     }
+    
+    func next() {
+        vc?.nextPage()
+    }
+    
+    func previous() {
+        vc?.previousPage()
+    }
 }

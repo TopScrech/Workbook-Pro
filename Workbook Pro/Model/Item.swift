@@ -4,7 +4,7 @@ import SwiftData
 @Model
 final class Note {
     var name: String
-    var drawing: Data
+    var pages: [Data]
     var image: Data? = nil
     var isPinned = false
     let created = Date()
@@ -12,8 +12,8 @@ final class Note {
     
     //    var background: Color?
     
-    init(_ name: String, drawing: Data = Data(), image: Data? = nil) {
-        self.drawing = drawing
+    init(_ name: String, pages: [Data] = [Data()], image: Data? = nil) {
+        self.pages = pages
         self.name = name
         self.image = image
     }

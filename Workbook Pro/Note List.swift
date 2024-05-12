@@ -48,7 +48,7 @@ struct NoteList: View {
                         //                                .background(.ultraThinMaterial, in: .circle)
                         //                        }
                         .contextMenu {
-                            Text(note.drawing.description)
+                            Text(note.pages.description)
                             
                             Button {
                                 note.isPinned.toggle()
@@ -61,7 +61,7 @@ struct NoteList: View {
                             
                             Button {
                                 modelContext.insert(
-                                    Note(note.name, drawing: note.drawing, image: note.image)
+                                    Note(note.name, pages: note.pages, image: note.image)
                                 )
                             } label: {
                                 Label("Duplicate", systemImage: "plus.square.on.square")

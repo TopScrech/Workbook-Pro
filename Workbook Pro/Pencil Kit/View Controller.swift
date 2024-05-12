@@ -1,60 +1,17 @@
 import SwiftUI
 import PencilKit
 
-struct DrawingRepresentable: UIViewControllerRepresentable {
-    @Binding var drawingData: Data
-    @Binding var imageData: Data?
-    @ObservedObject var controller: DrawingVM
-
-//    init(_ drawingData: Binding<Data>, _ imageData: Binding<Data?>) {
-//        _drawingData = drawingData
-//        _imageData = imageData
-//    }
-    
-    func makeUIViewController(context: Context) -> DrawingViewController {
-        print(#function)
-        
-        let viewController = DrawingViewController()
-        viewController.drawingData = $drawingData
-        viewController.delegate = context.coordinator
-        
-        controller.vc = viewController
-        
-        return viewController
-    }
-    
-    func updateUIViewController(_ uiViewController: DrawingViewController, context: Context) {
-        controller.vc = uiViewController
-    }
-    
-    // Coordinator to handle captured image data
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-    
-    class Coordinator: DrawingViewControllerDelegate {
-        var parent: DrawingRepresentable
-        
-        init(_ parent: DrawingRepresentable) {
-            self.parent = parent
-        }
-        
-        func didCaptureImage(_ data: Data) {
-            parent.imageData = data
-        }
-    }
-}
-
 protocol DrawingViewControllerDelegate: AnyObject {
     func didCaptureImage(_ data: Data)
 }
 
 final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
-    var drawingData: Binding<Data>?
+    var pages: Binding<[Data]>?
     
     let toolPicker = PKToolPicker()
     let canvasView = PKCanvasView()
     weak var delegate: DrawingViewControllerDelegate?
+    var selectedPage = 0
     
     private let canvasOverscrollHeight = UIScreen.main.bounds.height * 1.2
     
@@ -72,7 +29,8 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         view.addSubview(canvasView)
         
         // Load saved drawing
-        loadDrawing(from: drawingData?.wrappedValue ?? Data())
+        loadDrawing(from: pages?.first?.wrappedValue ?? Data())
+//        loadDrawing(from: drawingData?.wrappedValue ?? Data())
         
         // Configure tool picker
         toolPicker.setVisible(true, forFirstResponder: canvasView)
@@ -92,6 +50,30 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         }
     }
     
+    func addPage() {
+        print(#function)
+        
+        pages?.wrappedValue.append(Data())
+    }
+    
+    func nextPage() {
+        print(#function)
+        
+        if pages!.count - 1 == selectedPage {
+            addPage()
+        }
+        
+        selectedPage += 1
+        loadDrawing(from: pages![selectedPage].wrappedValue)
+    }
+    
+    func previousPage() {
+        print(#function)
+        
+        selectedPage -= 1
+        loadDrawing(from: pages![selectedPage].wrappedValue)
+    }
+    
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
         print(#function)
         
@@ -104,11 +86,13 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         
         let data = canvasView.drawing.dataRepresentation()
         
-        drawingData?.wrappedValue = data
+        pages?[selectedPage].wrappedValue = data
     }
     
     func loadDrawing(from data: Data) {
         print(#function)
+        
+        canvasView.drawing = PKDrawing()
         
         if let drawing = try? PKDrawing(data: data) {
             canvasView.drawing = drawing

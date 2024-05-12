@@ -11,6 +11,7 @@
 		F332167F2BEF75FC00F6AB52 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332167E2BEF75FC00F6AB52 /* Storage.swift */; };
 		F33216812BEF768100F6AB52 /* Drawing VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216802BEF768100F6AB52 /* Drawing VM.swift */; };
 		F33216832BEF76FB00F6AB52 /* Settings View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216822BEF76FB00F6AB52 /* Settings View.swift */; };
+		F38114FD2BF1624500F6AD6D /* Drawing Representable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38114FC2BF1624500F6AD6D /* Drawing Representable.swift */; };
 		F392A2C22BED772B008EAD12 /* Workbook Pro App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C12BED772B008EAD12 /* Workbook Pro App.swift */; };
 		F392A2C42BED772B008EAD12 /* Content View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C32BED772B008EAD12 /* Content View.swift */; };
 		F392A2C62BED772B008EAD12 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C52BED772B008EAD12 /* Item.swift */; };
@@ -27,6 +28,7 @@
 		F332167E2BEF75FC00F6AB52 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		F33216802BEF768100F6AB52 /* Drawing VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing VM.swift"; sourceTree = "<group>"; };
 		F33216822BEF76FB00F6AB52 /* Settings View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings View.swift"; sourceTree = "<group>"; };
+		F38114FC2BF1624500F6AD6D /* Drawing Representable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing Representable.swift"; sourceTree = "<group>"; };
 		F392A2BE2BED772B008EAD12 /* Workbook Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workbook Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F392A2C12BED772B008EAD12 /* Workbook Pro App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workbook Pro App.swift"; sourceTree = "<group>"; };
 		F392A2C32BED772B008EAD12 /* Content View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content View.swift"; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				F392A2D52BEE0896008EAD12 /* View Controller.swift */,
+				F38114FC2BF1624500F6AD6D /* Drawing Representable.swift */,
 				F332167B2BEF599D00F6AB52 /* Change tool width.swift */,
 			);
 			path = "Pencil Kit";
@@ -176,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F392A2E32BEE50ED008EAD12 /* Drawing View.swift in Sources */,
+				F38114FD2BF1624500F6AD6D /* Drawing Representable.swift in Sources */,
 				F33216812BEF768100F6AB52 /* Drawing VM.swift in Sources */,
 				F332167C2BEF599D00F6AB52 /* Change tool width.swift in Sources */,
 				F392A2C42BED772B008EAD12 /* Content View.swift in Sources */,
