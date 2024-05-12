@@ -29,8 +29,15 @@ struct NoteList: View {
                                     .border(.white)
                             }
                             
-                            Text(note.name)
-                                .foregroundStyle(.white)
+                            HStack {
+                                Text(note.name)
+                                    .foregroundStyle(.white)
+                                
+                                if note.isPinned {
+                                    Image(systemName: "pin")
+                                        .foregroundStyle(.red)
+                                }
+                            }
                         }
                         .padding()
                         //                        .overlay(alignment: .topTrailing) {
@@ -41,10 +48,15 @@ struct NoteList: View {
                         //                                .background(.ultraThinMaterial, in: .circle)
                         //                        }
                         .contextMenu {
+                            Text(note.drawing.description)
+                            
                             Button {
                                 note.isPinned.toggle()
                             } label: {
-                                Text(note.isPinned ? "Unpin" : "Pin")
+                                let text = note.isPinned ? "Unpin" : "Pin"
+                                let icon = note.isPinned ? "pin.slash" : "pin"
+                                
+                                Label(text, systemImage: icon)
                             }
                             
                             Button {
@@ -52,13 +64,15 @@ struct NoteList: View {
                                     Note(note.name, drawing: note.drawing, image: note.image)
                                 )
                             } label: {
-                                Text("Duplicate")
+                                Label("Duplicate", systemImage: "plus.square.on.square")
                             }
+                            
+                            Divider()
                             
                             Button(role: .destructive) {
                                 deleteItems(note)
                             } label: {
-                                Text("Delete")
+                                Label("Delete", systemImage: "trash")
                             }
                         }
                     }
@@ -68,6 +82,19 @@ struct NoteList: View {
         }
         .sheet($sheetSettings) {
             SettingsView()
+        }
+        .overlay {
+            if notes.isEmpty {
+                ContentUnavailableView {
+                    Text("You don't have any notes yet")
+                } actions: {
+                    Button {
+                        create()
+                    } label: {
+                        Text("Create new")
+                    }
+                }
+            }
         }
         .toolbar {
             ToolbarItemGroup(placement: .topBarLeading) {
@@ -81,12 +108,16 @@ struct NoteList: View {
             
             ToolbarItemGroup(placement: .topBarTrailing) {
                 Button("Create new") {
-                    modelContext.insert(
-                        Note("Test")
-                    )
+                    create()
                 }
             }
         }
+    }
+    
+    private func create() {
+        modelContext.insert(
+            Note("Test")
+        )
     }
     
     private func deleteItems(offsets: IndexSet) {

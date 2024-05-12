@@ -7,6 +7,8 @@ final class Note {
     var drawing: Data
     var image: Data? = nil
     var isPinned = false
+    let created = Date()
+    //    var modified = Date()
     
     //    var background: Color?
     

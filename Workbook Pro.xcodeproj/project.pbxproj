@@ -86,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				F332167A2BEEC32B00F6AB52 /* Workbook-Pro-Info.plist */,
+				F392A2C72BED772C008EAD12 /* Assets.xcassets */,
 				F392A2C12BED772B008EAD12 /* Workbook Pro App.swift */,
 				F332167E2BEF75FC00F6AB52 /* Storage.swift */,
 				F392A2C32BED772B008EAD12 /* Content View.swift */,
@@ -95,7 +96,6 @@
 				F33216802BEF768100F6AB52 /* Drawing VM.swift */,
 				F332167D2BEF59A400F6AB52 /* Pencil Kit */,
 				F33216792BEEBFB300F6AB52 /* Model */,
-				F392A2C72BED772C008EAD12 /* Assets.xcassets */,
 			);
 			path = "Workbook Pro";
 			sourceTree = "<group>";
