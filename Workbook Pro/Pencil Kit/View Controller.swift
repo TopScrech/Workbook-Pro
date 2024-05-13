@@ -6,7 +6,7 @@ protocol DrawingViewControllerDelegate: AnyObject {
 }
 
 final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
-    var pages: Binding<[Data]>?
+    var note: Bindable<Note>?
     
     let toolPicker = PKToolPicker()
     let canvasView = PKCanvasView()
@@ -29,8 +29,7 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         view.addSubview(canvasView)
         
         // Load saved drawing
-        loadDrawing(from: pages?.first?.wrappedValue ?? Data())
-//        loadDrawing(from: drawingData?.wrappedValue ?? Data())
+        loadDrawing(from: note?.pages.first?.wrappedValue ?? Data())
         
         // Configure tool picker
         toolPicker.setVisible(true, forFirstResponder: canvasView)
@@ -50,28 +49,50 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         }
     }
     
+    func deletePage() {
+        guard let pages = note?.pages.wrappedValue else {
+            return
+        }
+        
+        // Ensure there's at least one page to delete and the selected page is within range
+        guard pages.count > 0, selectedPage < pages.count else {
+            return
+        }
+        
+        // Remove page at selected index
+        note?.pages.wrappedValue.remove(at: selectedPage)
+        
+        // After deletion, check and adjust the selectedPage if it's now out of bounds
+        if selectedPage >= note!.pages.count {
+            selectedPage = max(note!.pages.count - 1, 0) // Adjust to last page or to 0 if all were deleted
+        }
+        
+        print("Count \(note!.pages.count), selected \(selectedPage)")
+        loadDrawing(from: note!.pages[selectedPage].wrappedValue)
+    }
+    
     func addPage() {
         print(#function)
         
-        pages?.wrappedValue.append(Data())
+        note?.pages.wrappedValue.append(Data())
     }
     
     func nextPage() {
         print(#function)
         
-        if pages!.count - 1 == selectedPage {
+        if note!.pages.count - 1 == selectedPage {
             addPage()
         }
         
         selectedPage += 1
-        loadDrawing(from: pages![selectedPage].wrappedValue)
+        loadDrawing(from: note!.pages[selectedPage].wrappedValue)
     }
     
     func previousPage() {
         print(#function)
         
         selectedPage -= 1
-        loadDrawing(from: pages![selectedPage].wrappedValue)
+        loadDrawing(from: note!.pages[selectedPage].wrappedValue)
     }
     
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
@@ -83,16 +104,19 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
     
     private func saveDrawing() {
         print(#function)
-        
         let data = canvasView.drawing.dataRepresentation()
         
-        pages?[selectedPage].wrappedValue = data
+        note?.pages[selectedPage].wrappedValue = data
+    }
+    
+    func clear() {
+        canvasView.drawing = PKDrawing()
     }
     
     func loadDrawing(from data: Data) {
         print(#function)
         
-        canvasView.drawing = PKDrawing()
+        clear()
         
         if let drawing = try? PKDrawing(data: data) {
             canvasView.drawing = drawing
@@ -140,7 +164,7 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         }
         
         canvasView.contentSize = CGSize(width: contentWidth * canvasView.zoomScale, height: contentHeight)
-    }    
+    }
 }
 
 extension DrawingViewController {
@@ -162,7 +186,7 @@ extension DrawingViewController {
         switch tool {
         case let inkingTool as PKInkingTool:
             "Inking Tool: Type \(inkingTool.inkType.rawValue), Color: \(inkingTool.color.hexString()), Width: \(inkingTool.width)"
-        
+            
         case let eraserTool as PKEraserTool:
             "Eraser: Type \(eraserTool.eraserType), width: \(eraserTool.width)"
             

@@ -5,7 +5,7 @@ struct DrawingView: View {
     @EnvironmentObject private var storage: Storage
     @Environment(\.dismiss) private var dismiss
     
-    @Bindable var note: Note
+    private var note: Note
     
     init(_ note: Note) {
         self.note = note
@@ -13,12 +13,20 @@ struct DrawingView: View {
     
     @State private var toolWidth: CGFloat = 5
     
+    private var isFirstPage: Bool {
+        drawingController.vc?.selectedPage == 0
+    }
+    
+    private var strokes: Int? {
+        drawingController.vc?.canvasView.drawing.strokes.count
+    }
+    
     var body: some View {
         //        Button("dismiss") {
         //            dismiss()
         //        }
         
-        DrawingRepresentable(drawingData: $note.pages, imageData: $note.image)
+        DrawingRepresentable(note: note)
             .environmentObject(drawingController)
             .ignoresSafeArea()
             .toolbar(storage.showNavBar ? .visible : .hidden, for: .navigationBar)
@@ -43,11 +51,29 @@ struct DrawingView: View {
                     Button("Previous") {
                         drawingController.previous()
                     }
-                    .disabled(drawingController.vc?.selectedPage == 0)
+                    .disabled(isFirstPage)
                     
                     Button("Next") {
                         drawingController.next()
                     }
+                    
+                    Button {
+                        drawingController.deletePage()
+                    } label: {
+                        Image(systemName: "trash")
+                            .foregroundStyle(.red)
+                    }
+                    .disabled(note.pages.count == 1)
+                    
+                    Button(role: .destructive) {
+                        drawingController.clear()
+                    } label: {
+                        Label("Clear", systemImage: "eraser")
+                            .foregroundStyle(.red)
+                    }
+                    .disabled(strokes == 0)
+                    
+                    Text("Total strokes: \(strokes ?? 0)")
                 }
                 
                 ToolbarItemGroup(placement: .topBarTrailing) {
@@ -74,7 +100,6 @@ struct DrawingView: View {
                         Button("Set Tool Width") {
                             drawingController.changeToolWidth(to: toolWidth)
                         }
-                        
                     } label: {
                         Image(systemName: "ellipsis.circle")
                     }

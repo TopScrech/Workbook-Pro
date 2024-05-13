@@ -11,6 +11,10 @@ class DrawingVM: ObservableObject {
         vc?.canvasView.drawing = PKDrawing()
     }
     
+    func deletePage() {
+        vc?.deletePage()
+    }
+    
     func undo() {
         vc?.undoManager?.undo()
     }

@@ -1,12 +1,12 @@
 import SwiftUI
 
 struct DrawingRepresentable: UIViewControllerRepresentable {
-    @Binding var drawingData: [Data]
-    @Binding var imageData: Data?
     @EnvironmentObject var controller: DrawingVM
     
-    //    init(_ drawingData: Binding<Data>, _ imageData: Binding<Data?>) {
-    //        _drawingData = drawingData
+    @Bindable var note: Note
+    
+    //    init(_ note: Binding<Data>, _ imageData: Binding<Data?>) {
+    //        _drawingData = note
     //        _imageData = imageData
     //    }
     
@@ -14,7 +14,7 @@ struct DrawingRepresentable: UIViewControllerRepresentable {
         print(#function)
         
         let viewController = DrawingViewController()
-        viewController.pages = $drawingData
+        viewController.note = $note
         viewController.delegate = context.coordinator
         
         controller.vc = viewController
@@ -39,7 +39,7 @@ struct DrawingRepresentable: UIViewControllerRepresentable {
         }
         
         func didCaptureImage(_ data: Data) {
-            parent.imageData = data
+            parent.note.image = data
         }
     }
 }
