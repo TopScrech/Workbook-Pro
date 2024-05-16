@@ -21,6 +21,8 @@
 		F392A2DC2BEE10B7008EAD12 /* Note List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2DB2BEE10B7008EAD12 /* Note List.swift */; };
 		F392A2DF2BEE113E008EAD12 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F392A2DE2BEE113E008EAD12 /* ScrechKit */; };
 		F392A2E32BEE50ED008EAD12 /* Drawing View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2E22BEE50ED008EAD12 /* Drawing View.swift */; };
+		F3E6D9182BF654E0008B810E /* Group Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E6D9172BF654E0008B810E /* Group Activity.swift */; };
+		F3E6D91A2BF65554008B810E /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E6D9192BF65554008B810E /* Messages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		F392A2DB2BEE10B7008EAD12 /* Note List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note List.swift"; sourceTree = "<group>"; };
 		F392A2E22BEE50ED008EAD12 /* Drawing View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing View.swift"; sourceTree = "<group>"; };
 		F3E6D9162BF653A6008B810E /* Workbook Pro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Workbook Pro.entitlements"; sourceTree = "<group>"; };
+		F3E6D9172BF654E0008B810E /* Group Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group Activity.swift"; sourceTree = "<group>"; };
+		F3E6D9192BF65554008B810E /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				F392A2D52BEE0896008EAD12 /* View Controller.swift */,
+				F3E6D9192BF65554008B810E /* Messages.swift */,
+				F3E6D9172BF654E0008B810E /* Group Activity.swift */,
 				F38114FC2BF1624500F6AD6D /* Drawing Representable.swift */,
 				F332167B2BEF599D00F6AB52 /* Change tool width.swift */,
 			);
@@ -189,6 +195,8 @@
 				F33216812BEF768100F6AB52 /* Drawing VM.swift in Sources */,
 				F332167C2BEF599D00F6AB52 /* Change tool width.swift in Sources */,
 				F392A2C42BED772B008EAD12 /* Content View.swift in Sources */,
+				F3E6D9182BF654E0008B810E /* Group Activity.swift in Sources */,
+				F3E6D91A2BF65554008B810E /* Messages.swift in Sources */,
 				F392A2C62BED772B008EAD12 /* Item.swift in Sources */,
 				F392A2C22BED772B008EAD12 /* Workbook Pro.swift in Sources */,
 				F33216832BEF76FB00F6AB52 /* Settings View.swift in Sources */,

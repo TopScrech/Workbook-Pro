@@ -1,11 +1,13 @@
 import SwiftUI
 import PencilKit
+import Combine
+import GroupActivities
 
 protocol DrawingViewControllerDelegate: AnyObject {
     func didCaptureImage(_ data: Data)
 }
 
-final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
+final class DrawingViewController: UIViewController, ObservableObject, PKCanvasViewDelegate, PKToolPickerObserver {
     var note: Bindable<Note>?
     
     let toolPicker = PKToolPicker()
@@ -14,6 +16,12 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
     var selectedPage = 0
     
     private let canvasOverscrollHeight = UIScreen.main.bounds.height * 1.2
+    
+    var subscriptions = Set<AnyCancellable>()
+    var tasks = Set<Task<Void, Never>>()
+    var messenger: GroupSessionMessenger?
+    var journal: GroupSessionJournal?
+    @Published var groupSession: GroupSession<WorkbookProGroupSession>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +55,120 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         if let capturedImage = canvasView.drawing.image(from: .init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height), scale: 1).heicData() {
             delegate?.didCaptureImage(capturedImage)
         }
+    }
+    
+    func reset() {
+        // Clear the local drawing canvas
+//        strokes = []
+//        images = []
+        
+        // Tear down the existing groupSession
+        messenger = nil
+        journal = nil
+        
+        tasks.forEach {
+            $0.cancel()
+        }
+        
+        tasks = []
+        subscriptions = []
+        
+        if groupSession != nil {
+            groupSession?.leave()
+            groupSession = nil
+            self.startSharing()
+        }
+    }
+    
+    func startSharing() {
+        Task {
+            do {
+                _ = try await WorkbookProGroupSession().activate()
+            } catch {
+                print("Failed to activate DrawTogether activity: \(error)")
+            }
+        }
+    }
+    
+    func configureGroupSession(_ groupSession: GroupSession<WorkbookProGroupSession>) {
+//        strokes = []
+        
+        self.groupSession = groupSession
+        let messenger = GroupSessionMessenger(session: groupSession)
+        self.messenger = messenger
+        let journal = GroupSessionJournal(session: groupSession)
+        self.journal = journal
+        
+        groupSession.$state
+            .sink { state in
+                if case .invalidated = state {
+                    self.groupSession = nil
+                    self.reset()
+                }
+            }
+            .store(in: &subscriptions)
+        
+        groupSession.$activeParticipants
+            .sink { activeParticipants in
+                let newParticipants = activeParticipants.subtracting(groupSession.activeParticipants)
+                
+                Task {
+                    try? await messenger.send(
+                        UpdateMessage(strokes: note?.pages.wrappedValue!),
+                        to: .only(newParticipants)
+                    )
+                }
+            }
+            .store(in: &subscriptions)
+        
+        var task = Task {
+            for await (message, _) in messenger.messages(of: SetupMessage.self) {
+                handle(message)
+            }
+        }
+        
+        tasks.insert(task)
+        
+        task = Task {
+            for await (message, _) in messenger.messages(of: UpdateMessage.self) {
+                handle(message)
+            }
+        }
+        
+        tasks.insert(task)
+        
+//        task = Task {
+//            for await images in journal.attachments {
+//                await handle(images)
+//            }
+//        }
+//        
+//        tasks.insert(task)
+        
+        groupSession.join()
+    }
+    
+    func handle(_ message: SetupMessage) {
+        print(#function)
+        
+//        if let stroke = strokes.first(where: { $0.id == message.id }) {
+//            stroke.points.append(message.point)
+//        } else {
+//            let stroke = Stroke(id: message.id, color: message.color)
+//
+//            stroke.points.append(message.point)
+//            strokes.append(stroke)
+//        }
+    }
+    
+    func handle(_ message: UpdateMessage) {
+        print(#function)
+        
+//        guard message.pointCount > self.pointCount else {
+//            return
+//        }
+//        
+//        self.strokes = message.strokes
     }
     
     func deletePage() {
