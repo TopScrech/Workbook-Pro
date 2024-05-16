@@ -21,7 +21,7 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         // Set up canvas
         canvasView.frame = view.bounds
         canvasView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        canvasView.drawingPolicy = .pencilOnly
+        canvasView.drawingPolicy = .anyInput
         canvasView.delegate = self
         canvasView.isScrollEnabled = true
         canvasView.alwaysBounceVertical = true
