@@ -59,8 +59,8 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
     
     func reset() {
         // Clear the local drawing canvas
-//        strokes = []
-//        images = []
+        //        strokes = []
+        //        images = []
         
         // Tear down the existing groupSession
         messenger = nil
@@ -80,6 +80,27 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
         }
     }
     
+    func sendUpdate() {
+        print(#function)
+        
+        if let messenger: GroupSessionMessenger = self.messenger {
+            Task {
+                try? await messenger.send(
+                    UpdateMessage(strokes: note?.pages.wrappedValue ?? [])
+                )
+            }
+        }
+    }
+    //    func sendUpdate() {
+    //        if let messenger {
+    //            Task {
+    //                try? await messenger.send(
+    //                    UpdateMessage(strokes: note?.pages.wrappedValue!)
+    //                )
+    //            }
+    //        }
+    //    }
+    
     func startSharing() {
         Task {
             do {
@@ -91,84 +112,105 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
     }
     
     func configureGroupSession(_ groupSession: GroupSession<WorkbookProGroupSession>) {
-//        strokes = []
+        print(#function)
         
+        // Clear previous strokes
+        // strokes = []
+        
+        // Assign the passed group session to the instance variable
         self.groupSession = groupSession
-        let messenger = GroupSessionMessenger(session: groupSession)
-        self.messenger = messenger
-        let journal = GroupSessionJournal(session: groupSession)
-        self.journal = journal
         
+        // Create a messenger for the group session
+        messenger = GroupSessionMessenger(session: groupSession)
+        
+        // Create a journal for the group session
+        journal = GroupSessionJournal(session: groupSession)
+        
+        // Monitor the state of the group session
         groupSession.$state
-            .sink { state in
+            .sink { [weak self] state in
                 if case .invalidated = state {
-                    self.groupSession = nil
-                    self.reset()
+                    self?.groupSession = nil
+                    self?.reset()
                 }
             }
             .store(in: &subscriptions)
         
+        // Monitor the active participants in the group session
         groupSession.$activeParticipants
-            .sink { activeParticipants in
+            .sink { [weak self] activeParticipants in
+                
+                guard let self else {
+                    return
+                }
+                
                 let newParticipants = activeParticipants.subtracting(groupSession.activeParticipants)
                 
                 Task {
-                    try? await messenger.send(
-                        UpdateMessage(strokes: note?.pages.wrappedValue!),
+                    try? await self.messenger!.send(
+                        UpdateMessage(strokes: self.note?.pages.wrappedValue ?? []),
                         to: .only(newParticipants)
                     )
                 }
             }
             .store(in: &subscriptions)
         
-        var task = Task {
-            for await (message, _) in messenger.messages(of: SetupMessage.self) {
+        // Task to handle setup messages
+        var task: Task<Void, Never> = Task {
+            for await (message, _) in self.messenger!.messages(of: SetupMessage.self) {
                 handle(message)
             }
         }
         
         tasks.insert(task)
         
+        // Task to handle update messages
         task = Task {
-            for await (message, _) in messenger.messages(of: UpdateMessage.self) {
+            for await (message, _) in self.messenger!.messages(of: UpdateMessage.self) {
                 handle(message)
             }
         }
         
         tasks.insert(task)
         
-//        task = Task {
-//            for await images in journal.attachments {
-//                await handle(images)
-//            }
-//        }
-//        
-//        tasks.insert(task)
+        // Uncomment this section if you need to handle images from journal attachments
+        // task = Task {
+        //     for await images in journal.attachments {
+        //         await handle(images)
+        //     }
+        // }
+        // tasks.insert(task)
         
+        // Join the group session
         groupSession.join()
     }
     
     func handle(_ message: SetupMessage) {
         print(#function)
         
-//        if let stroke = strokes.first(where: { $0.id == message.id }) {
-//            stroke.points.append(message.point)
-//        } else {
-//            let stroke = Stroke(id: message.id, color: message.color)
-//
-//            stroke.points.append(message.point)
-//            strokes.append(stroke)
-//        }
+        
+        //        if let stroke = strokes.first(where: { $0.id == message.id }) {
+        //            stroke.points.append(message.point)
+        //        } else {
+        //            let stroke = Stroke(id: message.id, color: message.color)
+        //
+        //            stroke.points.append(message.point)
+        //            strokes.append(stroke)
+        //        }
     }
     
     func handle(_ message: UpdateMessage) {
         print(#function)
         
-//        guard message.pointCount > self.pointCount else {
-//            return
-//        }
-//        
-//        self.strokes = message.strokes
+        if let updatedDrawing = try? PKDrawing(data: message.strokes.first!) {
+            canvasView.drawing = updatedDrawing
+        }
+        
+        //        guard message.pointCount > self.pointCount else {
+        //            return
+        //        }
+        //
+        //        self.strokes = message.strokes
     }
     
     func deletePage() {
@@ -222,6 +264,7 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
         
         updateContentSizeForDrawing()
         saveDrawing()
+        sendUpdate()
     }
     
     private func saveDrawing() {

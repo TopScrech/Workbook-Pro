@@ -70,8 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				F392A2D52BEE0896008EAD12 /* View Controller.swift */,
-				F3E6D9192BF65554008B810E /* Messages.swift */,
-				F3E6D9172BF654E0008B810E /* Group Activity.swift */,
 				F38114FC2BF1624500F6AD6D /* Drawing Representable.swift */,
 				F332167B2BEF599D00F6AB52 /* Change tool width.swift */,
 			);
@@ -108,10 +106,20 @@
 				F392A2DB2BEE10B7008EAD12 /* Note List.swift */,
 				F392A2E22BEE50ED008EAD12 /* Drawing View.swift */,
 				F33216802BEF768100F6AB52 /* Drawing VM.swift */,
+				F3E6D91B2BF657CD008B810E /* Group Activities */,
 				F332167D2BEF59A400F6AB52 /* Pencil Kit */,
 				F33216792BEEBFB300F6AB52 /* Model */,
 			);
 			path = "Workbook Pro";
+			sourceTree = "<group>";
+		};
+		F3E6D91B2BF657CD008B810E /* Group Activities */ = {
+			isa = PBXGroup;
+			children = (
+				F3E6D9192BF65554008B810E /* Messages.swift */,
+				F3E6D9172BF654E0008B810E /* Group Activity.swift */,
+			);
+			path = "Group Activities";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

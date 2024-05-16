@@ -31,6 +31,11 @@ struct DrawingView: View {
             .ignoresSafeArea()
             .toolbar(storage.showNavBar ? .visible : .hidden, for: .navigationBar)
             .statusBarHidden(!storage.showStatusBar)
+            .task {
+                for await session in WorkbookProGroupSession.sessions() {
+                    drawingController.vc?.configureGroupSession(session)
+                }
+            }
             .overlay(alignment: .topLeading) {
                 HStack(spacing: 4) {
                     Button {
@@ -76,6 +81,10 @@ struct DrawingView: View {
             )
             .toolbar {
                 ToolbarItemGroup(placement: .topBarLeading) {
+                    Button("Share") {
+                        drawingController.vc?.startSharing()
+                    }
+                    
                     //                    if let selectedPage = drawingController.vc?.selectedPage {
                     //                        Text("Page \(selectedPage + 1) of \(note.pages.count)")
                     //                    }
