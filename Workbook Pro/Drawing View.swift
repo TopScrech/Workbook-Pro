@@ -31,6 +31,38 @@ struct DrawingView: View {
             .ignoresSafeArea()
             .toolbar(storage.showNavBar ? .visible : .hidden, for: .navigationBar)
             .statusBarHidden(!storage.showStatusBar)
+            .overlay(alignment: .topLeading) {
+                HStack(spacing: 4) {
+                    Button {
+                        drawingController.previous()
+                    } label: {
+                        Image(systemName: "arrow.backward")
+                    }
+                    .disabled(isFirstPage)
+                    
+                    Divider()
+                        .frame(height: 20)
+                    
+                    if let selectedPage = drawingController.vc?.selectedPage {
+                        Text("Page \(selectedPage + 1) of \(note.pages.count)")
+                            .monospacedDigit()
+                    }
+                    
+                    Divider()
+                        .frame(height: 20)
+                    
+                    Button {
+                        drawingController.next()
+                    } label: {
+                        Image(systemName: "arrow.forward")
+                            .foregroundStyle(.foreground)
+                    }
+                }
+                .footnote()
+                .padding(.horizontal, 4)
+                .background(.ultraThickMaterial, in: .rect(cornerRadius: 5))
+                .padding(5)
+            }
             .gesture(
                 DragGesture()
                     .onChanged { value in
@@ -44,18 +76,18 @@ struct DrawingView: View {
             )
             .toolbar {
                 ToolbarItemGroup(placement: .topBarLeading) {
-                    if let selectedPage = drawingController.vc?.selectedPage {
-                        Text("Page \(selectedPage + 1) of \(note.pages.count)")
-                    }
-                    
-                    Button("Previous") {
-                        drawingController.previous()
-                    }
-                    .disabled(isFirstPage)
-                    
-                    Button("Next") {
-                        drawingController.next()
-                    }
+                    //                    if let selectedPage = drawingController.vc?.selectedPage {
+                    //                        Text("Page \(selectedPage + 1) of \(note.pages.count)")
+                    //                    }
+                    //
+                    //                    Button("Previous") {
+                    //                        drawingController.previous()
+                    //                    }
+                    //                    .disabled(isFirstPage)
+                    //
+                    //                    Button("Next") {
+                    //                        drawingController.next()
+                    //                    }
                     
                     Button {
                         drawingController.deletePage()
@@ -73,7 +105,8 @@ struct DrawingView: View {
                     }
                     .disabled(strokes == 0)
                     
-                    Text("Total strokes: \(strokes ?? 0)")
+                    Text("\(strokes ?? 0) strokes")
+                        .numericTransition()
                 }
                 
                 ToolbarItemGroup(placement: .topBarTrailing) {
@@ -108,7 +141,7 @@ struct DrawingView: View {
     }
 }
 
-//#Preview {
-//    DrawingView()
-//      .environmentObject(Storage())
-//}
+#Preview {
+    DrawingView(.init("Preview"))
+        .environmentObject(Storage())
+}
