@@ -81,8 +81,10 @@ struct DrawingView: View {
             )
             .toolbar {
                 ToolbarItemGroup(placement: .topBarLeading) {
-                    Button("Share") {
-                        drawingController.vc?.startSharing()
+                    if drawingController.vc?.groupSession?.state != .joined {
+                        Button("Share") {
+                            drawingController.vc?.startSharing()
+                        }
                     }
                     
                     //                    if let selectedPage = drawingController.vc?.selectedPage {

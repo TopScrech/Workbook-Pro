@@ -23,6 +23,7 @@
 		F392A2E32BEE50ED008EAD12 /* Drawing View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2E22BEE50ED008EAD12 /* Drawing View.swift */; };
 		F3E6D9182BF654E0008B810E /* Group Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E6D9172BF654E0008B810E /* Group Activity.swift */; };
 		F3E6D91A2BF65554008B810E /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E6D9192BF65554008B810E /* Messages.swift */; };
+		F3E6D91E2BF6710D008B810E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E6D91D2BF6710D008B810E /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		F3E6D9162BF653A6008B810E /* Workbook Pro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Workbook Pro.entitlements"; sourceTree = "<group>"; };
 		F3E6D9172BF654E0008B810E /* Group Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group Activity.swift"; sourceTree = "<group>"; };
 		F3E6D9192BF65554008B810E /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		F3E6D91D2BF6710D008B810E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,10 +118,19 @@
 		F3E6D91B2BF657CD008B810E /* Group Activities */ = {
 			isa = PBXGroup;
 			children = (
+				F3E6D91C2BF670F1008B810E /* Extensions */,
 				F3E6D9192BF65554008B810E /* Messages.swift */,
 				F3E6D9172BF654E0008B810E /* Group Activity.swift */,
 			);
 			path = "Group Activities";
+			sourceTree = "<group>";
+		};
+		F3E6D91C2BF670F1008B810E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F3E6D91D2BF6710D008B810E /* UIColor.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F392A2E32BEE50ED008EAD12 /* Drawing View.swift in Sources */,
+				F3E6D91E2BF6710D008B810E /* UIColor.swift in Sources */,
 				F38114FD2BF1624500F6AD6D /* Drawing Representable.swift in Sources */,
 				F33216812BEF768100F6AB52 /* Drawing VM.swift in Sources */,
 				F332167C2BEF599D00F6AB52 /* Change tool width.swift in Sources */,

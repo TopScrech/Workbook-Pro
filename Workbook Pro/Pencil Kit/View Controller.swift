@@ -17,10 +17,11 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
     
     private let canvasOverscrollHeight = UIScreen.main.bounds.height * 1.2
     
-    var subscriptions = Set<AnyCancellable>()
-    var tasks = Set<Task<Void, Never>>()
-    var messenger: GroupSessionMessenger?
-    var journal: GroupSessionJournal?
+    private var isRemoteUpdate = false
+    private var subscriptions = Set<AnyCancellable>()
+    private var tasks = Set<Task<Void, Never>>()
+    private var messenger: GroupSessionMessenger?
+    private var journal: GroupSessionJournal?
     @Published var groupSession: GroupSession<WorkbookProGroupSession>?
     
     override func viewDidLoad() {
@@ -58,10 +59,6 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
     }
     
     func reset() {
-        // Clear the local drawing canvas
-        //        strokes = []
-        //        images = []
-        
         // Tear down the existing groupSession
         messenger = nil
         journal = nil
@@ -91,15 +88,6 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
             }
         }
     }
-    //    func sendUpdate() {
-    //        if let messenger {
-    //            Task {
-    //                try? await messenger.send(
-    //                    UpdateMessage(strokes: note?.pages.wrappedValue!)
-    //                )
-    //            }
-    //        }
-    //    }
     
     func startSharing() {
         Task {
@@ -114,19 +102,13 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
     func configureGroupSession(_ groupSession: GroupSession<WorkbookProGroupSession>) {
         print(#function)
         
-        // Clear previous strokes
-        // strokes = []
-        
         // Assign the passed group session to the instance variable
         self.groupSession = groupSession
         
-        // Create a messenger for the group session
         messenger = GroupSessionMessenger(session: groupSession)
-        
-        // Create a journal for the group session
         journal = GroupSessionJournal(session: groupSession)
         
-        // Monitor the state of the group session
+        // Monitot group session state
         groupSession.$state
             .sink { [weak self] state in
                 if case .invalidated = state {
@@ -136,7 +118,7 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
             }
             .store(in: &subscriptions)
         
-        // Monitor the active participants in the group session
+        // Monitor active participants in the group session
         groupSession.$activeParticipants
             .sink { [weak self] activeParticipants in
                 
@@ -155,7 +137,7 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
             }
             .store(in: &subscriptions)
         
-        // Task to handle setup messages
+        // Handle setup messages
         var task: Task<Void, Never> = Task {
             for await (message, _) in self.messenger!.messages(of: SetupMessage.self) {
                 handle(message)
@@ -164,7 +146,7 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
         
         tasks.insert(task)
         
-        // Task to handle update messages
+        // Handle update messages
         task = Task {
             for await (message, _) in self.messenger!.messages(of: UpdateMessage.self) {
                 handle(message)
@@ -181,7 +163,6 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
         // }
         // tasks.insert(task)
         
-        // Join the group session
         groupSession.join()
     }
     
@@ -189,28 +170,16 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
         print(#function)
         
         
-        //        if let stroke = strokes.first(where: { $0.id == message.id }) {
-        //            stroke.points.append(message.point)
-        //        } else {
-        //            let stroke = Stroke(id: message.id, color: message.color)
-        //
-        //            stroke.points.append(message.point)
-        //            strokes.append(stroke)
-        //        }
     }
     
     func handle(_ message: UpdateMessage) {
         print(#function)
         
+        isRemoteUpdate = true
+        
         if let updatedDrawing = try? PKDrawing(data: message.strokes.first!) {
             canvasView.drawing = updatedDrawing
         }
-        
-        //        guard message.pointCount > self.pointCount else {
-        //            return
-        //        }
-        //
-        //        self.strokes = message.strokes
     }
     
     func deletePage() {
@@ -228,7 +197,8 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
         
         // After deletion, check and adjust the selectedPage if it's now out of bounds
         if selectedPage >= note!.pages.count {
-            selectedPage = max(note!.pages.count - 1, 0) // Adjust to last page or to 0 if all were deleted
+            // Adjust to last page or to 0 if all were deleted
+            selectedPage = max(note!.pages.count - 1, 0)
         }
         
         print("Count \(note!.pages.count), selected \(selectedPage)")
@@ -264,7 +234,12 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
         
         updateContentSizeForDrawing()
         saveDrawing()
-        sendUpdate()
+        
+        if !isRemoteUpdate {
+            sendUpdate()
+        }
+        
+        isRemoteUpdate = false
     }
     
     private func saveDrawing() {
@@ -361,16 +336,5 @@ extension DrawingViewController {
         default:
             "Unknown Tool"
         }
-    }
-}
-
-// Helper extension to convert UIColor to Hex String for better readability
-extension UIColor {
-    func hexString() -> String {
-        let components = self.cgColor.components ?? [0, 0, 0]
-        let r = Float(components[0])
-        let g = Float(components[1])
-        let b = Float(components[2])
-        return String(format: "#%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255))
     }
 }

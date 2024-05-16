@@ -1,7 +1,7 @@
 import Foundation
 
 struct SetupMessage: Codable {
-    let id: UUID
+    let name: String
 }
 
 struct UpdateMessage: Codable {
