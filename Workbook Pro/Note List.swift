@@ -80,6 +80,14 @@ struct NoteList: View {
                 //            .onDelete(perform: deleteItems)
             }
         }
+        .onPencilDoubleTap { value in
+            let pos = String(describing: value.hoverPose)
+            
+            print("Double tap: \(pos)")
+        }
+        .onPencilSqueeze { phase in
+            print("Squeeze: \(phase)")
+        }
         .sheet($sheetSettings) {
             SettingsView()
         }
