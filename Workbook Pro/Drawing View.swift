@@ -11,16 +11,6 @@ struct DrawingView: View {
         self.note = note
     }
     
-    @State private var toolWidth = 5.0
-    
-    private var isFirstPage: Bool {
-        vm.vc?.selectedPage == 0
-    }
-    
-    private var strokes: Int? {
-        vm.vc?.canvasView.drawing.strokes.count
-    }
-    
     var body: some View {
         DrawingRepresentable(note)
             .environmentObject(vm)
@@ -39,7 +29,7 @@ struct DrawingView: View {
                     } label: {
                         Image(systemName: "arrow.backward")
                     }
-                    .disabled(isFirstPage)
+                    .disabled(vm.isFirstPage)
                     
                     Divider()
                         .frame(height: 20)
@@ -83,19 +73,6 @@ struct DrawingView: View {
                         }
                     }
                     
-                    //                    if let selectedPage = drawingController.vc?.selectedPage {
-                    //                        Text("Page \(selectedPage + 1) of \(note.pages.count)")
-                    //                    }
-                    //
-                    //                    Button("Previous") {
-                    //                        drawingController.previous()
-                    //                    }
-                    //                    .disabled(isFirstPage)
-                    //
-                    //                    Button("Next") {
-                    //                        drawingController.next()
-                    //                    }
-                    
                     Button {
                         vm.deletePage()
                     } label: {
@@ -110,9 +87,9 @@ struct DrawingView: View {
                         Label("Clear", systemImage: "eraser")
                             .foregroundStyle(.red)
                     }
-                    .disabled(strokes == 0)
+                    .disabled(vm.strokes == 0)
                     
-                    Text("\(strokes ?? 0) strokes")
+                    Text("\(vm.strokes ?? 0) strokes")
                         .numericTransition()
                 }
                 
@@ -132,13 +109,13 @@ struct DrawingView: View {
                         
                         Divider()
                         
-                        Text(toolWidth)
+                        Text(vm.toolWidth)
                         
-                        Slider(value: $toolWidth, in: 1...100, step: 0.1)
+                        Slider(value: $vm.toolWidth, in: 1...100, step: 0.1)
                             .padding()
                         
                         Button("Set Tool Width") {
-                            vm.changeToolWidth(to: toolWidth)
+                            vm.changeToolWidth(to: vm.toolWidth)
                         }
                     } label: {
                         Image(systemName: "ellipsis.circle")

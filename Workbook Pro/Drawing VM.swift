@@ -4,6 +4,16 @@ import PencilKit
 final class DrawingVM: ObservableObject {
     var vc: DrawingViewController?
     
+    @Published var toolWidth = 5.0
+    
+    var isFirstPage: Bool {
+        vc?.selectedPage == 0
+    }
+    
+    var strokes: Int? {
+        vc?.canvasView.drawing.strokes.count
+    }
+    
     func changeToolWidth(to newWidth: CGFloat) {
         vc?.changeToolWidth(to: newWidth)
     }
