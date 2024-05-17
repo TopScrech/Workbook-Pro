@@ -37,8 +37,6 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
         
         view.addSubview(canvasView)
         
-        // Load saved drawing
-        
         // Configure tool picker
         toolPicker.setVisible(true, forFirstResponder: canvasView)
         toolPicker.addObserver(canvasView)
