@@ -3,25 +3,21 @@ import PencilKit
 import Combine
 import GroupActivities
 
-protocol DrawingViewControllerDelegate: AnyObject {
-    func didCaptureImage(_ data: Data)
-}
-
 final class DrawingViewController: UIViewController, ObservableObject, PKCanvasViewDelegate, PKToolPickerObserver {
     var note: Bindable<Note>?
     
     let toolPicker = PKToolPicker()
     let canvasView = PKCanvasView()
-    weak var delegate: DrawingViewControllerDelegate?
     var selectedPage = 0
     
+    private let bounds = UIScreen.main.bounds
     private let canvasOverscrollHeight = UIScreen.main.bounds.height * 1.2
     
-    private var isRemoteUpdate = false
-    private var subscriptions = Set<AnyCancellable>()
-    private var tasks = Set<Task<Void, Never>>()
-    private var messenger: GroupSessionMessenger?
-    private var journal: GroupSessionJournal?
+    var isRemoteUpdate = false
+    var subscriptions = Set<AnyCancellable>()
+    var tasks = Set<Task<Void, Never>>()
+    var messenger: GroupSessionMessenger?
+    var journal: GroupSessionJournal?
     @Published var groupSession: GroupSession<WorkbookProGroupSession>?
     
     override func viewDidLoad() {
@@ -53,132 +49,8 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
         super.viewWillDisappear(animated)
         
         // Capture a screenshot of the canvas
-        if let capturedImage = canvasView.drawing.image(from: .init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height), scale: 1).heicData() {
-            delegate?.didCaptureImage(capturedImage)
-        }
-    }
-    
-    func reset() {
-        // Tear down the existing groupSession
-        messenger = nil
-        journal = nil
-        
-        tasks.forEach {
-            $0.cancel()
-        }
-        
-        tasks = []
-        subscriptions = []
-        
-        if groupSession != nil {
-            groupSession?.leave()
-            groupSession = nil
-            self.startSharing()
-        }
-    }
-    
-    func sendUpdate() {
-        print(#function)
-        
-        if let messenger: GroupSessionMessenger = self.messenger {
-            Task {
-                try? await messenger.send(
-                    UpdateMessage(strokes: note?.pages.wrappedValue ?? [])
-                )
-            }
-        }
-    }
-    
-    func startSharing() {
-        Task {
-            do {
-                _ = try await WorkbookProGroupSession().activate()
-            } catch {
-                print("Failed to activate DrawTogether activity: \(error)")
-            }
-        }
-    }
-    
-    func configureGroupSession(_ groupSession: GroupSession<WorkbookProGroupSession>) {
-        print(#function)
-        
-        // Assign the passed group session to the instance variable
-        self.groupSession = groupSession
-        
-        messenger = GroupSessionMessenger(session: groupSession)
-        journal = GroupSessionJournal(session: groupSession)
-        
-        // Monitot group session state
-        groupSession.$state
-            .sink { [weak self] state in
-                if case .invalidated = state {
-                    self?.groupSession = nil
-                    self?.reset()
-                }
-            }
-            .store(in: &subscriptions)
-        
-        // Monitor active participants in the group session
-        groupSession.$activeParticipants
-            .sink { [weak self] activeParticipants in
-                
-                guard let self else {
-                    return
-                }
-                
-                let newParticipants = activeParticipants.subtracting(groupSession.activeParticipants)
-                
-                Task {
-                    try? await self.messenger!.send(
-                        UpdateMessage(strokes: self.note?.pages.wrappedValue ?? []),
-                        to: .only(newParticipants)
-                    )
-                }
-            }
-            .store(in: &subscriptions)
-        
-        // Handle setup messages
-        var task: Task<Void, Never> = Task {
-            for await (message, _) in self.messenger!.messages(of: SetupMessage.self) {
-                handle(message)
-            }
-        }
-        
-        tasks.insert(task)
-        
-        // Handle update messages
-        task = Task {
-            for await (message, _) in self.messenger!.messages(of: UpdateMessage.self) {
-                handle(message)
-            }
-        }
-        
-        tasks.insert(task)
-        
-        // Uncomment this section if you need to handle images from journal attachments
-        // task = Task {
-        //     for await images in journal.attachments {
-        //         await handle(images)
-        //     }
-        // }
-        // tasks.insert(task)
-        
-        groupSession.join()
-    }
-    
-    func handle(_ message: SetupMessage) {
-        print(#function)
-        
-        
-    }
-    
-    func handle(_ message: UpdateMessage) {
-        print(#function)
-        
-        isRemoteUpdate = true
-        
-        if let updatedDrawing = try? PKDrawing(data: message.strokes.first!) {
-            canvasView.drawing = updatedDrawing
+        if let capturedImage = canvasView.drawing.image(from: .init(x: 0, y: 0, width: bounds.width, height: bounds.height), scale: 1).heicData() {
+            note?.image.wrappedValue = capturedImage
         }
     }
     
@@ -204,31 +76,7 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
         print("Count \(note!.pages.count), selected \(selectedPage)")
         loadDrawing(from: note!.pages[selectedPage].wrappedValue)
     }
-    
-    func addPage() {
-        print(#function)
         
-        note?.pages.wrappedValue.append(Data())
-    }
-    
-    func nextPage() {
-        print(#function)
-        
-        if note!.pages.count - 1 == selectedPage {
-            addPage()
-        }
-        
-        selectedPage += 1
-        loadDrawing(from: note!.pages[selectedPage].wrappedValue)
-    }
-    
-    func previousPage() {
-        print(#function)
-        
-        selectedPage -= 1
-        loadDrawing(from: note!.pages[selectedPage].wrappedValue)
-    }
-    
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
         print(#function)
         
@@ -304,37 +152,5 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
         }
         
         canvasView.contentSize = CGSize(width: contentWidth * canvasView.zoomScale, height: contentHeight)
-    }
-}
-
-extension DrawingViewController {
-    func toolPickerSelectedToolDidChange(_ toolPicker: PKToolPicker) {
-        // Access the selected tool
-        let tool = toolPicker.selectedTool
-        
-        // Print or use tool details
-        printToolDetails(tool)
-    }
-    
-    private func printToolDetails(_ tool: PKTool) {
-        // Format a string with tool details and print it
-        let toolDescription = description(for: tool)
-        print(toolDescription)
-    }
-    
-    private func description(for tool: PKTool) -> String {
-        switch tool {
-        case let inkingTool as PKInkingTool:
-            "Inking Tool: Type \(inkingTool.inkType.rawValue), Color: \(inkingTool.color.hexString()), Width: \(inkingTool.width)"
-            
-        case let eraserTool as PKEraserTool:
-            "Eraser: Type \(eraserTool.eraserType), width: \(eraserTool.width)"
-            
-        case let lassoTool as PKLassoTool:
-            "Lasso: \(lassoTool)"
-            
-        default:
-            "Unknown Tool"
-        }
     }
 }

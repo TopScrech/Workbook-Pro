@@ -1,9 +1,9 @@
 import Foundation
 
-struct SetupMessage: Codable {
+struct SetupCommand: Codable {
     let name: String
 }
 
-struct UpdateMessage: Codable {
+struct UpdateCommand: Codable {
     let strokes: [Data]
 }

@@ -1,7 +1,7 @@
 import SwiftUI
 import PencilKit
 
-class DrawingVM: ObservableObject {
+final class DrawingVM: ObservableObject {
     var vc: DrawingViewController?
     
     func changeToolWidth(to newWidth: CGFloat) {
