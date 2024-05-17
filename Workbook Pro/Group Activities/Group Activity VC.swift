@@ -38,7 +38,7 @@ extension DrawingViewController {
             do {
                 _ = try await WorkbookProGroupSession().activate()
             } catch {
-                print("Failed to activate DrawTogether activity: \(error)")
+                print("Failed to activate DrawTogether activity: \(error.localizedDescription)")
             }
         }
     }

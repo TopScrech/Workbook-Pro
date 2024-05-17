@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct DrawingRepresentable: UIViewControllerRepresentable {
-    @EnvironmentObject private var controller: DrawingVM
+    @Environment(DrawingVM.self) private var controller
     
     @Bindable private var note: Note
     

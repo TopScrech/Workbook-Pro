@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct DrawingView: View {
-    @StateObject private var vm = DrawingVM()
+    @Bindable private var vm = DrawingVM()
     @EnvironmentObject private var storage: Storage
     @Environment(\.dismiss) private var dismiss
     
@@ -13,7 +13,7 @@ struct DrawingView: View {
     
     var body: some View {
         DrawingRepresentable(note)
-            .environmentObject(vm)
+            .environment(vm)
             .ignoresSafeArea()
             .toolbar(storage.showNavBar ? .visible : .hidden, for: .navigationBar)
             .statusBarHidden(!storage.showStatusBar)
@@ -67,12 +67,6 @@ struct DrawingView: View {
             )
             .toolbar {
                 ToolbarItemGroup(placement: .topBarLeading) {
-                    if vm.vc?.groupSession?.state != .joined {
-                        Button("Share") {
-                            vm.vc?.startSharing()
-                        }
-                    }
-                    
                     Button {
                         vm.deletePage()
                     } label: {
@@ -94,6 +88,20 @@ struct DrawingView: View {
                 }
                 
                 ToolbarItemGroup(placement: .topBarTrailing) {
+                    if vm.vc?.groupSession?.state != .joined {
+                        Menu {
+                            Button {
+                                vm.vc?.startSharing()
+                            } label: {
+                                Label("SharePlay", systemImage: "shareplay")
+                            }
+                        } label: {
+                            Image(systemName: "person.crop.circle.badge.plus")
+                                .symbolRenderingMode(.multicolor)
+                                .tint(.secondary)
+                        }
+                    }
+                    
                     Menu {
                         Button("Clear") {
                             vm.clear()

@@ -1,10 +1,11 @@
 import SwiftUI
 import PencilKit
 
-final class DrawingVM: ObservableObject {
+@Observable
+final class DrawingVM {
     var vc: DrawingViewController?
     
-    @Published var toolWidth = 5.0
+    var toolWidth = 5.0
     
     var isFirstPage: Bool {
         vc?.selectedPage == 0

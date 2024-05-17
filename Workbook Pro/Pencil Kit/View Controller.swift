@@ -23,10 +23,14 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set up canvas
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            canvasView.drawingPolicy = .pencilOnly
+        } else {
+            canvasView.drawingPolicy = .anyInput
+        }
+        
         canvasView.frame = view.bounds
         canvasView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        canvasView.drawingPolicy = .anyInput
         canvasView.delegate = self
         canvasView.isScrollEnabled = true
         canvasView.alwaysBounceVertical = true
@@ -34,12 +38,13 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
         view.addSubview(canvasView)
         
         // Load saved drawing
-        loadDrawing(from: note?.pages.first?.wrappedValue ?? Data())
         
         // Configure tool picker
         toolPicker.setVisible(true, forFirstResponder: canvasView)
         toolPicker.addObserver(canvasView)
         toolPicker.addObserver(self)
+        
+        loadDrawing(from: note?.pages.first?.wrappedValue ?? Data())
         canvasView.becomeFirstResponder()
     }
     
@@ -76,7 +81,7 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
         print("Count \(note!.pages.count), selected \(selectedPage)")
         loadDrawing(from: note!.pages[selectedPage].wrappedValue)
     }
-        
+    
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
         print(#function)
         
