@@ -35,6 +35,12 @@
     "Duplicate" : {
 
     },
+    "Erase" : {
+
+    },
+    "Erase this page?" : {
+
+    },
     "Page %lld of %lld" : {
       "localizations" : {
         "en" : {

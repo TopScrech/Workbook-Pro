@@ -11,6 +11,8 @@ struct DrawingView: View {
         self.note = note
     }
     
+    @State private var dialogErase = false
+    
     var body: some View {
         DrawingRepresentable(note)
             .environment(vm)
@@ -68,7 +70,7 @@ struct DrawingView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .topBarLeading) {
                     Button {
-                        vm.deletePage()
+                        dialogErase = true
                     } label: {
                         Image(systemName: "trash")
                             .foregroundStyle(.red)
@@ -82,6 +84,11 @@ struct DrawingView: View {
                             .foregroundStyle(.red)
                     }
                     .disabled(vm.strokes == 0)
+                    .confirmationDialog("Erase this page?", isPresented: $dialogErase) {
+                        Button("Erase", role: .destructive) {
+                            vm.deletePage()
+                        }
+                    }
                     
                     Text("\(vm.strokes ?? 0) strokes")
                         .numericTransition()
