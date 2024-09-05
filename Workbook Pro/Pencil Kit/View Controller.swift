@@ -154,6 +154,9 @@ final class DrawingViewController: UIViewController, ObservableObject, PKCanvasV
             contentWidth = UIScreen.main.bounds.width
         }
         
-        canvasView.contentSize = CGSize(width: contentWidth * canvasView.zoomScale, height: contentHeight)
+        canvasView.contentSize = CGSize(
+            width: contentWidth * canvasView.zoomScale,
+            height: contentHeight
+        )
     }
 }
