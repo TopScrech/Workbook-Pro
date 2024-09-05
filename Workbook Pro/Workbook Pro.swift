@@ -21,7 +21,7 @@ struct WorkbookPro: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppContainer()
                 .environmentObject(storage)
         }
         .modelContainer(sharedModelContainer)

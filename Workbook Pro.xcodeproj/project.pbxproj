@@ -13,7 +13,7 @@
 		F38114FD2BF1624500F6AD6D /* Drawing Representable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38114FC2BF1624500F6AD6D /* Drawing Representable.swift */; };
 		F38114FF2BF28B4500F6AD6D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */; };
 		F392A2C22BED772B008EAD12 /* Workbook Pro.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C12BED772B008EAD12 /* Workbook Pro.swift */; };
-		F392A2C42BED772B008EAD12 /* Content View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C32BED772B008EAD12 /* Content View.swift */; };
+		F392A2C42BED772B008EAD12 /* App Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C32BED772B008EAD12 /* App Container.swift */; };
 		F392A2C62BED772B008EAD12 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C52BED772B008EAD12 /* Item.swift */; };
 		F392A2C82BED772C008EAD12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F392A2C72BED772C008EAD12 /* Assets.xcassets */; };
 		F392A2D62BEE0896008EAD12 /* View Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2D52BEE0896008EAD12 /* View Controller.swift */; };
@@ -38,7 +38,7 @@
 		F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		F392A2BE2BED772B008EAD12 /* Workbook Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workbook Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F392A2C12BED772B008EAD12 /* Workbook Pro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workbook Pro.swift"; sourceTree = "<group>"; };
-		F392A2C32BED772B008EAD12 /* Content View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content View.swift"; sourceTree = "<group>"; };
+		F392A2C32BED772B008EAD12 /* App Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Container.swift"; sourceTree = "<group>"; };
 		F392A2C52BED772B008EAD12 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F392A2C72BED772C008EAD12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F392A2D52BEE0896008EAD12 /* View Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View Controller.swift"; sourceTree = "<group>"; };
@@ -93,6 +93,14 @@
 			path = "Pencil Kit";
 			sourceTree = "<group>";
 		};
+		F36B736B2C89AD9300E858FE /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				F392A2C32BED772B008EAD12 /* App Container.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		F392A2B52BED772B008EAD12 = {
 			isa = PBXGroup;
 			children = (
@@ -118,8 +126,8 @@
 				F332167A2BEEC32B00F6AB52 /* Workbook-Pro-Info.plist */,
 				F392A2C72BED772C008EAD12 /* Assets.xcassets */,
 				F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */,
+				F36B736B2C89AD9300E858FE /* Navigation */,
 				F3E6D91C2BF670F1008B810E /* Extensions */,
-				F392A2C32BED772B008EAD12 /* Content View.swift */,
 				F392A2DB2BEE10B7008EAD12 /* Note List.swift */,
 				F392A2E22BEE50ED008EAD12 /* Drawing View.swift */,
 				F33216802BEF768100F6AB52 /* Drawing VM.swift */,
@@ -231,7 +239,7 @@
 				F3E6D91E2BF6710D008B810E /* UIColor.swift in Sources */,
 				F38114FD2BF1624500F6AD6D /* Drawing Representable.swift in Sources */,
 				F33216812BEF768100F6AB52 /* Drawing VM.swift in Sources */,
-				F392A2C42BED772B008EAD12 /* Content View.swift in Sources */,
+				F392A2C42BED772B008EAD12 /* App Container.swift in Sources */,
 				F3E6D9182BF654E0008B810E /* Group Activity.swift in Sources */,
 				F3F5BC772BF6B8EB00EB8FB1 /* Tools.swift in Sources */,
 				F3E6D91A2BF65554008B810E /* Messages.swift in Sources */,

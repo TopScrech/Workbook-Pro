@@ -115,8 +115,13 @@ struct NoteList: View {
             }
             
             ToolbarItemGroup(placement: .topBarTrailing) {
-                Button("Create new") {
+                Button {
                     create()
+                } label: {
+#warning("Too big image size")
+                    Image(.add)
+                        .resizable()
+                        .frame(width: 32, height: 32)
                 }
             }
         }
