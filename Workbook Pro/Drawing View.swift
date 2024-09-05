@@ -70,7 +70,7 @@ struct DrawingView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .topBarLeading) {
                     Button {
-                        dialogErase = true
+                        vm.deletePage()
                     } label: {
                         Image(systemName: "trash")
                             .foregroundStyle(.red)
@@ -78,7 +78,7 @@ struct DrawingView: View {
                     .disabled(note.pages.count == 1)
                     
                     Button(role: .destructive) {
-                        vm.clear()
+                        dialogErase = true
                     } label: {
                         Label("Clear", systemImage: "eraser")
                             .foregroundStyle(.red)
@@ -86,7 +86,7 @@ struct DrawingView: View {
                     .disabled(vm.strokes == 0)
                     .confirmationDialog("Erase this page?", isPresented: $dialogErase) {
                         Button("Erase", role: .destructive) {
-                            vm.deletePage()
+                            vm.clear()
                         }
                     }
                     
