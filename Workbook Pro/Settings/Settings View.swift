@@ -8,6 +8,10 @@ struct SettingsView: View {
             Toggle("Show nav bar", isOn: storage.$showNavBar)
             
             Toggle("Show status bar", isOn: storage.$showStatusBar)
+            
+            Section("BETA") {
+                Toggle("Enable Group Activities", isOn: storage.$enableGroupActivities)
+            }
         }
     }
 }

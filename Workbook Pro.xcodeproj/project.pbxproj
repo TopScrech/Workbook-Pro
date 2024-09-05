@@ -66,6 +66,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F3187A562C89A61C008FB911 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F33216822BEF76FB00F6AB52 /* Settings View.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		F33216792BEEBFB300F6AB52 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,10 +120,10 @@
 				F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */,
 				F3E6D91C2BF670F1008B810E /* Extensions */,
 				F392A2C32BED772B008EAD12 /* Content View.swift */,
-				F33216822BEF76FB00F6AB52 /* Settings View.swift */,
 				F392A2DB2BEE10B7008EAD12 /* Note List.swift */,
 				F392A2E22BEE50ED008EAD12 /* Drawing View.swift */,
 				F33216802BEF768100F6AB52 /* Drawing VM.swift */,
+				F3187A562C89A61C008FB911 /* Settings */,
 				F3E6D91B2BF657CD008B810E /* Group Activities */,
 				F332167D2BEF59A400F6AB52 /* Pencil Kit */,
 				F33216792BEEBFB300F6AB52 /* Model */,

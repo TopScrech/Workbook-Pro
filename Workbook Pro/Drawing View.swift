@@ -95,7 +95,7 @@ struct DrawingView: View {
                 }
                 
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    if vm.vc?.groupSession?.state != .joined {
+                    if vm.vc?.groupSession?.state != .joined, storage.enableGroupActivities {
                         Menu {
                             Button {
                                 vm.vc?.startSharing()
