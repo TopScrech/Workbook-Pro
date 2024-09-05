@@ -1,5 +1,5 @@
 {
-  "originHash" : "fe0e4f745e80a39791f1b8ef36548292381488f2cde2c7d12cd93483d64241da",
+  "originHash" : "5d7a88f6dde7803a53712341ac371d42afd7cc1b6185e9d6cfe1fdc826f17f42",
   "pins" : [
     {
       "identity" : "screchkit",
@@ -8,6 +8,15 @@
       "state" : {
         "branch" : "main",
         "revision" : "944c3487f894bf03bb53590d64bd96d65af0e00b"
+      }
+    },
+    {
+      "identity" : "swifto-crypto",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/TopScrech/Swifto-Crypto",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ae742910100c8d79824966bcda5bfb92ecc28884"
       }
     }
   ],

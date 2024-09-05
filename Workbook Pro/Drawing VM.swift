@@ -1,7 +1,19 @@
+import SwiftUI
 import PencilKit
 
-class DrawingVM: ObservableObject {
+@Observable
+final class DrawingVM {
     var vc: DrawingViewController?
+    
+    var toolWidth = 5.0
+    
+    var isFirstPage: Bool {
+        vc?.selectedPage == 0
+    }
+    
+    var strokes: Int? {
+        vc?.canvasView.drawing.strokes.count
+    }
     
     func changeToolWidth(to newWidth: CGFloat) {
         vc?.changeToolWidth(to: newWidth)

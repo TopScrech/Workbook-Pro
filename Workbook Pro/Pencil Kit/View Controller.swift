@@ -1,40 +1,48 @@
 import SwiftUI
 import PencilKit
+import Combine
+import GroupActivities
 
-protocol DrawingViewControllerDelegate: AnyObject {
-    func didCaptureImage(_ data: Data)
-}
-
-final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToolPickerObserver {
+final class DrawingViewController: UIViewController, ObservableObject, PKCanvasViewDelegate, PKToolPickerObserver {
     var note: Bindable<Note>?
     
     let toolPicker = PKToolPicker()
     let canvasView = PKCanvasView()
-    weak var delegate: DrawingViewControllerDelegate?
     var selectedPage = 0
     
+    private let bounds = UIScreen.main.bounds
     private let canvasOverscrollHeight = UIScreen.main.bounds.height * 1.2
+    
+    var isRemoteUpdate = false
+    var subscriptions = Set<AnyCancellable>()
+    var tasks = Set<Task<Void, Never>>()
+    var messenger: GroupSessionMessenger?
+    var journal: GroupSessionJournal?
+    @Published var groupSession: GroupSession<WorkbookProGroupSession>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set up canvas
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            canvasView.drawingPolicy = .pencilOnly
+        } else {
+            canvasView.drawingPolicy = .anyInput
+        }
+        
         canvasView.frame = view.bounds
         canvasView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        canvasView.drawingPolicy = .pencilOnly
         canvasView.delegate = self
         canvasView.isScrollEnabled = true
         canvasView.alwaysBounceVertical = true
         
         view.addSubview(canvasView)
         
-        // Load saved drawing
-        loadDrawing(from: note?.pages.first?.wrappedValue ?? Data())
-        
         // Configure tool picker
         toolPicker.setVisible(true, forFirstResponder: canvasView)
         toolPicker.addObserver(canvasView)
         toolPicker.addObserver(self)
+        
+        loadDrawing(from: note?.pages.first?.wrappedValue ?? Data())
         canvasView.becomeFirstResponder()
     }
     
@@ -44,8 +52,8 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         super.viewWillDisappear(animated)
         
         // Capture a screenshot of the canvas
-        if let capturedImage = canvasView.drawing.image(from: .init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height), scale: 1).heicData() {
-            delegate?.didCaptureImage(capturedImage)
+        if let capturedImage = canvasView.drawing.image(from: .init(x: 0, y: 0, width: bounds.width, height: bounds.height), scale: 1).heicData() {
+            note?.image.wrappedValue = capturedImage
         }
     }
     
@@ -64,34 +72,11 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         
         // After deletion, check and adjust the selectedPage if it's now out of bounds
         if selectedPage >= note!.pages.count {
-            selectedPage = max(note!.pages.count - 1, 0) // Adjust to last page or to 0 if all were deleted
+            // Adjust to last page or to 0 if all were deleted
+            selectedPage = max(note!.pages.count - 1, 0)
         }
         
         print("Count \(note!.pages.count), selected \(selectedPage)")
-        loadDrawing(from: note!.pages[selectedPage].wrappedValue)
-    }
-    
-    func addPage() {
-        print(#function)
-        
-        note?.pages.wrappedValue.append(Data())
-    }
-    
-    func nextPage() {
-        print(#function)
-        
-        if note!.pages.count - 1 == selectedPage {
-            addPage()
-        }
-        
-        selectedPage += 1
-        loadDrawing(from: note!.pages[selectedPage].wrappedValue)
-    }
-    
-    func previousPage() {
-        print(#function)
-        
-        selectedPage -= 1
         loadDrawing(from: note!.pages[selectedPage].wrappedValue)
     }
     
@@ -100,6 +85,12 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
         
         updateContentSizeForDrawing()
         saveDrawing()
+        
+        if !isRemoteUpdate {
+            sendUpdate()
+        }
+        
+        isRemoteUpdate = false
     }
     
     private func saveDrawing() {
@@ -163,49 +154,9 @@ final class DrawingViewController: UIViewController, PKCanvasViewDelegate, PKToo
             contentWidth = UIScreen.main.bounds.width
         }
         
-        canvasView.contentSize = CGSize(width: contentWidth * canvasView.zoomScale, height: contentHeight)
-    }
-}
-
-extension DrawingViewController {
-    func toolPickerSelectedToolDidChange(_ toolPicker: PKToolPicker) {
-        // Access the selected tool
-        let tool = toolPicker.selectedTool
-        
-        // Print or use tool details
-        printToolDetails(tool)
-    }
-    
-    private func printToolDetails(_ tool: PKTool) {
-        // Format a string with tool details and print it
-        let toolDescription = description(for: tool)
-        print(toolDescription)
-    }
-    
-    private func description(for tool: PKTool) -> String {
-        switch tool {
-        case let inkingTool as PKInkingTool:
-            "Inking Tool: Type \(inkingTool.inkType.rawValue), Color: \(inkingTool.color.hexString()), Width: \(inkingTool.width)"
-            
-        case let eraserTool as PKEraserTool:
-            "Eraser: Type \(eraserTool.eraserType), width: \(eraserTool.width)"
-            
-        case let lassoTool as PKLassoTool:
-            "Lasso: \(lassoTool)"
-            
-        default:
-            "Unknown Tool"
-        }
-    }
-}
-
-// Helper extension to convert UIColor to Hex String for better readability
-extension UIColor {
-    func hexString() -> String {
-        let components = self.cgColor.components ?? [0, 0, 0]
-        let r = Float(components[0])
-        let g = Float(components[1])
-        let b = Float(components[2])
-        return String(format: "#%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255))
+        canvasView.contentSize = CGSize(
+            width: contentWidth * canvasView.zoomScale,
+            height: contentHeight
+        )
     }
 }

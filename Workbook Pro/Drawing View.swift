@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct DrawingView: View {
-    @StateObject private var drawingController = DrawingVM()
+    @Bindable private var vm = DrawingVM()
     @EnvironmentObject private var storage: Storage
     @Environment(\.dismiss) private var dismiss
     
@@ -11,26 +11,49 @@ struct DrawingView: View {
         self.note = note
     }
     
-    @State private var toolWidth: CGFloat = 5
-    
-    private var isFirstPage: Bool {
-        drawingController.vc?.selectedPage == 0
-    }
-    
-    private var strokes: Int? {
-        drawingController.vc?.canvasView.drawing.strokes.count
-    }
-    
     var body: some View {
-        //        Button("dismiss") {
-        //            dismiss()
-        //        }
-        
-        DrawingRepresentable(note: note)
-            .environmentObject(drawingController)
+        DrawingRepresentable(note)
+            .environment(vm)
             .ignoresSafeArea()
             .toolbar(storage.showNavBar ? .visible : .hidden, for: .navigationBar)
             .statusBarHidden(!storage.showStatusBar)
+            .task {
+                for await session in WorkbookProGroupSession.sessions() {
+                    vm.vc?.configureGroupSession(session)
+                }
+            }
+            .overlay(alignment: .topLeading) {
+                HStack(spacing: 4) {
+                    Button {
+                        vm.previous()
+                    } label: {
+                        Image(systemName: "arrow.backward")
+                    }
+                    .disabled(vm.isFirstPage)
+                    
+                    Divider()
+                        .frame(height: 20)
+                    
+                    if let selectedPage = vm.vc?.selectedPage {
+                        Text("Page \(selectedPage + 1) of \(note.pages.count)")
+                            .monospacedDigit()
+                    }
+                    
+                    Divider()
+                        .frame(height: 20)
+                    
+                    Button {
+                        vm.next()
+                    } label: {
+                        Image(systemName: "arrow.forward")
+                            .foregroundStyle(.foreground)
+                    }
+                }
+                .footnote()
+                .padding(.horizontal, 4)
+                .background(.ultraThickMaterial, in: .rect(cornerRadius: 5))
+                .padding(5)
+            }
             .gesture(
                 DragGesture()
                     .onChanged { value in
@@ -44,21 +67,8 @@ struct DrawingView: View {
             )
             .toolbar {
                 ToolbarItemGroup(placement: .topBarLeading) {
-                    if let selectedPage = drawingController.vc?.selectedPage {
-                        Text("Page \(selectedPage + 1) of \(note.pages.count)")
-                    }
-                    
-                    Button("Previous") {
-                        drawingController.previous()
-                    }
-                    .disabled(isFirstPage)
-                    
-                    Button("Next") {
-                        drawingController.next()
-                    }
-                    
                     Button {
-                        drawingController.deletePage()
+                        vm.deletePage()
                     } label: {
                         Image(systemName: "trash")
                             .foregroundStyle(.red)
@@ -66,39 +76,54 @@ struct DrawingView: View {
                     .disabled(note.pages.count == 1)
                     
                     Button(role: .destructive) {
-                        drawingController.clear()
+                        vm.clear()
                     } label: {
                         Label("Clear", systemImage: "eraser")
                             .foregroundStyle(.red)
                     }
-                    .disabled(strokes == 0)
+                    .disabled(vm.strokes == 0)
                     
-                    Text("Total strokes: \(strokes ?? 0)")
+                    Text("\(vm.strokes ?? 0) strokes")
+                        .numericTransition()
                 }
                 
                 ToolbarItemGroup(placement: .topBarTrailing) {
+                    if vm.vc?.groupSession?.state != .joined {
+                        Menu {
+                            Button {
+                                vm.vc?.startSharing()
+                            } label: {
+                                Label("SharePlay", systemImage: "shareplay")
+                            }
+                        } label: {
+                            Image(systemName: "person.crop.circle.badge.plus")
+                                .symbolRenderingMode(.multicolor)
+                                .tint(.secondary)
+                        }
+                    }
+                    
                     Menu {
                         Button("Clear") {
-                            drawingController.clear()
+                            vm.clear()
                         }
                         
                         Button("Undo") {
-                            drawingController.undo()
+                            vm.undo()
                         }
                         
                         Button("Redo") {
-                            drawingController.redo()
+                            vm.redo()
                         }
                         
                         Divider()
                         
-                        Text(toolWidth)
+                        Text(vm.toolWidth)
                         
-                        Slider(value: $toolWidth, in: 1...100, step: 0.1)
+                        Slider(value: $vm.toolWidth, in: 1...100, step: 0.1)
                             .padding()
                         
                         Button("Set Tool Width") {
-                            drawingController.changeToolWidth(to: toolWidth)
+                            vm.changeToolWidth(to: vm.toolWidth)
                         }
                     } label: {
                         Image(systemName: "ellipsis.circle")
@@ -108,7 +133,7 @@ struct DrawingView: View {
     }
 }
 
-//#Preview {
-//    DrawingView()
-//      .environmentObject(Storage())
-//}
+#Preview {
+    DrawingView(.init("Preview"))
+        .environmentObject(Storage())
+}

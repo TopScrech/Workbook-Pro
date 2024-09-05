@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F332167C2BEF599D00F6AB52 /* Change tool width.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332167B2BEF599D00F6AB52 /* Change tool width.swift */; };
 		F332167F2BEF75FC00F6AB52 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332167E2BEF75FC00F6AB52 /* Storage.swift */; };
 		F33216812BEF768100F6AB52 /* Drawing VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216802BEF768100F6AB52 /* Drawing VM.swift */; };
 		F33216832BEF76FB00F6AB52 /* Settings View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216822BEF76FB00F6AB52 /* Settings View.swift */; };
 		F38114FD2BF1624500F6AD6D /* Drawing Representable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38114FC2BF1624500F6AD6D /* Drawing Representable.swift */; };
-		F392A2C22BED772B008EAD12 /* Workbook Pro App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C12BED772B008EAD12 /* Workbook Pro App.swift */; };
+		F38114FF2BF28B4500F6AD6D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */; };
+		F392A2C22BED772B008EAD12 /* Workbook Pro.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C12BED772B008EAD12 /* Workbook Pro.swift */; };
 		F392A2C42BED772B008EAD12 /* Content View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C32BED772B008EAD12 /* Content View.swift */; };
 		F392A2C62BED772B008EAD12 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C52BED772B008EAD12 /* Item.swift */; };
 		F392A2C82BED772C008EAD12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F392A2C72BED772C008EAD12 /* Assets.xcassets */; };
@@ -20,23 +20,37 @@
 		F392A2DC2BEE10B7008EAD12 /* Note List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2DB2BEE10B7008EAD12 /* Note List.swift */; };
 		F392A2DF2BEE113E008EAD12 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F392A2DE2BEE113E008EAD12 /* ScrechKit */; };
 		F392A2E32BEE50ED008EAD12 /* Drawing View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2E22BEE50ED008EAD12 /* Drawing View.swift */; };
+		F3C50ECF2BF81D4300DF017F /* Swifto Crypto in Frameworks */ = {isa = PBXBuildFile; productRef = F3C50ECE2BF81D4300DF017F /* Swifto Crypto */; };
+		F3E6D9182BF654E0008B810E /* Group Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E6D9172BF654E0008B810E /* Group Activity.swift */; };
+		F3E6D91A2BF65554008B810E /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E6D9192BF65554008B810E /* Messages.swift */; };
+		F3E6D91E2BF6710D008B810E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E6D91D2BF6710D008B810E /* UIColor.swift */; };
+		F3F5BC752BF6B83400EB8FB1 /* Group Activity VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5BC742BF6B83400EB8FB1 /* Group Activity VC.swift */; };
+		F3F5BC772BF6B8EB00EB8FB1 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5BC762BF6B8EB00EB8FB1 /* Tools.swift */; };
+		F3F5BC792BF6B93700EB8FB1 /* Pages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5BC782BF6B93700EB8FB1 /* Pages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F332167A2BEEC32B00F6AB52 /* Workbook-Pro-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Workbook-Pro-Info.plist"; sourceTree = SOURCE_ROOT; };
-		F332167B2BEF599D00F6AB52 /* Change tool width.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Change tool width.swift"; sourceTree = "<group>"; };
 		F332167E2BEF75FC00F6AB52 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		F33216802BEF768100F6AB52 /* Drawing VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing VM.swift"; sourceTree = "<group>"; };
 		F33216822BEF76FB00F6AB52 /* Settings View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings View.swift"; sourceTree = "<group>"; };
 		F38114FC2BF1624500F6AD6D /* Drawing Representable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing Representable.swift"; sourceTree = "<group>"; };
+		F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		F392A2BE2BED772B008EAD12 /* Workbook Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workbook Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F392A2C12BED772B008EAD12 /* Workbook Pro App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workbook Pro App.swift"; sourceTree = "<group>"; };
+		F392A2C12BED772B008EAD12 /* Workbook Pro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workbook Pro.swift"; sourceTree = "<group>"; };
 		F392A2C32BED772B008EAD12 /* Content View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content View.swift"; sourceTree = "<group>"; };
 		F392A2C52BED772B008EAD12 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F392A2C72BED772C008EAD12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F392A2D52BEE0896008EAD12 /* View Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View Controller.swift"; sourceTree = "<group>"; };
 		F392A2DB2BEE10B7008EAD12 /* Note List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note List.swift"; sourceTree = "<group>"; };
 		F392A2E22BEE50ED008EAD12 /* Drawing View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing View.swift"; sourceTree = "<group>"; };
+		F3E6D9162BF653A6008B810E /* Workbook Pro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Workbook Pro.entitlements"; sourceTree = "<group>"; };
+		F3E6D9172BF654E0008B810E /* Group Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group Activity.swift"; sourceTree = "<group>"; };
+		F3E6D9192BF65554008B810E /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		F3E6D91D2BF6710D008B810E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		F3F5BC742BF6B83400EB8FB1 /* Group Activity VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group Activity VC.swift"; sourceTree = "<group>"; };
+		F3F5BC762BF6B8EB00EB8FB1 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		F3F5BC782BF6B93700EB8FB1 /* Pages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3C50ECF2BF81D4300DF017F /* Swifto Crypto in Frameworks */,
 				F392A2DF2BEE113E008EAD12 /* ScrechKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,8 +78,9 @@
 			isa = PBXGroup;
 			children = (
 				F392A2D52BEE0896008EAD12 /* View Controller.swift */,
+				F3F5BC782BF6B93700EB8FB1 /* Pages.swift */,
+				F3F5BC762BF6B8EB00EB8FB1 /* Tools.swift */,
 				F38114FC2BF1624500F6AD6D /* Drawing Representable.swift */,
-				F332167B2BEF599D00F6AB52 /* Change tool width.swift */,
 			);
 			path = "Pencil Kit";
 			sourceTree = "<group>";
@@ -88,19 +104,41 @@
 		F392A2C02BED772B008EAD12 /* Workbook Pro */ = {
 			isa = PBXGroup;
 			children = (
+				F392A2C12BED772B008EAD12 /* Workbook Pro.swift */,
+				F332167E2BEF75FC00F6AB52 /* Storage.swift */,
+				F3E6D9162BF653A6008B810E /* Workbook Pro.entitlements */,
 				F332167A2BEEC32B00F6AB52 /* Workbook-Pro-Info.plist */,
 				F392A2C72BED772C008EAD12 /* Assets.xcassets */,
-				F392A2C12BED772B008EAD12 /* Workbook Pro App.swift */,
-				F332167E2BEF75FC00F6AB52 /* Storage.swift */,
+				F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */,
+				F3E6D91C2BF670F1008B810E /* Extensions */,
 				F392A2C32BED772B008EAD12 /* Content View.swift */,
 				F33216822BEF76FB00F6AB52 /* Settings View.swift */,
 				F392A2DB2BEE10B7008EAD12 /* Note List.swift */,
 				F392A2E22BEE50ED008EAD12 /* Drawing View.swift */,
 				F33216802BEF768100F6AB52 /* Drawing VM.swift */,
+				F3E6D91B2BF657CD008B810E /* Group Activities */,
 				F332167D2BEF59A400F6AB52 /* Pencil Kit */,
 				F33216792BEEBFB300F6AB52 /* Model */,
 			);
 			path = "Workbook Pro";
+			sourceTree = "<group>";
+		};
+		F3E6D91B2BF657CD008B810E /* Group Activities */ = {
+			isa = PBXGroup;
+			children = (
+				F3E6D9192BF65554008B810E /* Messages.swift */,
+				F3E6D9172BF654E0008B810E /* Group Activity.swift */,
+				F3F5BC742BF6B83400EB8FB1 /* Group Activity VC.swift */,
+			);
+			path = "Group Activities";
+			sourceTree = "<group>";
+		};
+		F3E6D91C2BF670F1008B810E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F3E6D91D2BF6710D008B810E /* UIColor.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,6 +159,7 @@
 			name = "Workbook Pro";
 			packageProductDependencies = (
 				F392A2DE2BEE113E008EAD12 /* ScrechKit */,
+				F3C50ECE2BF81D4300DF017F /* Swifto Crypto */,
 			);
 			productName = "Workbook Pro";
 			productReference = F392A2BE2BED772B008EAD12 /* Workbook Pro.app */;
@@ -152,6 +191,7 @@
 			mainGroup = F392A2B52BED772B008EAD12;
 			packageReferences = (
 				F392A2DD2BEE113E008EAD12 /* XCRemoteSwiftPackageReference "ScrechKit" */,
+				F3C50ECD2BF81D4300DF017F /* XCRemoteSwiftPackageReference "Swifto-Crypto" */,
 			);
 			productRefGroup = F392A2BF2BED772B008EAD12 /* Products */;
 			projectDirPath = "";
@@ -167,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F38114FF2BF28B4500F6AD6D /* Localizable.xcstrings in Resources */,
 				F392A2C82BED772C008EAD12 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,15 +220,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				F392A2E32BEE50ED008EAD12 /* Drawing View.swift in Sources */,
+				F3E6D91E2BF6710D008B810E /* UIColor.swift in Sources */,
 				F38114FD2BF1624500F6AD6D /* Drawing Representable.swift in Sources */,
 				F33216812BEF768100F6AB52 /* Drawing VM.swift in Sources */,
-				F332167C2BEF599D00F6AB52 /* Change tool width.swift in Sources */,
 				F392A2C42BED772B008EAD12 /* Content View.swift in Sources */,
+				F3E6D9182BF654E0008B810E /* Group Activity.swift in Sources */,
+				F3F5BC772BF6B8EB00EB8FB1 /* Tools.swift in Sources */,
+				F3E6D91A2BF65554008B810E /* Messages.swift in Sources */,
+				F3F5BC752BF6B83400EB8FB1 /* Group Activity VC.swift in Sources */,
 				F392A2C62BED772B008EAD12 /* Item.swift in Sources */,
-				F392A2C22BED772B008EAD12 /* Workbook Pro App.swift in Sources */,
+				F392A2C22BED772B008EAD12 /* Workbook Pro.swift in Sources */,
 				F33216832BEF76FB00F6AB52 /* Settings View.swift in Sources */,
 				F332167F2BEF75FC00F6AB52 /* Storage.swift in Sources */,
 				F392A2DC2BEE10B7008EAD12 /* Note List.swift in Sources */,
+				F3F5BC792BF6B93700EB8FB1 /* Pages.swift in Sources */,
 				F392A2D62BEE0896008EAD12 /* View Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,25 +365,27 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Workbook Pro/Workbook Pro.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Workbook-Pro-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Workbook Pro";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.Workbook-Pro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -351,25 +399,27 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Workbook Pro/Workbook Pro.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Workbook-Pro-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Workbook Pro";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.Workbook-Pro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -410,6 +460,14 @@
 				kind = branch;
 			};
 		};
+		F3C50ECD2BF81D4300DF017F /* XCRemoteSwiftPackageReference "Swifto-Crypto" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TopScrech/Swifto-Crypto";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -417,6 +475,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F392A2DD2BEE113E008EAD12 /* XCRemoteSwiftPackageReference "ScrechKit" */;
 			productName = ScrechKit;
+		};
+		F3C50ECE2BF81D4300DF017F /* Swifto Crypto */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3C50ECD2BF81D4300DF017F /* XCRemoteSwiftPackageReference "Swifto-Crypto" */;
+			productName = "Swifto Crypto";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

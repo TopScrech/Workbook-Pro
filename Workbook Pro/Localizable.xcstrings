@@ -1,0 +1,74 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%lld strokes" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld stroke"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%lld strokes"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Clear" : {
+
+    },
+    "Create new" : {
+
+    },
+    "Delete" : {
+
+    },
+    "Duplicate" : {
+
+    },
+    "Page %lld of %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Page %1$lld of %2$lld"
+          }
+        }
+      }
+    },
+    "Redo" : {
+
+    },
+    "Set Tool Width" : {
+
+    },
+    "SharePlay" : {
+
+    },
+    "Show nav bar" : {
+
+    },
+    "Show status bar" : {
+
+    },
+    "Undo" : {
+
+    },
+    "Workbook Pro" : {
+      "comment" : "Title of group activity"
+    },
+    "You don't have any notes yet" : {
+
+    }
+  },
+  "version" : "1.0"
+}
