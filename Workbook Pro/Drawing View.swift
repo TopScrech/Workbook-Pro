@@ -57,12 +57,13 @@ struct DrawingView: View {
                 .padding(5)
             }
             .gesture(
-                DragGesture()
+                storage.showNavBar ? nil : DragGesture()
                     .onChanged { value in
                         let edgeWidth = 20.0
                         let minimumDragTranslation = 50.0
                         
                         if value.startLocation.x < edgeWidth && value.translation.width > minimumDragTranslation {
+                            print("Dismissed with a gesture")
                             dismiss()
                         }
                     }
