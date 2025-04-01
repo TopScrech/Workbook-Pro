@@ -4,6 +4,7 @@ import SwiftData
 struct NoteCard: View {
     @Query private var notes: [Note]
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.colorScheme) private var colorScheme
     
     private let note: Note
     
@@ -21,11 +22,16 @@ struct NoteCard: View {
                         .resizable()
                         .frame(width: 200, height: 300)
                         .border(.white)
+                        .overlay {
+                            if colorScheme == .light {
+                                Color.black
+                                    .clipShape(.rect(cornerRadius: 16))
+                            }
+                        }
                 }
                 
                 HStack {
                     Text(note.name)
-                        .foregroundStyle(.white)
                     
                     if note.isPinned {
                         Image(systemName: "pin")
@@ -70,6 +76,7 @@ struct NoteCard: View {
                 }
             }
         }
+        .foregroundStyle(.foreground)
     }
     
     private func create() {
