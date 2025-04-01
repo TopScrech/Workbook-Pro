@@ -16,11 +16,11 @@ struct NoteList: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns) {
-                //        List {
+                //List {
                 ForEach(notes) { note in
                     NoteCard(note)
                 }
-                //            .onDelete(perform: deleteItems)
+                .onDelete(perform: deleteItems)
             }
         }
         .onPencilDoubleTap { value in
