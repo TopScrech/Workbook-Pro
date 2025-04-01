@@ -26,8 +26,8 @@
 		F3E6D91A2BF65554008B810E /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E6D9192BF65554008B810E /* Messages.swift */; };
 		F3E6D91E2BF6710D008B810E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E6D91D2BF6710D008B810E /* UIColor.swift */; };
 		F3F5BC752BF6B83400EB8FB1 /* Group Activity VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5BC742BF6B83400EB8FB1 /* Group Activity VC.swift */; };
-		F3F5BC772BF6B8EB00EB8FB1 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5BC762BF6B8EB00EB8FB1 /* Tools.swift */; };
-		F3F5BC792BF6B93700EB8FB1 /* Pages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5BC782BF6B93700EB8FB1 /* Pages.swift */; };
+		F3F5BC772BF6B8EB00EB8FB1 /* Drawing VC Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5BC762BF6B8EB00EB8FB1 /* Drawing VC Tools.swift */; };
+		F3F5BC792BF6B93700EB8FB1 /* Drawing VC Pages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5BC782BF6B93700EB8FB1 /* Drawing VC Pages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,8 +50,8 @@
 		F3E6D9192BF65554008B810E /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		F3E6D91D2BF6710D008B810E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F3F5BC742BF6B83400EB8FB1 /* Group Activity VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group Activity VC.swift"; sourceTree = "<group>"; };
-		F3F5BC762BF6B8EB00EB8FB1 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
-		F3F5BC782BF6B93700EB8FB1 /* Pages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pages.swift; sourceTree = "<group>"; };
+		F3F5BC762BF6B8EB00EB8FB1 /* Drawing VC Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing VC Tools.swift"; sourceTree = "<group>"; };
+		F3F5BC782BF6B93700EB8FB1 /* Drawing VC Pages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing VC Pages.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				F392A2D52BEE0896008EAD12 /* Drawing VC.swift */,
-				F3F5BC782BF6B93700EB8FB1 /* Pages.swift */,
-				F3F5BC762BF6B8EB00EB8FB1 /* Tools.swift */,
+				F3F5BC782BF6B93700EB8FB1 /* Drawing VC Pages.swift */,
+				F3F5BC762BF6B8EB00EB8FB1 /* Drawing VC Tools.swift */,
 				F38114FC2BF1624500F6AD6D /* Drawing Representable.swift */,
 			);
 			path = "Pencil Kit";
@@ -236,7 +236,7 @@
 				F33216812BEF768100F6AB52 /* Drawing VM.swift in Sources */,
 				F392A2C42BED772B008EAD12 /* App Container.swift in Sources */,
 				F3E6D9182BF654E0008B810E /* Group Activity.swift in Sources */,
-				F3F5BC772BF6B8EB00EB8FB1 /* Tools.swift in Sources */,
+				F3F5BC772BF6B8EB00EB8FB1 /* Drawing VC Tools.swift in Sources */,
 				F3E6D91A2BF65554008B810E /* Messages.swift in Sources */,
 				F3F5BC752BF6B83400EB8FB1 /* Group Activity VC.swift in Sources */,
 				F392A2C62BED772B008EAD12 /* Item.swift in Sources */,
@@ -244,7 +244,7 @@
 				F33216832BEF76FB00F6AB52 /* Settings View.swift in Sources */,
 				F332167F2BEF75FC00F6AB52 /* Storage.swift in Sources */,
 				F392A2DC2BEE10B7008EAD12 /* Note List.swift in Sources */,
-				F3F5BC792BF6B93700EB8FB1 /* Pages.swift in Sources */,
+				F3F5BC792BF6B93700EB8FB1 /* Drawing VC Pages.swift in Sources */,
 				F392A2D62BEE0896008EAD12 /* Drawing VC.swift in Sources */,
 			);
 		};
