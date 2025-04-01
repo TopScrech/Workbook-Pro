@@ -15,46 +15,17 @@ struct DrawingView: View {
     
     var body: some View {
         DrawingRepresentable(note)
-            .environment(vm)
             .ignoresSafeArea()
             .toolbar(store.showNavBar ? .visible : .hidden, for: .navigationBar)
             .statusBarHidden(!store.showStatusBar)
+            .overlay(alignment: .topLeading) {
+                DrawingViewOverlay(note)
+            }
+            .environment(vm)
             .task {
                 for await session in WorkbookProGroupSession.sessions() {
                     vm.vc?.configureGroupSession(session)
                 }
-            }
-            .overlay(alignment: .topLeading) {
-                HStack(spacing: 4) {
-                    Button {
-                        vm.previous()
-                    } label: {
-                        Image(systemName: "arrow.backward")
-                    }
-                    .disabled(vm.isFirstPage)
-                    
-                    Divider()
-                        .frame(height: 20)
-                    
-                    if let selectedPage = vm.vc?.selectedPage {
-                        Text("Page \(selectedPage + 1) of \(note.pages.count)")
-                            .monospacedDigit()
-                    }
-                    
-                    Divider()
-                        .frame(height: 20)
-                    
-                    Button {
-                        vm.next()
-                    } label: {
-                        Image(systemName: "arrow.forward")
-                            .foregroundStyle(.foreground)
-                    }
-                }
-                .footnote()
-                .padding(.horizontal, 4)
-                .background(.ultraThickMaterial, in: .rect(cornerRadius: 5))
-                .padding(5)
             }
             .gesture(
                 store.showNavBar ? nil : DragGesture()

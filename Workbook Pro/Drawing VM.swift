@@ -11,6 +11,14 @@ final class DrawingVM {
         vc?.selectedPage == 0
     }
     
+    var isLastPage: Bool {
+        guard let pages = vc?.note?.pages else {
+            return false
+        }
+        
+        return vc?.selectedPage == pages.count - 1
+    }
+    
     var strokes: Int? {
         vc?.canvasView.drawing.strokes.count
     }
