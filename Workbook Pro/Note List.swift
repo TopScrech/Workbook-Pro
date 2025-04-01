@@ -96,10 +96,8 @@ struct NoteList: View {
                 ContentUnavailableView {
                     Text("You don't have any notes yet")
                 } actions: {
-                    Button {
+                    Button("Create new") {
                         create()
-                    } label: {
-                        Text("Create new")
                     }
                 }
             }
