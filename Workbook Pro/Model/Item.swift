@@ -8,9 +8,8 @@ final class Note {
     var image: Data? = nil
     var isPinned = false
     let created = Date()
-    //    var modified = Date()
-    
-    //    var background: Color?
+    //var modified = Date()
+    //var background: Color?
     
     init(_ name: String, pages: [Data] = [Data()], image: Data? = nil) {
         self.pages = pages

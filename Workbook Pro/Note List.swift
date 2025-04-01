@@ -9,9 +9,9 @@ struct NoteList: View {
         GridItem(.adaptive(minimum: 250, maximum: 400))
     ]
     
-    @State private var sheetSettings = false
+    //@AppStorage("view_mode") private var viewMode = false
     
-    //    @AppStorage("view_mode") private var viewMode = false
+    @State private var sheetSettings = false
     
     var body: some View {
         ScrollView {
