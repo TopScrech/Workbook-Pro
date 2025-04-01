@@ -12,6 +12,7 @@
 		F33216832BEF76FB00F6AB52 /* Settings View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216822BEF76FB00F6AB52 /* Settings View.swift */; };
 		F34DA3932D9BD71A001B5A4E /* Workbook Pro.plist in Resources */ = {isa = PBXBuildFile; fileRef = F34DA3922D9BD71A001B5A4E /* Workbook Pro.plist */; };
 		F34DA3952D9BD9E7001B5A4E /* Drawing View Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DA3942D9BD9E7001B5A4E /* Drawing View Overlay.swift */; };
+		F34DA3972D9BDD47001B5A4E /* Note Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DA3962D9BDD47001B5A4E /* Note Card.swift */; };
 		F38114FD2BF1624500F6AD6D /* Drawing Representable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38114FC2BF1624500F6AD6D /* Drawing Representable.swift */; };
 		F38114FF2BF28B4500F6AD6D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */; };
 		F392A2C22BED772B008EAD12 /* Workbook Pro.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C12BED772B008EAD12 /* Workbook Pro.swift */; };
@@ -37,6 +38,7 @@
 		F33216822BEF76FB00F6AB52 /* Settings View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings View.swift"; sourceTree = "<group>"; };
 		F34DA3922D9BD71A001B5A4E /* Workbook Pro.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Workbook Pro.plist"; path = "Workbook Pro/Workbook Pro.plist"; sourceTree = SOURCE_ROOT; };
 		F34DA3942D9BD9E7001B5A4E /* Drawing View Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing View Overlay.swift"; sourceTree = "<group>"; };
+		F34DA3962D9BDD47001B5A4E /* Note Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note Card.swift"; sourceTree = "<group>"; };
 		F38114FC2BF1624500F6AD6D /* Drawing Representable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing Representable.swift"; sourceTree = "<group>"; };
 		F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		F392A2BE2BED772B008EAD12 /* Workbook Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workbook Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 				F392A2C72BED772C008EAD12 /* Assets.xcassets */,
 				F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */,
 				F392A2DB2BEE10B7008EAD12 /* Note List.swift */,
+				F34DA3962D9BDD47001B5A4E /* Note Card.swift */,
 				F392A2E22BEE50ED008EAD12 /* Drawing View.swift */,
 				F33216802BEF768100F6AB52 /* Drawing VM.swift */,
 				F34DA3942D9BD9E7001B5A4E /* Drawing View Overlay.swift */,
@@ -238,6 +241,7 @@
 				F38114FD2BF1624500F6AD6D /* Drawing Representable.swift in Sources */,
 				F33216812BEF768100F6AB52 /* Drawing VM.swift in Sources */,
 				F392A2C42BED772B008EAD12 /* App Container.swift in Sources */,
+				F34DA3972D9BDD47001B5A4E /* Note Card.swift in Sources */,
 				F3E6D9182BF654E0008B810E /* Group Activity.swift in Sources */,
 				F3F5BC772BF6B8EB00EB8FB1 /* Drawing VC Tools.swift in Sources */,
 				F3E6D91A2BF65554008B810E /* Messages.swift in Sources */,
