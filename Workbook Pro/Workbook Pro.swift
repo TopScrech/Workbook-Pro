@@ -3,7 +3,7 @@ import SwiftData
 
 @main
 struct WorkbookPro: App {
-    @StateObject private var storage = Storage()
+    @StateObject private var store = ValueStore()
     
     var sharedModelContainer = {
         let schema = Schema([
@@ -22,7 +22,7 @@ struct WorkbookPro: App {
     var body: some Scene {
         WindowGroup {
             AppContainer()
-                .environmentObject(storage)
+                .environmentObject(store)
         }
         .modelContainer(sharedModelContainer)
     }

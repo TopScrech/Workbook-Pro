@@ -1,16 +1,16 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject private var storage: Storage
+    @EnvironmentObject private var store: ValueStore
     
     var body: some View {
         List {
-            Toggle("Show nav bar", isOn: storage.$showNavBar)
+            Toggle("Show nav bar", isOn: $store.showNavBar)
             
-            Toggle("Show status bar", isOn: storage.$showStatusBar)
+            Toggle("Show status bar", isOn: $store.showStatusBar)
             
             Section("BETA") {
-                Toggle("Enable Group Activities", isOn: storage.$enableGroupActivities)
+                Toggle("Enable Group Activities", isOn: $store.enableGroupActivities)
             }
         }
     }
@@ -18,5 +18,5 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
-        .environmentObject(Storage())
+        .environmentObject(ValueStore())
 }

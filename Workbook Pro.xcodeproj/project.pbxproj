@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F332167F2BEF75FC00F6AB52 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332167E2BEF75FC00F6AB52 /* Storage.swift */; };
+		F332167F2BEF75FC00F6AB52 /* Value Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332167E2BEF75FC00F6AB52 /* Value Storage.swift */; };
 		F33216812BEF768100F6AB52 /* Drawing VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216802BEF768100F6AB52 /* Drawing VM.swift */; };
 		F33216832BEF76FB00F6AB52 /* Settings View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216822BEF76FB00F6AB52 /* Settings View.swift */; };
 		F34DA3932D9BD71A001B5A4E /* Workbook Pro.plist in Resources */ = {isa = PBXBuildFile; fileRef = F34DA3922D9BD71A001B5A4E /* Workbook Pro.plist */; };
@@ -31,7 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F332167E2BEF75FC00F6AB52 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		F332167E2BEF75FC00F6AB52 /* Value Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Value Storage.swift"; sourceTree = "<group>"; };
 		F33216802BEF768100F6AB52 /* Drawing VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing VM.swift"; sourceTree = "<group>"; };
 		F33216822BEF76FB00F6AB52 /* Settings View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings View.swift"; sourceTree = "<group>"; };
 		F34DA3922D9BD71A001B5A4E /* Workbook Pro.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Workbook Pro.plist"; path = "Workbook Pro/Workbook Pro.plist"; sourceTree = SOURCE_ROOT; };
@@ -120,7 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				F392A2C12BED772B008EAD12 /* Workbook Pro.swift */,
-				F332167E2BEF75FC00F6AB52 /* Storage.swift */,
+				F332167E2BEF75FC00F6AB52 /* Value Storage.swift */,
 				F36B736B2C89AD9300E858FE /* Navigation */,
 				F34DA3922D9BD71A001B5A4E /* Workbook Pro.plist */,
 				F3E6D9162BF653A6008B810E /* Workbook Pro.entitlements */,
@@ -242,7 +242,7 @@
 				F392A2C62BED772B008EAD12 /* Item.swift in Sources */,
 				F392A2C22BED772B008EAD12 /* Workbook Pro.swift in Sources */,
 				F33216832BEF76FB00F6AB52 /* Settings View.swift in Sources */,
-				F332167F2BEF75FC00F6AB52 /* Storage.swift in Sources */,
+				F332167F2BEF75FC00F6AB52 /* Value Storage.swift in Sources */,
 				F392A2DC2BEE10B7008EAD12 /* Note List.swift in Sources */,
 				F3F5BC792BF6B93700EB8FB1 /* Drawing VC Pages.swift in Sources */,
 				F392A2D62BEE0896008EAD12 /* Drawing VC.swift in Sources */,

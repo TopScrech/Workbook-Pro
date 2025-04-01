@@ -2,7 +2,7 @@ import SwiftUI
 
 struct DrawingView: View {
     @Bindable private var vm = DrawingVM()
-    @EnvironmentObject private var storage: Storage
+    @EnvironmentObject private var store: ValueStore
     @Environment(\.dismiss) private var dismiss
     
     private var note: Note
@@ -17,8 +17,8 @@ struct DrawingView: View {
         DrawingRepresentable(note)
             .environment(vm)
             .ignoresSafeArea()
-            .toolbar(storage.showNavBar ? .visible : .hidden, for: .navigationBar)
-            .statusBarHidden(!storage.showStatusBar)
+            .toolbar(store.showNavBar ? .visible : .hidden, for: .navigationBar)
+            .statusBarHidden(!store.showStatusBar)
             .task {
                 for await session in WorkbookProGroupSession.sessions() {
                     vm.vc?.configureGroupSession(session)
@@ -57,7 +57,7 @@ struct DrawingView: View {
                 .padding(5)
             }
             .gesture(
-                storage.showNavBar ? nil : DragGesture()
+                store.showNavBar ? nil : DragGesture()
                     .onChanged { value in
                         let edgeWidth = 20.0
                         let minimumDragTranslation = 50.0
@@ -96,7 +96,7 @@ struct DrawingView: View {
                 }
                 
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    if vm.vc?.groupSession?.state != .joined, storage.enableGroupActivities {
+                    if vm.vc?.groupSession?.state != .joined, store.enableGroupActivities {
                         Menu {
                             Button {
                                 vm.vc?.startSharing()
@@ -143,5 +143,5 @@ struct DrawingView: View {
 
 #Preview {
     DrawingView(.init("Preview"))
-        .environmentObject(Storage())
+        .environmentObject(ValueStore())
 }
