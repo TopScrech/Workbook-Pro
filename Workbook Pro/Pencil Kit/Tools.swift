@@ -5,7 +5,6 @@ extension DrawingVC {
         // Access the selected tool
         let tool = toolPicker.selectedTool
         
-        // Print or use tool details
         printToolDetails(tool)
     }
     
