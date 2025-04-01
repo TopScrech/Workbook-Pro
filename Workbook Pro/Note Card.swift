@@ -17,7 +17,7 @@ struct NoteCard: View {
             DrawingView(note)
         } label: {
             VStack {
-                if let imageData = note.image, let image = UIImage(data: imageData) {
+                if let imgData = note.image, let image = UIImage(data: imgData) {
                     Image(uiImage: image)
                         .resizable()
                         .frame(width: 200, height: 300)
@@ -38,6 +38,10 @@ struct NoteCard: View {
                             .foregroundStyle(.red)
                     }
                 }
+                
+                Text("\(note.pages.count) pages")
+                    .footnote()
+                    .secondary()
             }
             .padding()
             //                        .overlay(alignment: .topTrailing) {
