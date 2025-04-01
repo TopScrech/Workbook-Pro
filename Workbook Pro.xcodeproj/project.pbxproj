@@ -96,12 +96,12 @@
 			path = "Pencil Kit";
 			sourceTree = "<group>";
 		};
-		F36B736B2C89AD9300E858FE /* Navigation */ = {
+		F36B736B2C89AD9300E858FE /* Nav */ = {
 			isa = PBXGroup;
 			children = (
 				F392A2C32BED772B008EAD12 /* App Container.swift */,
 			);
-			path = Navigation;
+			path = Nav;
 			sourceTree = "<group>";
 		};
 		F392A2B52BED772B008EAD12 = {
@@ -125,7 +125,7 @@
 			children = (
 				F392A2C12BED772B008EAD12 /* Workbook Pro.swift */,
 				F332167E2BEF75FC00F6AB52 /* Value Storage.swift */,
-				F36B736B2C89AD9300E858FE /* Navigation */,
+				F36B736B2C89AD9300E858FE /* Nav */,
 				F34DA3922D9BD71A001B5A4E /* Workbook Pro.plist */,
 				F3E6D9162BF653A6008B810E /* Workbook Pro.entitlements */,
 				F392A2C72BED772C008EAD12 /* Assets.xcassets */,
