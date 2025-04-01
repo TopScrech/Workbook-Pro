@@ -3,7 +3,7 @@ import PencilKit
 import Combine
 import GroupActivities
 
-final class DrawingViewController: UIViewController, ObservableObject, PKCanvasViewDelegate, PKToolPickerObserver {
+final class DrawingVC: UIViewController, ObservableObject, PKCanvasViewDelegate, PKToolPickerObserver {
     var note: Bindable<Note>?
     
     let toolPicker = PKToolPicker()

@@ -1,6 +1,6 @@
 import SwiftUI
 
-extension DrawingViewController {
+extension DrawingVC {
     func addPage() {
         print(#function)
         

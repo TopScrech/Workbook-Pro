@@ -1,7 +1,7 @@
 import PencilKit
 import GroupActivities
 
-extension DrawingViewController {
+extension DrawingVC {
     func reset() {
         // Tear down the existing groupSession
         messenger = nil

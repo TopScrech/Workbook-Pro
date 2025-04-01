@@ -9,10 +9,10 @@ struct DrawingRepresentable: UIViewControllerRepresentable {
         self.note = note
     }
     
-    func makeUIViewController(context: Context) -> DrawingViewController {
+    func makeUIViewController(context: Context) -> DrawingVC {
         print(#function)
         
-        let viewController = DrawingViewController()
+        let viewController = DrawingVC()
         viewController.note = $note
         
         controller.vc = viewController
@@ -20,7 +20,7 @@ struct DrawingRepresentable: UIViewControllerRepresentable {
         return viewController
     }
     
-    func updateUIViewController(_ uiViewController: DrawingViewController, context: Context) {
+    func updateUIViewController(_ uiViewController: DrawingVC, context: Context) {
         controller.vc = uiViewController
     }
 }

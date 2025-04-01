@@ -17,7 +17,7 @@
 		F392A2C42BED772B008EAD12 /* App Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C32BED772B008EAD12 /* App Container.swift */; };
 		F392A2C62BED772B008EAD12 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C52BED772B008EAD12 /* Item.swift */; };
 		F392A2C82BED772C008EAD12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F392A2C72BED772C008EAD12 /* Assets.xcassets */; };
-		F392A2D62BEE0896008EAD12 /* View Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2D52BEE0896008EAD12 /* View Controller.swift */; };
+		F392A2D62BEE0896008EAD12 /* Drawing VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2D52BEE0896008EAD12 /* Drawing VC.swift */; };
 		F392A2DC2BEE10B7008EAD12 /* Note List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2DB2BEE10B7008EAD12 /* Note List.swift */; };
 		F392A2DF2BEE113E008EAD12 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F392A2DE2BEE113E008EAD12 /* ScrechKit */; };
 		F392A2E32BEE50ED008EAD12 /* Drawing View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2E22BEE50ED008EAD12 /* Drawing View.swift */; };
@@ -42,7 +42,7 @@
 		F392A2C32BED772B008EAD12 /* App Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Container.swift"; sourceTree = "<group>"; };
 		F392A2C52BED772B008EAD12 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F392A2C72BED772C008EAD12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F392A2D52BEE0896008EAD12 /* View Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View Controller.swift"; sourceTree = "<group>"; };
+		F392A2D52BEE0896008EAD12 /* Drawing VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing VC.swift"; sourceTree = "<group>"; };
 		F392A2DB2BEE10B7008EAD12 /* Note List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note List.swift"; sourceTree = "<group>"; };
 		F392A2E22BEE50ED008EAD12 /* Drawing View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing View.swift"; sourceTree = "<group>"; };
 		F3E6D9162BF653A6008B810E /* Workbook Pro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Workbook Pro.entitlements"; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 		F332167D2BEF59A400F6AB52 /* Pencil Kit */ = {
 			isa = PBXGroup;
 			children = (
-				F392A2D52BEE0896008EAD12 /* View Controller.swift */,
+				F392A2D52BEE0896008EAD12 /* Drawing VC.swift */,
 				F3F5BC782BF6B93700EB8FB1 /* Pages.swift */,
 				F3F5BC762BF6B8EB00EB8FB1 /* Tools.swift */,
 				F38114FC2BF1624500F6AD6D /* Drawing Representable.swift */,
@@ -245,7 +245,7 @@
 				F332167F2BEF75FC00F6AB52 /* Storage.swift in Sources */,
 				F392A2DC2BEE10B7008EAD12 /* Note List.swift in Sources */,
 				F3F5BC792BF6B93700EB8FB1 /* Pages.swift in Sources */,
-				F392A2D62BEE0896008EAD12 /* View Controller.swift in Sources */,
+				F392A2D62BEE0896008EAD12 /* Drawing VC.swift in Sources */,
 			);
 		};
 /* End PBXSourcesBuildPhase section */

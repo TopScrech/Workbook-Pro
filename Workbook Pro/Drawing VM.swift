@@ -3,7 +3,7 @@ import PencilKit
 
 @Observable
 final class DrawingVM {
-    var vc: DrawingViewController?
+    var vc: DrawingVC?
     
     var toolWidth = 5.0
     

@@ -1,6 +1,6 @@
 import PencilKit
 
-extension DrawingViewController {
+extension DrawingVC {
     func toolPickerSelectedToolDidChange(_ toolPicker: PKToolPicker) {
         // Access the selected tool
         let tool = toolPicker.selectedTool
