@@ -10,7 +10,7 @@
 		F332167F2BEF75FC00F6AB52 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332167E2BEF75FC00F6AB52 /* Storage.swift */; };
 		F33216812BEF768100F6AB52 /* Drawing VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216802BEF768100F6AB52 /* Drawing VM.swift */; };
 		F33216832BEF76FB00F6AB52 /* Settings View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216822BEF76FB00F6AB52 /* Settings View.swift */; };
-		F34DA3932D9BD71A001B5A4E /* Workbook-Pro.plist in Resources */ = {isa = PBXBuildFile; fileRef = F34DA3922D9BD71A001B5A4E /* Workbook-Pro.plist */; };
+		F34DA3932D9BD71A001B5A4E /* Workbook Pro.plist in Resources */ = {isa = PBXBuildFile; fileRef = F34DA3922D9BD71A001B5A4E /* Workbook Pro.plist */; };
 		F38114FD2BF1624500F6AD6D /* Drawing Representable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38114FC2BF1624500F6AD6D /* Drawing Representable.swift */; };
 		F38114FF2BF28B4500F6AD6D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */; };
 		F392A2C22BED772B008EAD12 /* Workbook Pro.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C12BED772B008EAD12 /* Workbook Pro.swift */; };
@@ -34,7 +34,7 @@
 		F332167E2BEF75FC00F6AB52 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		F33216802BEF768100F6AB52 /* Drawing VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing VM.swift"; sourceTree = "<group>"; };
 		F33216822BEF76FB00F6AB52 /* Settings View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings View.swift"; sourceTree = "<group>"; };
-		F34DA3922D9BD71A001B5A4E /* Workbook-Pro.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Workbook-Pro.plist"; path = "Workbook Pro/Workbook-Pro.plist"; sourceTree = SOURCE_ROOT; };
+		F34DA3922D9BD71A001B5A4E /* Workbook Pro.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Workbook Pro.plist"; path = "Workbook Pro/Workbook Pro.plist"; sourceTree = SOURCE_ROOT; };
 		F38114FC2BF1624500F6AD6D /* Drawing Representable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing Representable.swift"; sourceTree = "<group>"; };
 		F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		F392A2BE2BED772B008EAD12 /* Workbook Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workbook Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,7 +122,7 @@
 				F392A2C12BED772B008EAD12 /* Workbook Pro.swift */,
 				F332167E2BEF75FC00F6AB52 /* Storage.swift */,
 				F36B736B2C89AD9300E858FE /* Navigation */,
-				F34DA3922D9BD71A001B5A4E /* Workbook-Pro.plist */,
+				F34DA3922D9BD71A001B5A4E /* Workbook Pro.plist */,
 				F3E6D9162BF653A6008B810E /* Workbook Pro.entitlements */,
 				F392A2C72BED772C008EAD12 /* Assets.xcassets */,
 				F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */,
@@ -220,7 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			files = (
 				F38114FF2BF28B4500F6AD6D /* Localizable.xcstrings in Resources */,
-				F34DA3932D9BD71A001B5A4E /* Workbook-Pro.plist in Resources */,
+				F34DA3932D9BD71A001B5A4E /* Workbook Pro.plist in Resources */,
 				F392A2C82BED772C008EAD12 /* Assets.xcassets in Resources */,
 			);
 		};
@@ -383,7 +383,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Workbook-Pro.plist";
+				INFOPLIST_FILE = "Workbook Pro/Workbook Pro.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Workbook Pro";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -418,7 +418,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Workbook-Pro.plist";
+				INFOPLIST_FILE = "Workbook Pro/Workbook Pro.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Workbook Pro";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
