@@ -18,6 +18,7 @@ final class DrawingVC: UIViewController, ObservableObject, PKCanvasViewDelegate,
     var tasks = Set<Task<Void, Never>>()
     var messenger: GroupSessionMessenger?
     var journal: GroupSessionJournal?
+    
     @Published var groupSession: GroupSession<WorkbookProGroupSession>?
     
     override func viewDidLoad() {
@@ -58,12 +59,10 @@ final class DrawingVC: UIViewController, ObservableObject, PKCanvasViewDelegate,
     }
     
     func deletePage() {
-        guard let pages = note?.pages.wrappedValue else {
-            return
-        }
-        
-        // Ensure there's at least one page to delete and the selected page is within range
-        guard pages.count > 0, selectedPage < pages.count else {
+        guard let pages = note?.pages.wrappedValue,
+              // Ensure there's at least one page to delete and the selected page is within range
+              pages.count > 0, selectedPage < pages.count
+        else {
             return
         }
         
@@ -77,6 +76,7 @@ final class DrawingVC: UIViewController, ObservableObject, PKCanvasViewDelegate,
         }
         
         print("Count \(note!.pages.count), selected \(selectedPage)")
+        
         loadDrawing(from: note!.pages[selectedPage].wrappedValue)
     }
     
