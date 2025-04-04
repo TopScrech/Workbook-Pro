@@ -23,13 +23,14 @@ struct NoteList: View {
                 .onDelete(perform: deleteItems)
             }
         }
+        .animation(.default, value: notes)
         .onPencilDoubleTap { value in
             let pos = String(describing: value.hoverPose)
             
-            print("Double tap: \(pos)")
+            print("Double tap:", pos)
         }
         .onPencilSqueeze { phase in
-            print("Squeeze: \(phase)")
+            print("Squeeze:", phase)
         }
         .sheet($sheetSettings) {
             SettingsView()

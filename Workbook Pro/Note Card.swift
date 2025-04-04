@@ -51,36 +51,34 @@ struct NoteCard: View {
             //                                .padding(10)
             //                                .background(.ultraThinMaterial, in: .circle)
             //                        }
-            .contextMenu {
-                Text(note.pages.description)
-                
-                Button {
-                    note.isPinned.toggle()
-                } label: {
-                    let text = note.isPinned ? "Unpin" : "Pin"
-                    let icon = note.isPinned ? "pin.slash" : "pin"
-                    
-                    Label(text, systemImage: icon)
-                }
-                
-                Button {
-                    modelContext.insert(
-                        Note(note.name, pages: note.pages, image: note.image)
-                    )
-                } label: {
-                    Label("Duplicate", systemImage: "plus.square.on.square")
-                }
-                
-                Divider()
-                
-                Button(role: .destructive) {
-                    deleteItems(note)
-                } label: {
-                    Label("Delete", systemImage: "trash")
-                }
-            }
         }
         .foregroundStyle(.foreground)
+        .contextMenu {
+            Button {
+                note.isPinned.toggle()
+            } label: {
+                let text = note.isPinned ? "Unpin" : "Pin"
+                let icon = note.isPinned ? "pin.slash" : "pin"
+                
+                Label(text, systemImage: icon)
+            }
+            
+            Button {
+                modelContext.insert(
+                    Note(note.name, pages: note.pages, image: note.image)
+                )
+            } label: {
+                Label("Duplicate", systemImage: "plus.square.on.square")
+            }
+            
+            Divider()
+            
+            Button(role: .destructive) {
+                deleteItems(note)
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+        }
     }
     
     private func create() {
