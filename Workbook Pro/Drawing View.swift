@@ -15,6 +15,7 @@ struct DrawingView: View {
     
     var body: some View {
         DrawingRepresentable(note)
+            .navigationTitle(note.name)
             .ignoresSafeArea()
             .toolbar(store.showNavBar ? .visible : .hidden, for: .navigationBar)
             .statusBarHidden(!store.showStatusBar)
@@ -40,8 +41,16 @@ struct DrawingView: View {
                     }
             )
             .toolbar {
+#if DEBUG
                 ToolbarItemGroup(placement: .topBarLeading) {
-                    Button {
+                    Text("\(vm.strokes ?? 0) strokes")
+                        .numericTransition()
+                        .secondary()
+                        .padding(.leading, 10)
+                }
+#endif
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    Button(role: .destructive) {
                         vm.deletePage()
                     } label: {
                         Image(systemName: "trash")
@@ -49,12 +58,12 @@ struct DrawingView: View {
                     }
                     .disabled(note.pages.count == 1)
                     
-                    Button(role: .destructive) {
+                    Button {
                         dialogErase = true
                     } label: {
-                        Label("Clear", systemImage: "eraser")
-                            .foregroundStyle(.red)
+                        Image(systemName: "eraser.fill")
                     }
+                    .foregroundStyle(.primary)
                     .disabled(vm.strokes == 0)
                     .confirmationDialog("Erase this page?", isPresented: $dialogErase) {
                         Button("Erase", role: .destructive) {
@@ -62,11 +71,6 @@ struct DrawingView: View {
                         }
                     }
                     
-                    Text("\(vm.strokes ?? 0) strokes")
-                        .numericTransition()
-                }
-                
-                ToolbarItemGroup(placement: .topBarTrailing) {
                     if vm.vc?.groupSession?.state != .joined, store.enableGroupActivities {
                         Menu {
                             Button {
