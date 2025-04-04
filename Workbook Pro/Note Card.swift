@@ -6,11 +6,13 @@ struct NoteCard: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.colorScheme) private var colorScheme
     
-    private let note: Note
+    @Bindable private var note: Note
     
     init(_ note: Note) {
         self.note = note
     }
+    
+    @State private var alertRename = false
     
     var body: some View {
         NavigationLink {
@@ -32,6 +34,8 @@ struct NoteCard: View {
                 
                 HStack {
                     Text(note.name)
+                        .numericTransition()
+                        .animation(.default, value: note.name)
                     
                     if note.isPinned {
                         Image(systemName: "pin")
@@ -53,7 +57,16 @@ struct NoteCard: View {
             //                        }
         }
         .foregroundStyle(.foreground)
+        .alert("Rename", isPresented: $alertRename) {
+            TextField("Some note", text: $note.name)
+        }
         .contextMenu {
+            Button {
+                alertRename = true
+            } label: {
+                Label("Rename", systemImage: "pencil")
+            }
+            
             Button {
                 note.isPinned.toggle()
             } label: {
