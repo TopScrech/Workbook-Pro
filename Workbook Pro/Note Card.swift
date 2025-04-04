@@ -38,7 +38,7 @@ struct NoteCard: View {
                         .animation(.default, value: note.name)
                     
                     if note.isPinned {
-                        Image(systemName: "pin")
+                        Image(systemName: "pin.fill")
                             .foregroundStyle(.red)
                     }
                 }

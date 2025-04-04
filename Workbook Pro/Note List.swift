@@ -17,10 +17,14 @@ struct NoteList: View {
         ScrollView {
             LazyVGrid(columns: columns) {
                 //List {
-                ForEach(notes) { note in
+                ForEach(notes.filter { $0.isPinned }) { note in
                     NoteCard(note)
                 }
-                .onDelete(perform: deleteItems)
+                
+                ForEach(notes.filter { !$0.isPinned }) { note in
+                    NoteCard(note)
+                }
+                //.onDelete(perform: deleteItems)
             }
         }
         .animation(.default, value: notes)
