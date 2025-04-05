@@ -4,7 +4,6 @@ import SwiftData
 struct NoteCard: View {
     @Query private var notes: [Note]
     @Environment(\.modelContext) private var modelContext
-    @Environment(\.colorScheme) private var colorScheme
     
     @Bindable private var note: Note
     
@@ -19,18 +18,7 @@ struct NoteCard: View {
             DrawingView(note)
         } label: {
             VStack {
-                if let imgData = note.image, let image = UIImage(data: imgData) {
-                    Image(uiImage: image)
-                        .resizable()
-                        .frame(width: 200, height: 300)
-                        .border(.white)
-                        .overlay {
-                            if colorScheme == .light {
-                                Color.black
-                                    .clipShape(.rect(cornerRadius: 16))
-                            }
-                        }
-                }
+                NoteCardPreview(note)
                 
                 HStack {
                     Text(note.name)
@@ -48,13 +36,13 @@ struct NoteCard: View {
                     .secondary()
             }
             .padding()
-            //                        .overlay(alignment: .topTrailing) {
-            //                            Image(systemName: "xmark")
-            //                                .title()
-            //                                .foregroundColor(.red)
-            //                                .padding(10)
-            //                                .background(.ultraThinMaterial, in: .circle)
-            //                        }
+            //            .overlay(alignment: .topTrailing) {
+            //                Image(systemName: "xmark")
+            //                    .title()
+            //                    .foregroundColor(.red)
+            //                    .padding(10)
+            //                    .background(.ultraThinMaterial, in: .circle)
+            //            }
         }
         .foregroundStyle(.foreground)
         .alert("Rename", isPresented: $alertRename) {
