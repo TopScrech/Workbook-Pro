@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 90;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		F332167F2BEF75FC00F6AB52 /* Value Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332167E2BEF75FC00F6AB52 /* Value Store.swift */; };
 		F33216812BEF768100F6AB52 /* Drawing VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216802BEF768100F6AB52 /* Drawing VM.swift */; };
 		F33216832BEF76FB00F6AB52 /* Settings View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216822BEF76FB00F6AB52 /* Settings View.swift */; };
-		F34DA3932D9BD71A001B5A4E /* Workbook Pro.plist in Resources */ = {isa = PBXBuildFile; fileRef = F34DA3922D9BD71A001B5A4E /* Workbook Pro.plist */; };
 		F34DA3952D9BD9E7001B5A4E /* Drawing View Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DA3942D9BD9E7001B5A4E /* Drawing View Overlay.swift */; };
 		F34DA3972D9BDD47001B5A4E /* Note Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DA3962D9BDD47001B5A4E /* Note Card.swift */; };
 		F37E89FE2DA12B1700003564 /* Note Card Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E89FD2DA12B1700003564 /* Note Card Preview.swift */; };
@@ -62,11 +61,9 @@
 /* Begin PBXFrameworksBuildPhase section */
 		F392A2BB2BED772B008EAD12 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F392A2DF2BEE113E008EAD12 /* ScrechKit in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -178,8 +175,6 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			name = "Workbook Pro";
 			packageProductDependencies = (
 				F392A2DE2BEE113E008EAD12 /* ScrechKit */,
@@ -196,7 +191,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1630;
+				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					F392A2BD2BED772B008EAD12 = {
 						CreatedOnToolsVersion = 15.3;
@@ -214,7 +209,7 @@
 			packageReferences = (
 				F392A2DD2BEE113E008EAD12 /* XCRemoteSwiftPackageReference "ScrechKit" */,
 			);
-			preferredProjectObjectVersion = 77;
+			preferredProjectObjectVersion = 90;
 			productRefGroup = F392A2BF2BED772B008EAD12 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -227,20 +222,16 @@
 /* Begin PBXResourcesBuildPhase section */
 		F392A2BC2BED772B008EAD12 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F38114FF2BF28B4500F6AD6D /* Localizable.xcstrings in Resources */,
-				F34DA3932D9BD71A001B5A4E /* Workbook Pro.plist in Resources */,
 				F392A2C82BED772C008EAD12 /* Assets.xcassets in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F392A2BA2BED772B008EAD12 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F392A2E32BEE50ED008EAD12 /* Drawing View.swift in Sources */,
 				F3E6D91E2BF6710D008B810E /* UIColor.swift in Sources */,
@@ -262,12 +253,11 @@
 				F3F5BC792BF6B93700EB8FB1 /* Drawing VC Pages.swift in Sources */,
 				F392A2D62BEE0896008EAD12 /* Drawing VC.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		F392A2CC2BED772C008EAD12 /* Debug */ = {
+		F392A2CC2BED772C008EAD12 /* Debug configuration for PBXProject "Workbook Pro" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -331,7 +321,7 @@
 			};
 			name = Debug;
 		};
-		F392A2CD2BED772C008EAD12 /* Release */ = {
+		F392A2CD2BED772C008EAD12 /* Release configuration for PBXProject "Workbook Pro" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -388,7 +378,7 @@
 			};
 			name = Release;
 		};
-		F392A2CF2BED772C008EAD12 /* Debug */ = {
+		F392A2CF2BED772C008EAD12 /* Debug configuration for PBXNativeTarget "Workbook Pro" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -423,7 +413,7 @@
 			};
 			name = Debug;
 		};
-		F392A2D02BED772C008EAD12 /* Release */ = {
+		F392A2D02BED772C008EAD12 /* Release configuration for PBXNativeTarget "Workbook Pro" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -464,19 +454,17 @@
 		F392A2B92BED772B008EAD12 /* Build configuration list for PBXProject "Workbook Pro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F392A2CC2BED772C008EAD12 /* Debug */,
-				F392A2CD2BED772C008EAD12 /* Release */,
+				F392A2CC2BED772C008EAD12 /* Debug configuration for PBXProject "Workbook Pro" */,
+				F392A2CD2BED772C008EAD12 /* Release configuration for PBXProject "Workbook Pro" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		F392A2CE2BED772C008EAD12 /* Build configuration list for PBXNativeTarget "Workbook Pro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F392A2CF2BED772C008EAD12 /* Debug */,
-				F392A2D02BED772C008EAD12 /* Release */,
+				F392A2CF2BED772C008EAD12 /* Debug configuration for PBXNativeTarget "Workbook Pro" */,
+				F392A2D02BED772C008EAD12 /* Release configuration for PBXNativeTarget "Workbook Pro" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
