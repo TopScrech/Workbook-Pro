@@ -89,7 +89,7 @@
 
     },
     "SharePlay" : {
-
+      "shouldTranslate" : false
     },
     "Show nav bar" : {
 

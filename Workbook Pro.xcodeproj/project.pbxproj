@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F332167F2BEF75FC00F6AB52 /* Value Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332167E2BEF75FC00F6AB52 /* Value Store.swift */; };
+		F332167F2BEF75FC00F6AB52 /* ValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332167E2BEF75FC00F6AB52 /* ValueStore.swift */; };
 		F33216812BEF768100F6AB52 /* Drawing VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216802BEF768100F6AB52 /* Drawing VM.swift */; };
 		F33216832BEF76FB00F6AB52 /* Settings View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216822BEF76FB00F6AB52 /* Settings View.swift */; };
 		F34DA3952D9BD9E7001B5A4E /* Drawing View Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DA3942D9BD9E7001B5A4E /* Drawing View Overlay.swift */; };
@@ -32,7 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F332167E2BEF75FC00F6AB52 /* Value Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Value Store.swift"; sourceTree = "<group>"; };
+		F332167E2BEF75FC00F6AB52 /* ValueStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueStore.swift; sourceTree = "<group>"; };
 		F33216802BEF768100F6AB52 /* Drawing VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing VM.swift"; sourceTree = "<group>"; };
 		F33216822BEF76FB00F6AB52 /* Settings View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings View.swift"; sourceTree = "<group>"; };
 		F34DA3922D9BD71A001B5A4E /* Workbook Pro.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Workbook Pro.plist"; path = "Workbook Pro/Workbook Pro.plist"; sourceTree = SOURCE_ROOT; };
@@ -123,7 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				F392A2C12BED772B008EAD12 /* Workbook Pro.swift */,
-				F332167E2BEF75FC00F6AB52 /* Value Store.swift */,
+				F332167E2BEF75FC00F6AB52 /* ValueStore.swift */,
 				F36B736B2C89AD9300E858FE /* Nav */,
 				F34DA3922D9BD71A001B5A4E /* Workbook Pro.plist */,
 				F3E6D9162BF653A6008B810E /* Workbook Pro.entitlements */,
@@ -191,7 +191,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1640;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					F392A2BD2BED772B008EAD12 = {
 						CreatedOnToolsVersion = 15.3;
@@ -204,6 +204,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
+				nl,
 			);
 			mainGroup = F392A2B52BED772B008EAD12;
 			packageReferences = (
@@ -248,7 +250,7 @@
 				F392A2C22BED772B008EAD12 /* Workbook Pro.swift in Sources */,
 				F34DA3952D9BD9E7001B5A4E /* Drawing View Overlay.swift in Sources */,
 				F33216832BEF76FB00F6AB52 /* Settings View.swift in Sources */,
-				F332167F2BEF75FC00F6AB52 /* Value Store.swift in Sources */,
+				F332167F2BEF75FC00F6AB52 /* ValueStore.swift in Sources */,
 				F392A2DC2BEE10B7008EAD12 /* Note List.swift in Sources */,
 				F3F5BC792BF6B93700EB8FB1 /* Drawing VC Pages.swift in Sources */,
 				F392A2D62BEE0896008EAD12 /* Drawing VC.swift in Sources */,
@@ -262,6 +264,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -316,6 +319,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -326,6 +330,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -373,6 +378,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
