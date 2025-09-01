@@ -11,13 +11,12 @@ struct DrawingView: View {
         self.note = note
     }
     
-    @State private var dialogErase = false
-    
     var body: some View {
         DrawingRepresentable(note)
             .navigationTitle(note.name)
             .ignoresSafeArea()
             .toolbar(store.showNavBar ? .visible : .hidden, for: .navigationBar)
+            .drawingToolbar(vm: vm, note: note)
             .overlay(alignment: .topLeading) {
                 DrawingViewOverlay(note)
             }
@@ -39,75 +38,6 @@ struct DrawingView: View {
                         }
                     }
             )
-            .toolbar {
-                ToolbarItemGroup(placement: .topBarTrailing) {
-                    Button(role: .destructive) {
-                        vm.deletePage()
-                    } label: {
-                        Image(systemName: "trash")
-                            .foregroundStyle(.red)
-                    }
-                    .disabled(note.pages.count == 1)
-                    
-                    Button {
-                        dialogErase = true
-                    } label: {
-                        Image(systemName: "eraser.fill")
-                    }
-                    .foregroundStyle(.primary)
-                    .disabled(vm.strokes == 0)
-                    .confirmationDialog("Erase this page?", isPresented: $dialogErase) {
-                        Button("Erase", role: .destructive) {
-                            vm.clear()
-                        }
-                    }
-                    
-                    if vm.vc?.groupSession?.state != .joined, store.enableGroupActivities {
-                        Menu {
-                            Button("SharePlay", systemImage: "shareplay") {
-                                vm.vc?.startSharing()
-                            }
-                        } label: {
-                            Image(systemName: "person.crop.circle.badge.plus")
-                                .symbolRenderingMode(.multicolor)
-                                .tint(.secondary)
-                        }
-                    }
-                    
-                    Menu {
-#if DEBUG
-                        Text("\(vm.strokes ?? 0) strokes")
-                            .numericTransition()
-                            .secondary()
-                            .padding(.leading, 10)
-#endif
-                        Button("Clear") {
-                            vm.clear()
-                        }
-                        
-                        Button("Undo") {
-                            vm.undo()
-                        }
-                        
-                        Button("Redo") {
-                            vm.redo()
-                        }
-                        
-                        Divider()
-                        
-                        Text(vm.toolWidth)
-                        
-                        Slider(value: $vm.toolWidth, in: 1...100, step: 0.1)
-                            .padding()
-                        
-                        Button("Set Tool Width") {
-                            vm.changeToolWidth(to: vm.toolWidth)
-                        }
-                    } label: {
-                        Image(systemName: "ellipsis.circle")
-                    }
-                }
-            }
     }
 }
 
