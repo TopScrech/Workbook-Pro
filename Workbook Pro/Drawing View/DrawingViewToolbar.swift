@@ -43,7 +43,6 @@ struct DrawingToolbar: ViewModifier {
                         } label: {
                             Image(systemName: "person.crop.circle.badge.plus")
                                 .symbolRenderingMode(.multicolor)
-                                .tint(.secondary)
                         }
                     }
                     
@@ -53,6 +52,8 @@ struct DrawingToolbar: ViewModifier {
                             .numericTransition()
                             .secondary()
                             .padding(.leading, 10)
+                        
+                        Divider()
 #endif
                         Button("Rename", systemImage: "pencil") {
                             alertRename = true
@@ -60,15 +61,15 @@ struct DrawingToolbar: ViewModifier {
                         
                         Divider()
                         
-                        Button("Clear") {
+                        Button("Clear", systemImage: "xmark") {
                             vm.clear()
                         }
                         
-                        Button("Undo") {
+                        Button("Undo", systemImage: "arrow.uturn.backward") {
                             vm.undo()
                         }
                         
-                        Button("Redo") {
+                        Button("Redo", systemImage: "arrow.uturn.forward") {
                             vm.redo()
                         }
                         
@@ -79,7 +80,7 @@ struct DrawingToolbar: ViewModifier {
                         Slider(value: $vm.toolWidth, in: 1...100, step: 0.1)
                             .padding()
                         
-                        Button("Set Tool Width") {
+                        Button("Set Tool Width", systemImage: "paintbrush.pointed") {
                             vm.changeToolWidth(to: vm.toolWidth)
                         }
                     } label: {
