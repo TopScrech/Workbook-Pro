@@ -5,7 +5,7 @@ struct DrawingView: View {
     @EnvironmentObject private var store: ValueStore
     @Environment(\.dismiss) private var dismiss
     
-    private var note: Note
+    @Bindable private var note: Note
     
     init(_ note: Note) {
         self.note = note

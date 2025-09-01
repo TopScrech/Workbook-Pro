@@ -4,12 +4,16 @@ struct DrawingToolbar: ViewModifier {
     @EnvironmentObject private var store: ValueStore
     
     @Bindable var vm: DrawingVM
-    let note: Note
+    @Bindable var note: Note
     
     @State private var dialogErase = false
+    @State private var alertRename = false
     
     func body(content: Content) -> some View {
         content
+            .alert("Rename", isPresented: $alertRename) {
+                TextField("New note", text: $note.name)
+            }
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Button(role: .destructive) {
@@ -31,7 +35,7 @@ struct DrawingToolbar: ViewModifier {
                         }
                     }
                     
-                    if vm.vc?.groupSession?.state != .joined, store.enableGroupActivities {
+                    if store.enableGroupActivities, vm.vc?.groupSession?.state != .joined {
                         Menu {
                             Button("SharePlay", systemImage: "shareplay") {
                                 vm.vc?.startSharing()
@@ -50,6 +54,12 @@ struct DrawingToolbar: ViewModifier {
                             .secondary()
                             .padding(.leading, 10)
 #endif
+                        Button("Rename", systemImage: "pencil") {
+                            alertRename = true
+                        }
+                        
+                        Divider()
+                        
                         Button("Clear") {
                             vm.clear()
                         }
