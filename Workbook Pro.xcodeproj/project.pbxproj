@@ -8,60 +8,62 @@
 
 /* Begin PBXBuildFile section */
 		F332167F2BEF75FC00F6AB52 /* ValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332167E2BEF75FC00F6AB52 /* ValueStore.swift */; };
-		F33216812BEF768100F6AB52 /* Drawing VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216802BEF768100F6AB52 /* Drawing VM.swift */; };
-		F33216832BEF76FB00F6AB52 /* Settings View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216822BEF76FB00F6AB52 /* Settings View.swift */; };
-		F34DA3952D9BD9E7001B5A4E /* Drawing View Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DA3942D9BD9E7001B5A4E /* Drawing View Overlay.swift */; };
-		F34DA3972D9BDD47001B5A4E /* Note Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DA3962D9BDD47001B5A4E /* Note Card.swift */; };
-		F37E89FE2DA12B1700003564 /* Note Card Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E89FD2DA12B1700003564 /* Note Card Preview.swift */; };
+		F33216812BEF768100F6AB52 /* DrawingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216802BEF768100F6AB52 /* DrawingVM.swift */; };
+		F33216832BEF76FB00F6AB52 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33216822BEF76FB00F6AB52 /* SettingsView.swift */; };
+		F34DA3952D9BD9E7001B5A4E /* DrawingViewOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DA3942D9BD9E7001B5A4E /* DrawingViewOverlay.swift */; };
+		F34DA3972D9BDD47001B5A4E /* NoteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DA3962D9BDD47001B5A4E /* NoteCard.swift */; };
+		F37E89FE2DA12B1700003564 /* NoteCardPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E89FD2DA12B1700003564 /* NoteCardPreview.swift */; };
 		F380E0182E65A023008C56F8 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380E0172E65A023008C56F8 /* ColorTheme.swift */; };
 		F380E01A2E65A029008C56F8 /* SettingsAppearancePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380E0192E65A029008C56F8 /* SettingsAppearancePicker.swift */; };
 		F380E0202E65AF1F008C56F8 /* DrawingViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380E01F2E65AF1F008C56F8 /* DrawingViewToolbar.swift */; };
-		F38114FD2BF1624500F6AD6D /* Drawing Representable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38114FC2BF1624500F6AD6D /* Drawing Representable.swift */; };
+		F380E0222E65C824008C56F8 /* NoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380E0212E65C824008C56F8 /* NoteList.swift */; };
+		F38114FD2BF1624500F6AD6D /* DrawingRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38114FC2BF1624500F6AD6D /* DrawingRepresentable.swift */; };
 		F38114FF2BF28B4500F6AD6D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */; };
-		F392A2C22BED772B008EAD12 /* Workbook Pro.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C12BED772B008EAD12 /* Workbook Pro.swift */; };
-		F392A2C42BED772B008EAD12 /* App Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C32BED772B008EAD12 /* App Container.swift */; };
+		F392A2C22BED772B008EAD12 /* WorkbookPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C12BED772B008EAD12 /* WorkbookPro.swift */; };
+		F392A2C42BED772B008EAD12 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C32BED772B008EAD12 /* AppContainer.swift */; };
 		F392A2C62BED772B008EAD12 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C52BED772B008EAD12 /* Item.swift */; };
 		F392A2C82BED772C008EAD12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F392A2C72BED772C008EAD12 /* Assets.xcassets */; };
-		F392A2D62BEE0896008EAD12 /* Drawing VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2D52BEE0896008EAD12 /* Drawing VC.swift */; };
-		F392A2DC2BEE10B7008EAD12 /* Note List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2DB2BEE10B7008EAD12 /* Note List.swift */; };
+		F392A2D62BEE0896008EAD12 /* DrawingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2D52BEE0896008EAD12 /* DrawingVC.swift */; };
+		F392A2DC2BEE10B7008EAD12 /* NoteListParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2DB2BEE10B7008EAD12 /* NoteListParent.swift */; };
 		F392A2DF2BEE113E008EAD12 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F392A2DE2BEE113E008EAD12 /* ScrechKit */; };
-		F392A2E32BEE50ED008EAD12 /* Drawing View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2E22BEE50ED008EAD12 /* Drawing View.swift */; };
-		F3E6D9182BF654E0008B810E /* Group Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E6D9172BF654E0008B810E /* Group Activity.swift */; };
+		F392A2E32BEE50ED008EAD12 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2E22BEE50ED008EAD12 /* DrawingView.swift */; };
+		F3E6D9182BF654E0008B810E /* GroupActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E6D9172BF654E0008B810E /* GroupActivity.swift */; };
 		F3E6D91A2BF65554008B810E /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E6D9192BF65554008B810E /* Messages.swift */; };
 		F3E6D91E2BF6710D008B810E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E6D91D2BF6710D008B810E /* UIColor.swift */; };
-		F3F5BC752BF6B83400EB8FB1 /* Group Activity VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5BC742BF6B83400EB8FB1 /* Group Activity VC.swift */; };
-		F3F5BC772BF6B8EB00EB8FB1 /* Drawing VC Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5BC762BF6B8EB00EB8FB1 /* Drawing VC Tools.swift */; };
-		F3F5BC792BF6B93700EB8FB1 /* Drawing VC Pages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5BC782BF6B93700EB8FB1 /* Drawing VC Pages.swift */; };
+		F3F5BC752BF6B83400EB8FB1 /* GroupActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5BC742BF6B83400EB8FB1 /* GroupActivityVC.swift */; };
+		F3F5BC772BF6B8EB00EB8FB1 /* DrawingVC Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5BC762BF6B8EB00EB8FB1 /* DrawingVC Tools.swift */; };
+		F3F5BC792BF6B93700EB8FB1 /* DrawingVC Pages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F5BC782BF6B93700EB8FB1 /* DrawingVC Pages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F332167E2BEF75FC00F6AB52 /* ValueStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueStore.swift; sourceTree = "<group>"; };
-		F33216802BEF768100F6AB52 /* Drawing VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing VM.swift"; sourceTree = "<group>"; };
-		F33216822BEF76FB00F6AB52 /* Settings View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings View.swift"; sourceTree = "<group>"; };
+		F33216802BEF768100F6AB52 /* DrawingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingVM.swift; sourceTree = "<group>"; };
+		F33216822BEF76FB00F6AB52 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F34DA3922D9BD71A001B5A4E /* Workbook Pro.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Workbook Pro.plist"; path = "Workbook Pro/Workbook Pro.plist"; sourceTree = SOURCE_ROOT; };
-		F34DA3942D9BD9E7001B5A4E /* Drawing View Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing View Overlay.swift"; sourceTree = "<group>"; };
-		F34DA3962D9BDD47001B5A4E /* Note Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note Card.swift"; sourceTree = "<group>"; };
-		F37E89FD2DA12B1700003564 /* Note Card Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note Card Preview.swift"; sourceTree = "<group>"; };
+		F34DA3942D9BD9E7001B5A4E /* DrawingViewOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewOverlay.swift; sourceTree = "<group>"; };
+		F34DA3962D9BDD47001B5A4E /* NoteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCard.swift; sourceTree = "<group>"; };
+		F37E89FD2DA12B1700003564 /* NoteCardPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCardPreview.swift; sourceTree = "<group>"; };
 		F380E0172E65A023008C56F8 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		F380E0192E65A029008C56F8 /* SettingsAppearancePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAppearancePicker.swift; sourceTree = "<group>"; };
 		F380E01F2E65AF1F008C56F8 /* DrawingViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewToolbar.swift; sourceTree = "<group>"; };
-		F38114FC2BF1624500F6AD6D /* Drawing Representable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing Representable.swift"; sourceTree = "<group>"; };
+		F380E0212E65C824008C56F8 /* NoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteList.swift; sourceTree = "<group>"; };
+		F38114FC2BF1624500F6AD6D /* DrawingRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingRepresentable.swift; sourceTree = "<group>"; };
 		F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		F392A2BE2BED772B008EAD12 /* Workbook Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workbook Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F392A2C12BED772B008EAD12 /* Workbook Pro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workbook Pro.swift"; sourceTree = "<group>"; };
-		F392A2C32BED772B008EAD12 /* App Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Container.swift"; sourceTree = "<group>"; };
+		F392A2C12BED772B008EAD12 /* WorkbookPro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkbookPro.swift; sourceTree = "<group>"; };
+		F392A2C32BED772B008EAD12 /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 		F392A2C52BED772B008EAD12 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F392A2C72BED772C008EAD12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F392A2D52BEE0896008EAD12 /* Drawing VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing VC.swift"; sourceTree = "<group>"; };
-		F392A2DB2BEE10B7008EAD12 /* Note List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note List.swift"; sourceTree = "<group>"; };
-		F392A2E22BEE50ED008EAD12 /* Drawing View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing View.swift"; sourceTree = "<group>"; };
+		F392A2D52BEE0896008EAD12 /* DrawingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingVC.swift; sourceTree = "<group>"; };
+		F392A2DB2BEE10B7008EAD12 /* NoteListParent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListParent.swift; sourceTree = "<group>"; };
+		F392A2E22BEE50ED008EAD12 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 		F3E6D9162BF653A6008B810E /* Workbook Pro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Workbook Pro.entitlements"; sourceTree = "<group>"; };
-		F3E6D9172BF654E0008B810E /* Group Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group Activity.swift"; sourceTree = "<group>"; };
+		F3E6D9172BF654E0008B810E /* GroupActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupActivity.swift; sourceTree = "<group>"; };
 		F3E6D9192BF65554008B810E /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		F3E6D91D2BF6710D008B810E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		F3F5BC742BF6B83400EB8FB1 /* Group Activity VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group Activity VC.swift"; sourceTree = "<group>"; };
-		F3F5BC762BF6B8EB00EB8FB1 /* Drawing VC Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing VC Tools.swift"; sourceTree = "<group>"; };
-		F3F5BC782BF6B93700EB8FB1 /* Drawing VC Pages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drawing VC Pages.swift"; sourceTree = "<group>"; };
+		F3F5BC742BF6B83400EB8FB1 /* GroupActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupActivityVC.swift; sourceTree = "<group>"; };
+		F3F5BC762BF6B8EB00EB8FB1 /* DrawingVC Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DrawingVC Tools.swift"; sourceTree = "<group>"; };
+		F3F5BC782BF6B93700EB8FB1 /* DrawingVC Pages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DrawingVC Pages.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +79,7 @@
 		F3187A562C89A61C008FB911 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				F33216822BEF76FB00F6AB52 /* Settings View.swift */,
+				F33216822BEF76FB00F6AB52 /* SettingsView.swift */,
 				F380E0192E65A029008C56F8 /* SettingsAppearancePicker.swift */,
 				F380E0172E65A023008C56F8 /* ColorTheme.swift */,
 			);
@@ -95,10 +97,10 @@
 		F332167D2BEF59A400F6AB52 /* Pencil Kit */ = {
 			isa = PBXGroup;
 			children = (
-				F392A2D52BEE0896008EAD12 /* Drawing VC.swift */,
-				F3F5BC782BF6B93700EB8FB1 /* Drawing VC Pages.swift */,
-				F3F5BC762BF6B8EB00EB8FB1 /* Drawing VC Tools.swift */,
-				F38114FC2BF1624500F6AD6D /* Drawing Representable.swift */,
+				F392A2D52BEE0896008EAD12 /* DrawingVC.swift */,
+				F3F5BC782BF6B93700EB8FB1 /* DrawingVC Pages.swift */,
+				F3F5BC762BF6B8EB00EB8FB1 /* DrawingVC Tools.swift */,
+				F38114FC2BF1624500F6AD6D /* DrawingRepresentable.swift */,
 			);
 			path = "Pencil Kit";
 			sourceTree = "<group>";
@@ -106,7 +108,7 @@
 		F36B736B2C89AD9300E858FE /* Nav */ = {
 			isa = PBXGroup;
 			children = (
-				F392A2C32BED772B008EAD12 /* App Container.swift */,
+				F392A2C32BED772B008EAD12 /* AppContainer.swift */,
 			);
 			path = Nav;
 			sourceTree = "<group>";
@@ -114,10 +116,10 @@
 		F380E01D2E65AE8A008C56F8 /* Drawing View */ = {
 			isa = PBXGroup;
 			children = (
-				F392A2E22BEE50ED008EAD12 /* Drawing View.swift */,
+				F392A2E22BEE50ED008EAD12 /* DrawingView.swift */,
 				F380E01F2E65AF1F008C56F8 /* DrawingViewToolbar.swift */,
-				F33216802BEF768100F6AB52 /* Drawing VM.swift */,
-				F34DA3942D9BD9E7001B5A4E /* Drawing View Overlay.swift */,
+				F33216802BEF768100F6AB52 /* DrawingVM.swift */,
+				F34DA3942D9BD9E7001B5A4E /* DrawingViewOverlay.swift */,
 			);
 			path = "Drawing View";
 			sourceTree = "<group>";
@@ -125,9 +127,10 @@
 		F380E01E2E65AE93008C56F8 /* Note List */ = {
 			isa = PBXGroup;
 			children = (
-				F392A2DB2BEE10B7008EAD12 /* Note List.swift */,
-				F34DA3962D9BDD47001B5A4E /* Note Card.swift */,
-				F37E89FD2DA12B1700003564 /* Note Card Preview.swift */,
+				F392A2DB2BEE10B7008EAD12 /* NoteListParent.swift */,
+				F380E0212E65C824008C56F8 /* NoteList.swift */,
+				F34DA3962D9BDD47001B5A4E /* NoteCard.swift */,
+				F37E89FD2DA12B1700003564 /* NoteCardPreview.swift */,
 			);
 			path = "Note List";
 			sourceTree = "<group>";
@@ -151,7 +154,7 @@
 		F392A2C02BED772B008EAD12 /* Workbook Pro */ = {
 			isa = PBXGroup;
 			children = (
-				F392A2C12BED772B008EAD12 /* Workbook Pro.swift */,
+				F392A2C12BED772B008EAD12 /* WorkbookPro.swift */,
 				F332167E2BEF75FC00F6AB52 /* ValueStore.swift */,
 				F36B736B2C89AD9300E858FE /* Nav */,
 				F34DA3922D9BD71A001B5A4E /* Workbook Pro.plist */,
@@ -173,8 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				F3E6D9192BF65554008B810E /* Messages.swift */,
-				F3E6D9172BF654E0008B810E /* Group Activity.swift */,
-				F3F5BC742BF6B83400EB8FB1 /* Group Activity VC.swift */,
+				F3E6D9172BF654E0008B810E /* GroupActivity.swift */,
+				F3F5BC742BF6B83400EB8FB1 /* GroupActivityVC.swift */,
 			);
 			path = "Group Activities";
 			sourceTree = "<group>";
@@ -260,28 +263,29 @@
 		F392A2BA2BED772B008EAD12 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
-				F392A2E32BEE50ED008EAD12 /* Drawing View.swift in Sources */,
+				F392A2E32BEE50ED008EAD12 /* DrawingView.swift in Sources */,
 				F380E0182E65A023008C56F8 /* ColorTheme.swift in Sources */,
 				F3E6D91E2BF6710D008B810E /* UIColor.swift in Sources */,
-				F38114FD2BF1624500F6AD6D /* Drawing Representable.swift in Sources */,
-				F33216812BEF768100F6AB52 /* Drawing VM.swift in Sources */,
-				F392A2C42BED772B008EAD12 /* App Container.swift in Sources */,
-				F34DA3972D9BDD47001B5A4E /* Note Card.swift in Sources */,
+				F38114FD2BF1624500F6AD6D /* DrawingRepresentable.swift in Sources */,
+				F33216812BEF768100F6AB52 /* DrawingVM.swift in Sources */,
+				F392A2C42BED772B008EAD12 /* AppContainer.swift in Sources */,
+				F34DA3972D9BDD47001B5A4E /* NoteCard.swift in Sources */,
 				F380E01A2E65A029008C56F8 /* SettingsAppearancePicker.swift in Sources */,
-				F3E6D9182BF654E0008B810E /* Group Activity.swift in Sources */,
-				F3F5BC772BF6B8EB00EB8FB1 /* Drawing VC Tools.swift in Sources */,
+				F3E6D9182BF654E0008B810E /* GroupActivity.swift in Sources */,
+				F3F5BC772BF6B8EB00EB8FB1 /* DrawingVC Tools.swift in Sources */,
 				F3E6D91A2BF65554008B810E /* Messages.swift in Sources */,
-				F3F5BC752BF6B83400EB8FB1 /* Group Activity VC.swift in Sources */,
-				F37E89FE2DA12B1700003564 /* Note Card Preview.swift in Sources */,
+				F3F5BC752BF6B83400EB8FB1 /* GroupActivityVC.swift in Sources */,
+				F37E89FE2DA12B1700003564 /* NoteCardPreview.swift in Sources */,
 				F392A2C62BED772B008EAD12 /* Item.swift in Sources */,
 				F380E0202E65AF1F008C56F8 /* DrawingViewToolbar.swift in Sources */,
-				F392A2C22BED772B008EAD12 /* Workbook Pro.swift in Sources */,
-				F34DA3952D9BD9E7001B5A4E /* Drawing View Overlay.swift in Sources */,
-				F33216832BEF76FB00F6AB52 /* Settings View.swift in Sources */,
+				F392A2C22BED772B008EAD12 /* WorkbookPro.swift in Sources */,
+				F34DA3952D9BD9E7001B5A4E /* DrawingViewOverlay.swift in Sources */,
+				F33216832BEF76FB00F6AB52 /* SettingsView.swift in Sources */,
+				F380E0222E65C824008C56F8 /* NoteList.swift in Sources */,
 				F332167F2BEF75FC00F6AB52 /* ValueStore.swift in Sources */,
-				F392A2DC2BEE10B7008EAD12 /* Note List.swift in Sources */,
-				F3F5BC792BF6B93700EB8FB1 /* Drawing VC Pages.swift in Sources */,
-				F392A2D62BEE0896008EAD12 /* Drawing VC.swift in Sources */,
+				F392A2DC2BEE10B7008EAD12 /* NoteListParent.swift in Sources */,
+				F3F5BC792BF6B93700EB8FB1 /* DrawingVC Pages.swift in Sources */,
+				F392A2D62BEE0896008EAD12 /* DrawingVC.swift in Sources */,
 			);
 		};
 /* End PBXSourcesBuildPhase section */

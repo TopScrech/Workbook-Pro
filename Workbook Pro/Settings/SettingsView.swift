@@ -7,11 +7,15 @@ struct SettingsView: View {
         List {
             SettingsAppearancePicker()
             
-            Section("BETA") {
-                Toggle("Group Activities", isOn: $store.enableGroupActivities)
+            Toggle(isOn: $store.listView) {
+                Label("List view", systemImage: "list.bullet")
             }
             
             Section("Debug") {
+                Toggle(isOn: $store.enableGroupActivities) {
+                    Label("SharePlay", systemImage: "shareplay")
+                }
+                
                 Toggle("Navigation bar", isOn: $store.showNavBar)
                 
                 Toggle("Status bar", isOn: $store.showStatusBar)

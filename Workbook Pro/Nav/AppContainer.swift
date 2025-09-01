@@ -6,7 +6,7 @@ struct AppContainer: View {
     
     var body: some View {
         NavigationStack {
-            NoteList()
+            NoteListParent()
         }
         .statusBarHidden(!store.showStatusBar)
 #if !os(visionOS)
