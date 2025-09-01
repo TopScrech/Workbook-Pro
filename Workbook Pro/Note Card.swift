@@ -49,35 +49,27 @@ struct NoteCard: View {
             TextField("Some note", text: $note.name)
         }
         .contextMenu {
-            Button {
+            Button("Rename", systemImage: "pencil") {
                 alertRename = true
-            } label: {
-                Label("Rename", systemImage: "pencil")
             }
             
-            Button {
+            let text = note.isPinned ? "Unpin" : "Pin"
+            let icon = note.isPinned ? "pin.slash" : "pin"
+            
+            Button(text, systemImage: icon) {
                 note.isPinned.toggle()
-            } label: {
-                let text = note.isPinned ? "Unpin" : "Pin"
-                let icon = note.isPinned ? "pin.slash" : "pin"
-                
-                Label(text, systemImage: icon)
             }
             
-            Button {
+            Button("Duplicate", systemImage: "plus.square.on.square") {
                 modelContext.insert(
                     Note(note.name, pages: note.pages, image: note.image)
                 )
-            } label: {
-                Label("Duplicate", systemImage: "plus.square.on.square")
             }
             
             Divider()
             
-            Button(role: .destructive) {
+            Button("Delete", systemImage: "trash", role: .destructive) {
                 deleteItems(note)
-            } label: {
-                Label("Delete", systemImage: "trash")
             }
         }
     }

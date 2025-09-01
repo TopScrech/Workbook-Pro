@@ -65,7 +65,7 @@ struct NoteList: View {
 #warning("Too big image size")
                     Image(.add)
                         .resizable()
-                        .frame(width: 32, height: 32)
+                        .frame(32)
                 }
             }
         }
@@ -73,7 +73,7 @@ struct NoteList: View {
     
     private func create() {
         modelContext.insert(
-            Note("Test")
+            Note("New Note")
         )
     }
     

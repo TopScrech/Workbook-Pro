@@ -73,10 +73,8 @@ struct DrawingView: View {
                     
                     if vm.vc?.groupSession?.state != .joined, store.enableGroupActivities {
                         Menu {
-                            Button {
+                            Button("SharePlay", systemImage: "shareplay") {
                                 vm.vc?.startSharing()
-                            } label: {
-                                Label("SharePlay", systemImage: "shareplay")
                             }
                         } label: {
                             Image(systemName: "person.crop.circle.badge.plus")

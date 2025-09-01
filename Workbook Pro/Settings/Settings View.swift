@@ -13,10 +13,13 @@ struct SettingsView: View {
                 Toggle("Enable Group Activities", isOn: $store.enableGroupActivities)
             }
         }
+        .navigationTitle("Settings")
     }
 }
 
 #Preview {
-    SettingsView()
-        .environmentObject(ValueStore())
+    NavigationStack {
+        SettingsView()
+    }
+    .environmentObject(ValueStore())
 }

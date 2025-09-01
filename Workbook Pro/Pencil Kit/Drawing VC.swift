@@ -75,7 +75,8 @@ final class DrawingVC: UIViewController, ObservableObject, PKCanvasViewDelegate,
             selectedPage = max(note!.pages.count - 1, 0)
         }
         
-        print("Count \(note!.pages.count), selected \(selectedPage)")
+        print("Count:", note!.pages.count)
+        print("Selected:", selectedPage)
         
         loadDrawing(from: note!.pages[selectedPage].wrappedValue)
     }
