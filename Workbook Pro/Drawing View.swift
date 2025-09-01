@@ -18,7 +18,6 @@ struct DrawingView: View {
             .navigationTitle(note.name)
             .ignoresSafeArea()
             .toolbar(store.showNavBar ? .visible : .hidden, for: .navigationBar)
-            .statusBarHidden(!store.showStatusBar)
             .overlay(alignment: .topLeading) {
                 DrawingViewOverlay(note)
             }

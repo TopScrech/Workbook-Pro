@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 
 struct DrawingViewOverlay: View {
     @Environment(DrawingVM.self) private var vm
@@ -11,10 +11,8 @@ struct DrawingViewOverlay: View {
     
     var body: some View {
         HStack(spacing: 4) {
-            Button {
+            SFButton("arrow.backward") {
                 vm.previous()
-            } label: {
-                Image(systemName: "arrow.backward")
             }
             .disabled(vm.isFirstPage)
             
@@ -29,10 +27,8 @@ struct DrawingViewOverlay: View {
             Divider()
                 .frame(height: 20)
             
-            Button {
+            SFButton(vm.isLastPage ? "plus" : "arrow.forward") {
                 vm.next()
-            } label: {
-                Image(systemName: vm.isLastPage ? "plus" : "arrow.forward")
             }
         }
         .footnote()

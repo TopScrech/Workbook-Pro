@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 import SwiftData
 
 struct NoteList: View {
@@ -35,7 +35,9 @@ struct NoteList: View {
             print("Squeeze:", phase)
         }
         .sheet($sheetSettings) {
-            SettingsView()
+            NavigationStack {
+                SettingsView()
+            }
         }
         .overlay {
             if notes.isEmpty {
@@ -50,11 +52,8 @@ struct NoteList: View {
         }
         .toolbar {
             ToolbarItemGroup(placement: .topBarLeading) {
-                Button {
+                SFButton("gear") {
                     sheetSettings = true
-                } label: {
-                    Image(systemName: "gear")
-                        .semibold()
                 }
             }
             

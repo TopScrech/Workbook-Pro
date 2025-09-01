@@ -5,12 +5,14 @@ struct SettingsView: View {
     
     var body: some View {
         List {
-            Toggle("Show nav bar", isOn: $store.showNavBar)
-            
-            Toggle("Show status bar", isOn: $store.showStatusBar)
-            
             Section("BETA") {
                 Toggle("Enable Group Activities", isOn: $store.enableGroupActivities)
+            }
+            
+            Section("Debug") {
+                Toggle("Navigation bar", isOn: $store.showNavBar)
+                
+                Toggle("Status bar", isOn: $store.showStatusBar)
             }
         }
         .navigationTitle("Settings")
