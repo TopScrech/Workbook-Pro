@@ -8,14 +8,8 @@ struct NoteListParent: View {
     var body: some View {
         NoteList()
             .animation(.default, value: notes)
-            .onPencilDoubleTap { value in
-                let pos = String(describing: value.hoverPose)
-                
-                print("Double tap:", pos)
-            }
-            .onPencilSqueeze { phase in
-                print("Squeeze:", phase)
-            }
+            .pencilDoubleTapLogging()
+            .pencilSqueezeLogging()
             .overlay {
                 if notes.isEmpty {
                     ContentUnavailableView {

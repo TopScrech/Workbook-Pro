@@ -17,6 +17,7 @@
 		F380E01A2E65A029008C56F8 /* SettingsAppearancePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380E0192E65A029008C56F8 /* SettingsAppearancePicker.swift */; };
 		F380E0202E65AF1F008C56F8 /* DrawingViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380E01F2E65AF1F008C56F8 /* DrawingViewToolbar.swift */; };
 		F380E0222E65C824008C56F8 /* NoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380E0212E65C824008C56F8 /* NoteList.swift */; };
+		F380E0242E65C9C9008C56F8 /* PencilProFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = F380E0232E65C9C9008C56F8 /* PencilProFeatures.swift */; };
 		F38114FD2BF1624500F6AD6D /* DrawingRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38114FC2BF1624500F6AD6D /* DrawingRepresentable.swift */; };
 		F38114FF2BF28B4500F6AD6D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */; };
 		F392A2C22BED772B008EAD12 /* WorkbookPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392A2C12BED772B008EAD12 /* WorkbookPro.swift */; };
@@ -47,6 +48,7 @@
 		F380E0192E65A029008C56F8 /* SettingsAppearancePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAppearancePicker.swift; sourceTree = "<group>"; };
 		F380E01F2E65AF1F008C56F8 /* DrawingViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewToolbar.swift; sourceTree = "<group>"; };
 		F380E0212E65C824008C56F8 /* NoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteList.swift; sourceTree = "<group>"; };
+		F380E0232E65C9C9008C56F8 /* PencilProFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PencilProFeatures.swift; sourceTree = "<group>"; };
 		F38114FC2BF1624500F6AD6D /* DrawingRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingRepresentable.swift; sourceTree = "<group>"; };
 		F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		F392A2BE2BED772B008EAD12 /* Workbook Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workbook Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +158,7 @@
 			children = (
 				F392A2C12BED772B008EAD12 /* WorkbookPro.swift */,
 				F332167E2BEF75FC00F6AB52 /* ValueStore.swift */,
+				F380E0232E65C9C9008C56F8 /* PencilProFeatures.swift */,
 				F36B736B2C89AD9300E858FE /* Nav */,
 				F34DA3922D9BD71A001B5A4E /* Workbook Pro.plist */,
 				F3E6D9162BF653A6008B810E /* Workbook Pro.entitlements */,
@@ -264,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			files = (
 				F392A2E32BEE50ED008EAD12 /* DrawingView.swift in Sources */,
+				F380E0242E65C9C9008C56F8 /* PencilProFeatures.swift in Sources */,
 				F380E0182E65A023008C56F8 /* ColorTheme.swift in Sources */,
 				F3E6D91E2BF6710D008B810E /* UIColor.swift in Sources */,
 				F38114FD2BF1624500F6AD6D /* DrawingRepresentable.swift in Sources */,
@@ -435,7 +439,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -470,7 +474,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
