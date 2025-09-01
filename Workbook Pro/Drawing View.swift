@@ -40,14 +40,6 @@ struct DrawingView: View {
                     }
             )
             .toolbar {
-#if DEBUG
-                ToolbarItemGroup(placement: .topBarLeading) {
-                    Text("\(vm.strokes ?? 0) strokes")
-                        .numericTransition()
-                        .secondary()
-                        .padding(.leading, 10)
-                }
-#endif
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Button(role: .destructive) {
                         vm.deletePage()
@@ -83,6 +75,12 @@ struct DrawingView: View {
                     }
                     
                     Menu {
+#if DEBUG
+                        Text("\(vm.strokes ?? 0) strokes")
+                            .numericTransition()
+                            .secondary()
+                            .padding(.leading, 10)
+#endif
                         Button("Clear") {
                             vm.clear()
                         }
