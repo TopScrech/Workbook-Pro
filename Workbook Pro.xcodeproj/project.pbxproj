@@ -109,6 +109,26 @@
 			path = Nav;
 			sourceTree = "<group>";
 		};
+		F380E01D2E65AE8A008C56F8 /* Drawing View */ = {
+			isa = PBXGroup;
+			children = (
+				F392A2E22BEE50ED008EAD12 /* Drawing View.swift */,
+				F33216802BEF768100F6AB52 /* Drawing VM.swift */,
+				F34DA3942D9BD9E7001B5A4E /* Drawing View Overlay.swift */,
+			);
+			path = "Drawing View";
+			sourceTree = "<group>";
+		};
+		F380E01E2E65AE93008C56F8 /* Note List */ = {
+			isa = PBXGroup;
+			children = (
+				F392A2DB2BEE10B7008EAD12 /* Note List.swift */,
+				F34DA3962D9BDD47001B5A4E /* Note Card.swift */,
+				F37E89FD2DA12B1700003564 /* Note Card Preview.swift */,
+			);
+			path = "Note List";
+			sourceTree = "<group>";
+		};
 		F392A2B52BED772B008EAD12 = {
 			isa = PBXGroup;
 			children = (
@@ -135,12 +155,8 @@
 				F3E6D9162BF653A6008B810E /* Workbook Pro.entitlements */,
 				F392A2C72BED772C008EAD12 /* Assets.xcassets */,
 				F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */,
-				F392A2DB2BEE10B7008EAD12 /* Note List.swift */,
-				F34DA3962D9BDD47001B5A4E /* Note Card.swift */,
-				F37E89FD2DA12B1700003564 /* Note Card Preview.swift */,
-				F392A2E22BEE50ED008EAD12 /* Drawing View.swift */,
-				F33216802BEF768100F6AB52 /* Drawing VM.swift */,
-				F34DA3942D9BD9E7001B5A4E /* Drawing View Overlay.swift */,
+				F380E01E2E65AE93008C56F8 /* Note List */,
+				F380E01D2E65AE8A008C56F8 /* Drawing View */,
 				F3187A562C89A61C008FB911 /* Settings */,
 				F3E6D91B2BF657CD008B810E /* Group Activities */,
 				F332167D2BEF59A400F6AB52 /* Pencil Kit */,
