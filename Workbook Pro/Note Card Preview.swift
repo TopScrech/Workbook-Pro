@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct NoteCardPreview: View {
-    @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.colorScheme) private var appearance
     
     private let note: Note
     
@@ -16,7 +16,7 @@ struct NoteCardPreview: View {
                 .frame(width: 200, height: 300)
                 .border(.white)
                 .overlay {
-                    if colorScheme == .light {
+                    if appearance == .light {
                         Color.black
                             .clipShape(.rect(cornerRadius: 16))
                     }
