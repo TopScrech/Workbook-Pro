@@ -9,5 +9,8 @@ struct AppContainer: View {
             NoteList()
         }
         .statusBarHidden(!store.showStatusBar)
+#if !os(visionOS)
+        .preferredColorScheme(store.appearance.scheme)
+#endif
     }
 }

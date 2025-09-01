@@ -5,8 +5,10 @@ struct SettingsView: View {
     
     var body: some View {
         List {
+            SettingsAppearancePicker()
+            
             Section("BETA") {
-                Toggle("Enable Group Activities", isOn: $store.enableGroupActivities)
+                Toggle("Group Activities", isOn: $store.enableGroupActivities)
             }
             
             Section("Debug") {

@@ -34,11 +34,6 @@ struct NoteList: View {
         .onPencilSqueeze { phase in
             print("Squeeze:", phase)
         }
-        .sheet($sheetSettings) {
-            NavigationStack {
-                SettingsView()
-            }
-        }
         .overlay {
             if notes.isEmpty {
                 ContentUnavailableView {
@@ -52,8 +47,10 @@ struct NoteList: View {
         }
         .toolbar {
             ToolbarItemGroup(placement: .topBarLeading) {
-                SFButton("gear") {
-                    sheetSettings = true
+                NavigationLink {
+                    SettingsView()
+                } label: {
+                    Image(systemName: "gear")
                 }
             }
             

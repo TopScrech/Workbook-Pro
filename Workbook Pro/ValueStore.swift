@@ -5,4 +5,6 @@ final class ValueStore: ObservableObject {
     @AppStorage("show_nav_bar") var showNavBar = true
     @AppStorage("enable_group_activities") var enableGroupActivities = false
     //@AppStorage("view_mode") private var viewMode = false
+    
+    @AppStorage("appearance") var appearance: ColorTheme = .system
 }
