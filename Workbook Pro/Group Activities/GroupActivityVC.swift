@@ -99,21 +99,20 @@ extension DrawingVC {
         
         tasks.insert(task)
         
-        // Uncomment this section if you need to handle images from journal attachments
-        // task = Task {
-        //     for await images in journal.attachments {
-        //         await handle(images)
-        //     }
-        // }
-        // tasks.insert(task)
+        //        Uncomment this section if you need to handle images from journal attachments
+        //        task = Task {
+        //            for await images in journal.attachments {
+        //                await handle(images)
+        //            }
+        //        }
+        //
+        //        tasks.insert(task)
         
         groupSession.join()
     }
     
     func handle(_ message: SetupCommand) {
         print(#function)
-        
-        
     }
     
     func handle(_ message: UpdateCommand) {
