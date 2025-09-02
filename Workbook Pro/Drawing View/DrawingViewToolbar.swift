@@ -29,7 +29,7 @@ struct DrawingToolbar: ViewModifier {
                     }
                     .foregroundStyle(.primary)
                     .disabled((vm.strokes ?? 0) == 0)
-                    .confirmationDialog("Erase this page?", isPresented: $dialogErase) {
+                    .alert("Erase this page?", isPresented: $dialogErase) {
                         Button("Erase", role: .destructive) {
                             vm.clear()
                         }
