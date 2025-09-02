@@ -59,9 +59,10 @@ final class DrawingVC: UIViewController, ObservableObject, PKCanvasViewDelegate,
     }
     
     func deletePage() {
-        guard let pages = note?.pages.wrappedValue,
-              // Ensure there's at least one page to delete and the selected page is within range
-              pages.count > 0, selectedPage < pages.count
+        guard
+            let pages = note?.pages.wrappedValue,
+            // Ensure there's at least one page to delete and the selected page is within range
+            pages.count > 0, selectedPage < pages.count
         else {
             return
         }
@@ -96,8 +97,8 @@ final class DrawingVC: UIViewController, ObservableObject, PKCanvasViewDelegate,
     
     private func saveDrawing() {
         print(#function)
-        let data = canvasView.drawing.dataRepresentation()
         
+        let data = canvasView.drawing.dataRepresentation()
         note?.pages[selectedPage].wrappedValue = data
     }
     
@@ -134,7 +135,12 @@ final class DrawingVC: UIViewController, ObservableObject, PKCanvasViewDelegate,
         if obscuredFrame.isNull {
             canvasView.contentInset = .zero
         } else {
-            canvasView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: canvasView.bounds.maxY - obscuredFrame.minY, right: 0)
+            canvasView.contentInset = UIEdgeInsets(
+                top: 0,
+                left: 0,
+                bottom: canvasView.bounds.maxY - obscuredFrame.minY,
+                right: 0
+            )
         }
         
         canvasView.scrollIndicatorInsets = canvasView.contentInset

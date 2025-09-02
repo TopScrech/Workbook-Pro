@@ -65,7 +65,6 @@ extension DrawingVC {
         // Monitor active participants in the group session
         groupSession.$activeParticipants
             .sink { [weak self] activeParticipants in
-                
                 guard let self else {
                     return
                 }

@@ -12,11 +12,11 @@ final class DrawingVM {
     }
     
     var isLastPage: Bool {
-        guard let pages = vc?.note?.pages else {
-            return false
+        if let pages = vc?.note?.pages {
+            vc?.selectedPage == pages.count - 1
+        } else {
+            false
         }
-        
-        return vc?.selectedPage == pages.count - 1
     }
     
     var strokes: Int? {
