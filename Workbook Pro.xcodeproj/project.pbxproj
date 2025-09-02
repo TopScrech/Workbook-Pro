@@ -141,12 +141,20 @@
 				F380E0212E65C824008C56F8 /* NoteListView.swift */,
 				F380E0292E66C46F008C56F8 /* NoteList.swift */,
 				F380E02B2E66C486008C56F8 /* NoteGrid.swift */,
+				F380E02D2E66C53D008C56F8 /* Note Card */,
+			);
+			path = "Note List";
+			sourceTree = "<group>";
+		};
+		F380E02D2E66C53D008C56F8 /* Note Card */ = {
+			isa = PBXGroup;
+			children = (
 				F34DA3962D9BDD47001B5A4E /* NoteCard.swift */,
 				F380E0252E66C188008C56F8 /* NoteListCardLabel.swift */,
 				F380E0272E66C1B3008C56F8 /* NoteGridCardLabel.swift */,
 				F37E89FD2DA12B1700003564 /* NoteCardPreview.swift */,
 			);
-			path = "Note List";
+			path = "Note Card";
 			sourceTree = "<group>";
 		};
 		F392A2B52BED772B008EAD12 = {

@@ -6,7 +6,7 @@ struct NoteListParent: View {
     @Environment(\.modelContext) private var modelContext
     
     var body: some View {
-        NoteListView()
+        NoteListView(notes)
             .animation(.default, value: notes)
             .pencilDoubleTapLogging()
             .pencilSqueezeLogging()
