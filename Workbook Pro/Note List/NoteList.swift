@@ -15,6 +15,7 @@ struct NoteList: View {
                 ForEach(notes.filter { $0.isPinned }) { note in
                     NoteCard(note)
                 }
+//                .onDelete(perform: deleteItems)
             } header: {
                 Label("Pinned", systemImage: "pin")
             }
@@ -22,15 +23,15 @@ struct NoteList: View {
             ForEach(notes.filter { !$0.isPinned }) { note in
                 NoteCard(note)
             }
-            //                    .onDelete(perform: deleteItems)
+//            .onDelete(perform: deleteItems)
         }
     }
     
-    private func deleteItems(offsets: IndexSet) {
-        for index in offsets {
-            modelContext.delete(notes[index])
-        }
-    }
+//    private func deleteItems(offsets: IndexSet) {
+//        for index in offsets {
+//            modelContext.delete(notes[index])
+//        }
+//    }
 }
 
 //#Preview {
