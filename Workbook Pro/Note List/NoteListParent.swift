@@ -6,7 +6,7 @@ struct NoteListParent: View {
     @Environment(\.modelContext) private var modelContext
     
     var body: some View {
-        NoteList()
+        NoteListView()
             .animation(.default, value: notes)
             .pencilDoubleTapLogging()
             .pencilSqueezeLogging()
@@ -46,16 +46,6 @@ struct NoteListParent: View {
         modelContext.insert(
             Note("New Note")
         )
-    }
-    
-    private func deleteItems(offsets: IndexSet) {
-        for index in offsets {
-            modelContext.delete(notes[index])
-        }
-    }
-    
-    private func deleteItems(_ note: Note) {
-        modelContext.delete(note)
     }
 }
 

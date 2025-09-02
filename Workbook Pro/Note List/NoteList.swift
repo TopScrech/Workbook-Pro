@@ -1,43 +1,38 @@
 import SwiftUI
-import SwiftData
 
 struct NoteList: View {
-    @EnvironmentObject private var store: ValueStore
+    @Environment(\.modelContext) private var modelContext
     
-    @Query private var notes: [Note]
+    private let notes: [Note]
     
-    private let columns = [
-        GridItem(.adaptive(minimum: 250, maximum: 400))
-    ]
+    init(_ notes: [Note]) {
+        self.notes = notes
+    }
     
     var body: some View {
-        if store.listView {
-            List {
+        List {
+            Section {
                 ForEach(notes.filter { $0.isPinned }) { note in
                     NoteCard(note)
                 }
-                
-                Section {
-                    ForEach(notes.filter { !$0.isPinned }) { note in
-                        NoteCard(note)
-                    }
-                    //                    .onDelete(perform: deleteItems)
-                }
+            } header: {
+                Label("Pinned", systemImage: "pin")
             }
-        } else {
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(notes.filter { $0.isPinned }) { note in
-                        NoteCard(note)
-                    }
-                    
-                    Section {
-                        ForEach(notes.filter { !$0.isPinned }) { note in
-                            NoteCard(note)
-                        }
-                    }
-                }
+            
+            ForEach(notes.filter { !$0.isPinned }) { note in
+                NoteCard(note)
             }
+            //                    .onDelete(perform: deleteItems)
+        }
+    }
+    
+    private func deleteItems(offsets: IndexSet) {
+        for index in offsets {
+            modelContext.delete(notes[index])
         }
     }
 }
+
+//#Preview {
+//    NoteList()
+//}
