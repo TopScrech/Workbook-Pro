@@ -3,8 +3,8 @@ import SwiftData
 
 @Model
 final class Note {
-    var name: String
-    var pages: [Data]
+    var name = ""
+    var pages: [Data] = []
     var image: Data? = nil
     var isPinned = false
     var created = Date()
