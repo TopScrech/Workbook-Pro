@@ -16,9 +16,11 @@ struct SettingsView: View {
                     Label("SharePlay", systemImage: "shareplay")
                 }
                 
-                Toggle("Navigation bar", isOn: $store.showNavBar)
+                Toggle(isOn: $store.showStatusBar) {
+                    Label("Status bar", systemImage: "menubar.arrow.up.rectangle")
+                }
                 
-                Toggle("Status bar", isOn: $store.showStatusBar)
+                Toggle("Navigation bar", isOn: $store.showNavBar)
             }
         }
         .navigationTitle("Settings")
