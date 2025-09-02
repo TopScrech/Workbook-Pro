@@ -2,7 +2,7 @@ import SwiftUI
 
 final class ValueStore: ObservableObject {
     @AppStorage("appearance") var appearance: ColorTheme = .system
-    @AppStorage("list_view") var listView = false
+    @AppStorage("list_view") var listView = true
     
     // Beta
     @AppStorage("enable_group_activities") var enableGroupActivities = false

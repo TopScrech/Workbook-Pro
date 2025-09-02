@@ -22,6 +22,7 @@ struct SettingsView: View {
             }
         }
         .navigationTitle("Settings")
+        .frame(maxWidth: 500)
     }
 }
 

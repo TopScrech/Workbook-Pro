@@ -2,6 +2,8 @@ import SwiftUI
 import SwiftData
 
 struct NoteCard: View {
+    @EnvironmentObject private var store: ValueStore
+    
     @Query private var notes: [Note]
     @Environment(\.modelContext) private var modelContext
     
@@ -17,32 +19,11 @@ struct NoteCard: View {
         NavigationLink {
             DrawingView(note)
         } label: {
-            VStack {
-                NoteCardPreview(note)
-                
-                HStack {
-                    Text(note.name)
-                        .numericTransition()
-                        .animation(.default, value: note.name)
-                    
-                    if note.isPinned {
-                        Image(systemName: "pin.fill")
-                            .foregroundStyle(.red)
-                    }
-                }
-                
-                Text("\(note.pages.count) pages")
-                    .footnote()
-                    .secondary()
+            if store.listView {
+                NoteListCardLabel(note)
+            } else {
+                NoteGridCardLabel(note)
             }
-            .padding()
-            //            .overlay(alignment: .topTrailing) {
-            //                Image(systemName: "xmark")
-            //                    .title()
-            //                    .foregroundColor(.red)
-            //                    .padding(10)
-            //                    .background(.ultraThinMaterial, in: .circle)
-            //            }
         }
         .foregroundStyle(.foreground)
         .alert("Rename", isPresented: $alertRename) {
@@ -93,4 +74,5 @@ struct NoteCard: View {
 
 //#Preview {
 //    NoteCard()
+//      .environmentObject(ValueStore())
 //}
