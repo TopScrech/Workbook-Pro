@@ -32,6 +32,7 @@ struct NoteListParent: View {
                         .background(.ultraThinMaterial, in: .circle)
                 }
                 .padding(.trailing)
+                .keyboardShortcut("N")
             }
             .toolbar {
                 NavigationLink {
