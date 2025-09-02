@@ -57,6 +57,7 @@
 		F380E0272E66C1B3008C56F8 /* NoteGridCardLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteGridCardLabel.swift; sourceTree = "<group>"; };
 		F380E0292E66C46F008C56F8 /* NoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteList.swift; sourceTree = "<group>"; };
 		F380E02B2E66C486008C56F8 /* NoteGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteGrid.swift; sourceTree = "<group>"; };
+		F380E02E2E66D3E3008C56F8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F38114FC2BF1624500F6AD6D /* DrawingRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingRepresentable.swift; sourceTree = "<group>"; };
 		F38114FE2BF28B4500F6AD6D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		F392A2BE2BED772B008EAD12 /* Workbook Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workbook Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +155,7 @@
 		F392A2B52BED772B008EAD12 = {
 			isa = PBXGroup;
 			children = (
+				F380E02E2E66D3E3008C56F8 /* README.md */,
 				F392A2C02BED772B008EAD12 /* Workbook Pro */,
 				F392A2BF2BED772B008EAD12 /* Products */,
 			);
