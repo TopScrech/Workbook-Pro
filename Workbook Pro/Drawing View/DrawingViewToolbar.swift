@@ -15,7 +15,8 @@ struct DrawingToolbar: ViewModifier {
                 TextField("New note", text: $note.name)
             }
             .toolbar {
-                ToolbarItemGroup(placement: .topBarTrailing) {
+                ToolbarItemGroup {
+                    //                ToolbarItemGroup(placement: .topBarTrailing) {
                     Button(role: .destructive) {
                         vm.deletePage()
                     } label: {
@@ -45,15 +46,23 @@ struct DrawingToolbar: ViewModifier {
                                 .symbolRenderingMode(.multicolor)
                         }
                     }
-                    
+                }
+                
+                if #available(iOS 26.0, *) {
+                    ToolbarSpacer(.fixed)
+                }
+                
+                ToolbarItemGroup {
                     Menu {
 #if DEBUG
-                        Text("\(vm.strokes ?? 0) strokes")
-                            .numericTransition()
-                            .secondary()
-                            .padding(.leading, 10)
-                        
-                        Divider()
+                        if let strokes = vm.strokes, strokes > 0 {
+                            Text("\(strokes) strokes")
+                                .numericTransition()
+                                .secondary()
+                                .padding(.leading, 10)
+                            
+                            Divider()
+                        }
 #endif
                         Button("Rename", systemImage: "pencil") {
                             alertRename = true
@@ -84,7 +93,7 @@ struct DrawingToolbar: ViewModifier {
                             vm.changeToolWidth(to: vm.toolWidth)
                         }
                     } label: {
-                        Image(systemName: "ellipsis.circle")
+                        Image(systemName: "ellipsis")
                     }
                 }
             }
