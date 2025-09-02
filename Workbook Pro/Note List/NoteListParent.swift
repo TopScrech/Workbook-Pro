@@ -39,6 +39,7 @@ struct NoteListParent: View {
                 } label: {
                     Image(systemName: "gear")
                 }
+                .keyboardShortcut("S")
             }
     }
     
