@@ -21,24 +21,23 @@ struct NoteListParent: View {
                     }
                 }
             }
-            .toolbar {
-                ToolbarItemGroup(placement: .topBarLeading) {
-                    NavigationLink {
-                        SettingsView()
-                    } label: {
-                        Image(systemName: "gear")
-                    }
+            .overlay(alignment: .bottomTrailing) {
+                Button {
+                    create()
+                } label: {
+                    Image(.add)
+                        .resizable()
+                        .frame(50)
+                        .padding(8)
+                        .background(.ultraThinMaterial, in: .circle)
                 }
-                
-                ToolbarItemGroup(placement: .topBarTrailing) {
-                    Button {
-                        create()
-                    } label: {
-#warning("Too big image size")
-                        Image(.add)
-                            .resizable()
-                            .frame(32)
-                    }
+                .padding(.trailing)
+            }
+            .toolbar {
+                NavigationLink {
+                    SettingsView()
+                } label: {
+                    Image(systemName: "gear")
                 }
             }
     }
