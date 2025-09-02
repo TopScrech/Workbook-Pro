@@ -20,6 +20,9 @@ struct DrawingViewToolbar: ViewModifier {
             .alert("Rename", isPresented: $alertRename) {
                 TextField("New note", text: $note.name)
             }
+            .onChange(of: vm.toolWidth) { _, newValue in
+                vm.changeToolWidth(to: newValue)
+            }
             .toolbar {
                 ToolbarItemGroup {
                     //                ToolbarItemGroup(placement: .topBarTrailing) {
@@ -90,13 +93,8 @@ struct DrawingViewToolbar: ViewModifier {
                         
                         Divider()
                         
-                        Text(vm.toolWidth)
-                        
-                        Slider(value: $vm.toolWidth, in: 1...100, step: 0.1)
-                            .padding()
-                        
-                        Button("Set Tool Width", systemImage: "paintbrush.pointed") {
-                            vm.changeToolWidth(to: vm.toolWidth)
+                        Slider(value: $vm.toolWidth, in: 1...100, step: 0.1) {
+                            Label("Set Tool Width: \(String(format: "%.1f", vm.toolWidth))", systemImage: "paintbrush.pointed")
                         }
                     } label: {
                         Image(systemName: "ellipsis")
