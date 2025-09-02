@@ -16,9 +16,9 @@ struct DrawingView: View {
             .navigationTitle(note.name)
             .ignoresSafeArea()
             .toolbar(store.showNavBar ? .visible : .hidden, for: .navigationBar)
-            .drawingToolbar(vm: vm, note: note)
+            .drawingToolbar(note)
             .overlay(alignment: .topLeading) {
-                DrawingViewOverlay(note)
+                DrawingViewOverlay(note.pages.count)
             }
             .environment(vm)
             .task {

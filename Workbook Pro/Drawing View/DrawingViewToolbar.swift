@@ -1,15 +1,21 @@
 import ScrechKit
 
-struct DrawingToolbar: ViewModifier {
+struct DrawingViewToolbar: ViewModifier {
     @EnvironmentObject private var store: ValueStore
+    @Environment(DrawingVM.self) private var vm
     
-    @Bindable var vm: DrawingVM
-    @Bindable var note: Note
+    @Bindable private var note: Note
+    
+    init(_ note: Note) {
+        self.note = note
+    }
     
     @State private var dialogErase = false
     @State private var alertRename = false
     
     func body(content: Content) -> some View {
+        @Bindable var vm = vm
+        
         content
             .alert("Rename", isPresented: $alertRename) {
                 TextField("New note", text: $note.name)
@@ -101,7 +107,7 @@ struct DrawingToolbar: ViewModifier {
 }
 
 extension View {
-    func drawingToolbar(vm: DrawingVM, note: Note) -> some View {
-        modifier(DrawingToolbar(vm: vm, note: note))
+    func drawingToolbar(_ note: Note) -> some View {
+        modifier(DrawingViewToolbar(note))
     }
 }

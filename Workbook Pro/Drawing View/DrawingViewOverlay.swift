@@ -3,10 +3,10 @@ import ScrechKit
 struct DrawingViewOverlay: View {
     @Environment(DrawingVM.self) private var vm
     
-    private var note: Note
+    private var pageCount: Int
     
-    init(_ note: Note) {
-        self.note = note
+    init(_ pageCount: Int) {
+        self.pageCount = pageCount
     }
     
     var body: some View {
@@ -20,7 +20,7 @@ struct DrawingViewOverlay: View {
                 .frame(height: 20)
             
             if let selectedPage = vm.vc?.selectedPage {
-                Text("Page \(selectedPage + 1) of \(note.pages.count)")
+                Text("Page \(selectedPage + 1) of \(pageCount)")
                     .monospacedDigit()
             }
             
