@@ -3,6 +3,8 @@ import ScrechKit
 struct DrawingViewToolbar: ViewModifier {
     @EnvironmentObject private var store: ValueStore
     @Environment(DrawingVM.self) private var vm
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
     
     @Bindable private var note: Note
     
@@ -95,6 +97,13 @@ struct DrawingViewToolbar: ViewModifier {
                         
                         Slider(value: $vm.toolWidth, in: 1...100, step: 0.1) {
                             Label("Set Tool Width: \(String(format: "%.1f", vm.toolWidth))", systemImage: "paintbrush.pointed")
+                        }
+                        
+                        Divider()
+                        
+                        Button("Delete", systemImage: "trash", role: .destructive) {
+                            dismiss()
+                            modelContext.delete(note)
                         }
                     } label: {
                         Image(systemName: "ellipsis")
