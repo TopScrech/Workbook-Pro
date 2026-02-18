@@ -16,9 +16,22 @@
 		F3E0600B2F467DEA001B77CD /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F3E0600C2F467DFC001B77CD /* Exceptions for "Workbook Pro" folder in "Workbook Pro" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Workbook Pro.plist",
+			);
+			target = F392A2BD2BED772B008EAD12 /* Workbook Pro */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F3E05FEA2F467DA5001B77CD /* Workbook Pro */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F3E0600C2F467DFC001B77CD /* Exceptions for "Workbook Pro" folder in "Workbook Pro" target */,
+			);
 			path = "Workbook Pro";
 			sourceTree = "<group>";
 		};
