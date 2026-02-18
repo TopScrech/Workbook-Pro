@@ -1,3 +1,4 @@
 # Workbook Pro
 
-Requires iPadOS 17+
+## Supported platforms
+- iPadOS 17+
