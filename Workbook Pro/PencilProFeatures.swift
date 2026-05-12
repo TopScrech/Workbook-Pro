@@ -3,8 +3,8 @@ import SwiftUI
 struct PencilDoubleTapLogger: ViewModifier {
     func body(content: Content) -> some View {
         if #available(iOS 17.5, *) {
-            content.onPencilDoubleTap { value in
-                let pos = String(describing: value.hoverPose)
+            content.onPencilDoubleTap {
+                let pos = String(describing: $0.hoverPose)
                 print("Double tap:", pos)
             }
         } else {
@@ -16,8 +16,8 @@ struct PencilDoubleTapLogger: ViewModifier {
 struct PencilSqueezeLogger: ViewModifier {
     func body(content: Content) -> some View {
         if #available(iOS 17.5, *) {
-            content.onPencilSqueeze { phase in
-                print("Squeeze:", phase)
+            content.onPencilSqueeze {
+                print("Squeeze:", $0)
             }
         } else {
             content

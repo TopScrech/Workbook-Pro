@@ -24,6 +24,7 @@
       }
     },
     "%lld strokes" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "variations" : {
