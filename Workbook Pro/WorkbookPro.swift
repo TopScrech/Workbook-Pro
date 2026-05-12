@@ -6,9 +6,7 @@ struct WorkbookPro: App {
     @StateObject private var store = ValueStore()
     
     var sharedModelContainer = {
-        let schema = Schema([
-            Note.self,
-        ])
+        let schema = Schema([Note.self])
         
         let modelConfiguration = ModelConfiguration(schema: schema)
         
