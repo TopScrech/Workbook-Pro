@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 100;
+	objectVersion = 110;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		F380E02E2E66D3E3008C56F8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F392A2BE2BED772B008EAD12 /* Workbook Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workbook Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E0600B2F467DEA001B77CD /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		F3ED4B3A30573C1A00B6F884 /* AGENTS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = AGENTS.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -51,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				F380E02E2E66D3E3008C56F8 /* README.md */,
+				F3ED4B3A30573C1A00B6F884 /* AGENTS.md */,
 				F3E05FEA2F467DA5001B77CD /* Workbook Pro */,
 				F3E0600B2F467DEA001B77CD /* LICENSE.txt */,
 				F392A2BF2BED772B008EAD12 /* Products */,
@@ -117,7 +119,7 @@
 			packageReferences = (
 				F392A2DD2BEE113E008EAD12 /* XCRemoteSwiftPackageReference "ScrechKit" */,
 			);
-			preferredProjectObjectVersion = 100;
+			preferredProjectObjectVersion = 110;
 			productRefGroup = F392A2BF2BED772B008EAD12 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
